@@ -23,7 +23,7 @@ NAME = 'SBS On Demand'
 ADDON_ID = 'plugin.video.sbs'
 VERSION = version.VERSION
 
-GITHUB_API_URL = 'https://api.github.com/repos/andybotting/xbmc-addon-sbs'
+GITHUB_API_URL = 'https://github.com/xbmc-catchuptv-au/plugin.video.sbs/issues'
 ISSUE_API_URL = GITHUB_API_URL + '/issues'
 ISSUE_API_AUTH = 'eGJtY2JvdDo1OTQxNTJjMTBhZGFiNGRlN2M0YWZkZDYwZGQ5NDFkNWY4YmIzOGFj'
 GIST_API_URL = 'https://api.github.com/gists'
@@ -35,7 +35,7 @@ try:
 except AttributeError:
     os_string = ''
 
-user_agent = '%s add-on for XBMC/Kodi %s%s' % (NAME, VERSION, os_string)
+user_agent = '%s add-on for Kodi/XBMC %s%s' % (NAME, VERSION, os_string)
 
 config_url = 'http://www.sbs.com.au/api/video_config/?context=android&form=json'
 index_url = 'http://www.sbs.com.au/api/video_menu/?group=41&context=android&form=json'
