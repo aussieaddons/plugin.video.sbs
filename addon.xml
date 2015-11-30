@@ -1,4 +1,4 @@
-<?xml version="1.0" ?><addon id="plugin.video.sbs" name="SBS On Demand" provider-name="Andy Botting" version="1.0.0-3-g6cee197">
+<?xml version="1.0" ?><addon id="plugin.video.sbs" name="SBS On Demand" provider-name="Andy Botting" version="1.0.1">
   <requires>
     <import addon="xbmc.python" version="2.1.0"/>
     <import addon="script.common.plugin.cache"/>
