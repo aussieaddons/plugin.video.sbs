@@ -69,6 +69,12 @@ def fetch_url(url, headers={}):
     # Pass the last exception though
     raise fail_exception
 
+
+def fetch_cache_url(url):
+    """ Call the get index function, but wrapped via caching
+    """
+    return cache.cacheFunction(fetch_url, url)
+
 def fetch_protected_url(url):
     """ For protected URLs we add or Auth header when fetching
     """
@@ -81,25 +87,20 @@ def get_config():
         us to many of iView's other XML files.
     """
     try:
-        resp = fetch_url(config.config_url)
+        resp = fetch_cache_url(config.config_url)
         sbs_config = json.loads(resp)
         return sbs_config
     except:
         raise Exception("Error fetching SBS On Demand config."
                         "Service possibly unavailable")
 
-def get_index_base():
+def get_index():
     """ Fetch the main index. This contains a mix of actual program information
         and URL references to other queries which return programs
     """
-    resp = fetch_url(config.index_url)
+    resp = fetch_cache_url(config.index_url)
     json_data = json.loads(resp)
     return json_data['get']['response']['Menu']['children']
-
-def get_index():
-    """ Call the get index function, but wrapped via caching
-    """
-    return cache.cacheFunction(get_index_base)
 
 def get_category(category):
     """ Fetch a given top level category from the index. This is usually
@@ -149,7 +150,7 @@ def get_series():
 
 def get_categories(url):
     # TODO: Switch to use this function
-    resp = fetch_url(url)
+    resp = fetch_cache_url(url)
     json_data = json.loads(resp)
 
     series_list = []
@@ -167,7 +168,7 @@ def get_categories(url):
     return series_list
 
 def get_entries(url):
-    resp = fetch_url(url)
+    resp = fetch_cache_url(url)
     json_data = json.loads(resp)
 
     programs_list = []

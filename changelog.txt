@@ -1,4 +1,5 @@
 [B]Version master[/B]
+- Sort programs alphabetically
 - Don't filter out some programs
 - Update Github issue API
 
