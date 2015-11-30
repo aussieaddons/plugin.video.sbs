@@ -1,3 +1,4 @@
 [B]Version master[/B]
+- Don't filter out some programs
 - Update Github issue API
 

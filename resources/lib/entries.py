@@ -30,7 +30,7 @@ def make_entries_list(url):
         programs = comm.get_entries(params['entries_url'])
 
         ok = True
-        for p in programs:
+        for p in sorted(programs):
             listitem = xbmcgui.ListItem(label=p.get_list_title(),
                                         iconImage=p.get_thumbnail(),
                                         thumbnailImage=p.get_thumbnail())
