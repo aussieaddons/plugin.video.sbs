@@ -180,7 +180,8 @@ def get_entries(url):
             if not p.title:
                 # We ignore anything without pl1$programName as they're usually
                 # web clips
-                break
+                p.title = entry.get('title')
+                #break
 
             p.episode_title = entry.get('pl1$episodeTitle')
             p.series = entry.get('pl1$season')
