@@ -1,3 +1,6 @@
+[B]Version master[/B]
+- Fix 'Coming Soon' category (Thanks Peter Beckwith!)
+
 [B]Version v1.0.1[/B]
 - Version 1.0.1
 - Cache all the URLs fetched

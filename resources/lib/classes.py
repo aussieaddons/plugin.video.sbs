@@ -330,7 +330,7 @@ class Program(object):
         self.category      = d.get('category')
         self.rating        = d.get('rating')
         self.url           = d.get('url')
-        self.thumbnail     = urllib.unquote_plus(d.get('thumbnail'))
+        self.thumbnail     = d.get('thumbnail')
         if d.has_key('date'):
            timestamp = time.mktime(time.strptime(d['date'], '%Y-%m-%d %H:%M:%S'))
            self.date = datetime.date.fromtimestamp(timestamp)

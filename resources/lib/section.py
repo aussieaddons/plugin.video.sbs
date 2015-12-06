@@ -18,12 +18,10 @@
 
 import config
 import sys
-import os
-import urllib2
-import urllib
 import comm
 import utils
-import xbmc, xbmcgui, xbmcplugin
+import xbmcgui
+import xbmcplugin
 
 def make_section_list(url):
     utils.log("Making section list")
@@ -32,17 +30,55 @@ def make_section_list(url):
         section = comm.get_section(params['category'], params['section'])
 
         ok = True
-
-        if 'children' in section:
+        if 'children' in section and len(section['children']) > 0:
             for s in section['children']:
-                # We override the A-Z list with a better layout
-                if s['name'] == 'Programs A-Z':
-                    url = "%s?%s" % (sys.argv[0], utils.make_url({'category': s['name']}))
-                else:
-                    url = "%s?%s" % (sys.argv[0], utils.make_url({'entries_url': s['url']}))
-                listitem = xbmcgui.ListItem(s['name'])
+                entries_url = s.get('url')
+                if entries_url:
+                    url = "%s?%s" % (sys.argv[0],
+                               utils.make_url({'entries_url': entries_url}))
+
+                    thumbnail = s.get('thumbnail')
+                    listitem = xbmcgui.ListItem(s.get('name'),
+                                                iconImage=thumbnail,
+                                                thumbnailImage=thumbnail)
+
+                    listitem.setInfo('video',
+                                     {'title': s.get('name'),
+                                      'genre': s.get('genre'),
+                                      'plot': s.get('description'),
+                                      'plotoutline': s.get('description')})
+
+                    # Add the program item to the list
+                    ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),
+                                                     url=url,
+                                                     listitem=listitem,
+                                                     isFolder=True)
+
+        elif 'url' in section:
+            # no children, so fetch children by URL
+            programs = comm.get_entries(section['url'])
+            for p in sorted(programs):
+                thumbnail = p.get_thumbnail()
+                listitem = xbmcgui.ListItem(label=p.get_list_title(),
+                                            iconImage=thumbnail,
+                                            thumbnailImage=thumbnail)
+                listitem.setInfo('video', p.get_xbmc_list_item())
+
+                if hasattr(listitem, 'addStreamInfo'):
+                    listitem.addStreamInfo('audio', p.get_xbmc_audio_stream_info())
+                    listitem.addStreamInfo('video', p.get_xbmc_video_stream_info())
+
+                # Build the URL for the program, including the list_info
+                url = "%s?play=true&%s" % (sys.argv[0], p.make_xbmc_url())
+
                 # Add the program item to the list
-                ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=url, listitem=listitem, isFolder=True)
+                ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),
+                                                 url=url,
+                                                 listitem=listitem,
+                                                 isFolder=False,
+                                                 totalItems=len(programs))
+        else:
+            utils.log("No children or url found for %s" % section)
 
         xbmcplugin.endOfDirectory(handle=int(sys.argv[1]), succeeded=ok)
         xbmcplugin.setContent(handle=int(sys.argv[1]), content='episodes')

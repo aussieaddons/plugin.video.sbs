@@ -22,6 +22,7 @@ import classes
 import json
 import utils
 import gzip
+import datetime
 from BeautifulSoup import BeautifulStoneSoup
 
 try:
@@ -167,6 +168,63 @@ def get_categories(url):
             utils.log('Error parsing entry: %s' % entry)
     return series_list
 
+def create_program(jd):
+    print(jd)
+    p = classes.Program()
+    p.id = jd['id'].split('/')[-1] # ID on the end of URL
+
+    p.title = jd.get('pl1$programName')
+    if not p.title:
+        p.title = jd.get('title')
+
+    p.episode_title = jd.get('pl1$episodeTitle')
+    p.series = jd.get('pl1$season')
+    p.episode = jd.get('pl1$episodeNumber')
+
+    # If no other metadata available (mostly news), then use the
+    # regular title, which probably includes the date
+    if not p.series and not p.episode and not p.episode_title:
+        p.title = jd.get('title')
+
+    try:
+        aired = int(jd.get('pubDate'))/1000
+        p.date = datetime.datetime.fromtimestamp(aired)
+    except:
+        pass
+
+    try:
+        expire = int(jd.get('media$expirationDate'))/1000
+        p.expire = datetime.datetime.fromtimestamp(expire)
+    except:
+        pass
+
+    p.description = jd.get('pl1$shortSynopsis')
+    if not p.description:
+        p.description = jd.get('description')
+
+    p.thumbnail = jd.get('thumbnail')
+    if not p.thumbnail:
+        for image in jd['media$thumbnails']:
+            if 'Thumbnail Large' in image['plfile$assetTypes']:
+                p.thumbnail = image['plfile$downloadUrl']
+                break
+
+    if 'media$content' in jd:
+        # Sort media content by bitrate, highest last
+        content_list = sorted(jd['media$content'],
+                              key=lambda k: k['plfile$bitrate'])
+        content = content_list[-1]
+
+        p.duration = content.get('plfile$duration')
+
+        # Some shows, mostly clips aren't protected
+        if 'Public' in content['plfile$assetTypes']:
+            p.url = content['plfile$downloadUrl']
+    else:
+        utils.log("No 'media$content' found for %s" % p.title)
+
+    return p
+
 def get_entries(url):
     resp = fetch_cache_url(url)
     json_data = json.loads(resp)
@@ -174,38 +232,7 @@ def get_entries(url):
     programs_list = []
     for entry in json_data['entries']:
         try:
-            p = classes.Program()
-            p.id = entry['id'].split('/')[-1] # ID on the end of URL
-
-            p.title = entry.get('pl1$programName')
-            if not p.title:
-                # We ignore anything without pl1$programName as they're usually
-                # web clips
-                p.title = entry.get('title')
-                #break
-
-            p.episode_title = entry.get('pl1$episodeTitle')
-            p.series = entry.get('pl1$season')
-            p.episode = entry.get('pl1$episodeNumber')
-            p.description = entry.get('pl1$shortSynopsis')
-            p.duration = entry['media$content'][-1]['plfile$duration']
-            #TODO: p.aired
-   
-            for image in entry['media$thumbnails']:
-                if 'Thumbnail Large' in image['plfile$assetTypes']:
-                    p.thumbnail = image['plfile$downloadUrl']
-                    break
-
-            # Sort media content by bitrate, highest last
-            content_list = sorted(entry['media$content'],
-                                  key=lambda k: k['plfile$bitrate'])
-            content = content_list[-1]
-
-            # Some shows, mostly clips aren't protected
-            p.duration = content['plfile$duration']
-            if 'Public' in content['plfile$assetTypes']:
-                p.url = content['plfile$downloadUrl']
-
+            p = create_program(entry)
             programs_list.append(p)
         except:
             utils.log('Error parsing entry')
