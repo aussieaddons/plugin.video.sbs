@@ -30,23 +30,46 @@ def make_category_list(url):
         categories = comm.get_category(params['category'])
 
         ok = True
-        for c in categories.get('children', []):
-            if 'children' in c:
-                url = "%s?%s" % (sys.argv[0], utils.make_url({
-                                 'category': params['category'],
-                                 'section': c['name']}))
-            elif 'url' in c:
-                url = "%s?%s" % (sys.argv[0], utils.make_url({
-                                 'entries_url': c['url']}))
-            else:
-                #utils.log("Skip category due to no entries or url: %s" % c)
-                continue
+        if 'children' in categories:
+            for c in categories.get('children', []):
+                if 'children' in c:
+                    url = "%s?%s" % (sys.argv[0], utils.make_url({
+                                     'category': params['category'],
+                                     'section': c['name']}))
+                elif 'url' in c:
+                    url = "%s?%s" % (sys.argv[0], utils.make_url({
+                                     'entries_url': c['url']}))
+                else:
+                    #utils.log("Skip category due to no entries or url: '%s'" % c['name'])
+                    continue
 
-            thumbnail = c.get('thumbnail', None)
-            listitem = xbmcgui.ListItem(label=c['name'], iconImage=thumbnail,
-                                        thumbnailImage=thumbnail)
-            ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=url,
-                                             listitem=listitem, isFolder=True)
+                thumbnail = c.get('thumbnail', None)
+                listitem = xbmcgui.ListItem(label=c['name'], iconImage=thumbnail,
+                                            thumbnailImage=thumbnail)
+                ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=url,
+                                                 listitem=listitem, isFolder=True)
+        else:
+            # 'Coming soon' has no children
+            jsonurl = categories['url']
+            programs = comm.get_entries(jsonurl)
+            for p in sorted(programs):
+                thumbnail = p.get_thumbnail()
+                listitem = xbmcgui.ListItem(label=p.get_list_title(),
+                                            iconImage=thumbnail,
+                                            thumbnailImage=thumbnail)
+                listitem.setInfo('video', p.get_xbmc_list_item())
+
+                if hasattr(listitem, 'addStreamInfo'):
+                    listitem.addStreamInfo('audio', p.get_xbmc_audio_stream_info())
+                    listitem.addStreamInfo('video', p.get_xbmc_video_stream_info())
+
+                # Build the URL for the program, including the list_info
+                url = "%s?play=true&%s" % (sys.argv[0], p.make_xbmc_url())
+
+                # Add the program item to the list
+                ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=url,
+                                                 listitem=listitem, isFolder=False,
+                                                 totalItems=len(programs))
 
         xbmcplugin.endOfDirectory(handle=int(sys.argv[1]), succeeded=ok)
         xbmcplugin.setContent(handle=int(sys.argv[1]), content='episodes')
