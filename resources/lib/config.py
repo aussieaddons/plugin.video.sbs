@@ -42,4 +42,4 @@ index_url = 'http://www.sbs.com.au/api/video_menu/?group=41&context=android&form
 stream_url = 'http://www.sbs.com.au/api/video_feed/smil?context=android&form=xml&id=%s'
 
 # Used for basic auth when fetching stream information
-auth_string = 'YW5kcm9pZDg2NTliZWM5YWM1MmY3YzNjYmNhYTJlYWRhYmM2NDdkNDNlMjFkZmM6YW5kcm9pZA=='
+auth_string = 'YW5kcm9pZDNhNTkwNWRmMmNmODcxMjNjY2EwMWQ1OWUwNTRhZDZmYjdiY2E2N2U6YW5kcm9pZA=='
