@@ -51,7 +51,7 @@ def fetch_url(url, headers={}):
         'User-Agent' : config.user_agent
     }.items()))
 
-    attempts = 10
+    attempts = 3
     attempt = 0
     fail_exception = Exception("Unknown failure in URL fetch")
 

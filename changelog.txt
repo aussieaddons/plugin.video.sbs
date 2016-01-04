@@ -1,4 +1,5 @@
-[B]Version 1.0.2[/B]
+[B]Version v1.0.2[/B]
+- Version 1.0.2
 - Better edge case program handling and program information
 - Fix 'Coming Soon' category (Thanks Peter Beckwith!)
 
