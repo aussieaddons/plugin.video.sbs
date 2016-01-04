@@ -169,7 +169,6 @@ def get_categories(url):
     return series_list
 
 def create_program(jd):
-    print(jd)
     p = classes.Program()
     p.id = jd['id'].split('/')[-1] # ID on the end of URL
 
