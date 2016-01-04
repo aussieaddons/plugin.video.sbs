@@ -23,7 +23,7 @@ NAME = 'SBS On Demand'
 ADDON_ID = 'plugin.video.sbs'
 VERSION = version.VERSION
 
-GITHUB_API_URL = 'https://github.com/xbmc-catchuptv-au/plugin.video.sbs/issues'
+GITHUB_API_URL = 'https://api.github.com/repos/xbmc-catchuptv-au/plugin.video.sbs'
 ISSUE_API_URL = GITHUB_API_URL + '/issues'
 ISSUE_API_AUTH = 'eGJtY2JvdDo1OTQxNTJjMTBhZGFiNGRlN2M0YWZkZDYwZGQ5NDFkNWY4YmIzOGFj'
 GIST_API_URL = 'https://api.github.com/gists'
