@@ -177,8 +177,11 @@ def create_program(jd):
         p.title = jd.get('title')
 
     p.episode_title = jd.get('pl1$episodeTitle')
-    p.series = jd.get('pl1$season')
-    p.episode = jd.get('pl1$episodeNumber')
+    try:
+        p.series = int(jd.get('pl1$season'))
+        p.episode = int(jd.get('pl1$episodeNumber'))
+    except:
+        pass
 
     # If no other metadata available (mostly news), then use the
     # regular title, which probably includes the date
