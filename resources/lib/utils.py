@@ -34,6 +34,11 @@ import issue_reporter
 
 pattern = re.compile("&(\w+?);")
 
+# This is a throwaway variable to deal with a python bug with strptime:
+#   ImportError: Failed to import _strptime because the import lockis
+#   held by another thread.
+throwaway = time.strptime('20140101', '%Y%m%d')
+
 def get_datetime(timestamp):
     # Tue, 05 Aug 2014 14:45:00 +1000
     try:
