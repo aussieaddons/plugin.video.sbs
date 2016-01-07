@@ -1,4 +1,9 @@
-[B]Version 1.0.3[/B]
+[B]Version master[/B]
+- Handle bad season/episode number information
+- Fix strptime lock issue
+
+[B]Version v1.0.3[/B]
+- Version 1.0.3
 - Update HTTP Basic auth password
 - Fix Github API url for issue reporting
 - Reduce debug logging

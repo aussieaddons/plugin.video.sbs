@@ -124,7 +124,9 @@ class Program(object):
         return self.title
 
     def __cmp__(self, other):
-        return cmp(self.title, other.title)
+        return (cmp(self.title, other.title) or
+                cmp(self.series, other.series) or
+                cmp(self.episode, other.episode))
 
     def get_title(self):
         """ Return the program title, including the Series X part
