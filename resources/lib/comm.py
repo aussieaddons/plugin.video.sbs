@@ -16,6 +16,7 @@
 #  along with this addon. If not, see <http://www.gnu.org/licenses/>.
 #
 
+import base64
 import urllib2
 import config
 import classes
@@ -76,16 +77,35 @@ def fetch_cache_url(url):
     """
     return cache.cacheFunction(fetch_url, url)
 
+def fetch_auth_token():
+    """ Perform a HTTP POST to secure server to fetch a token
+    """
+    utils.log('Fetching new auth token')
+    try:
+        req = urllib2.Request('https://secure.sbs.com.au/api/member/sessiontoken?context=android&form=json', '')
+        response = urllib2.urlopen(req)
+        data = json.loads(response.read())
+        token = data['sessiontoken']['response']['token']
+        return token
+    except Exception as e:
+        raise Exception('Failed to fetch SBS streaming token: %s' % e)
+
+def fetch_cache_token():
+    """ Get the token from cache is possible
+    """
+    utils.log('Fetching cached token if possible')
+    return cache.cacheFunction(fetch_auth_token)
+
 def fetch_protected_url(url):
     """ For protected URLs we add or Auth header when fetching
     """
-    headers = {'Authorization': 'Basic ' + config.auth_string}
+    token = fetch_cache_token()
+    encoded_token = base64.encodestring('%s:android' % token).replace('\n', '')
+    headers = {'Authorization': 'Basic ' + encoded_token}
     return fetch_url(url, headers)
 
 def get_config():
-    """This function fetches the iView "config". Among other things,
-        it tells us an always-metered "fallback" RTMP server, and points
-        us to many of iView's other XML files.
+    """ This function fetches the SBS config
     """
     try:
         resp = fetch_cache_url(config.config_url)
