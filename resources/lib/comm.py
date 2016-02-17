@@ -237,7 +237,11 @@ def create_program(jd):
                               key=lambda k: k['plfile$bitrate'])
         content = content_list[-1]
 
-        p.duration = content.get('plfile$duration')
+        try:
+            p.duration = int(float(content.get('plfile$duration')))
+        except:
+            utils.log("Failed to parse duration: %s" %
+                      content.get('plfile$duration'))
 
         # Some shows, mostly clips aren't protected
         if 'Public' in content['plfile$assetTypes']:
