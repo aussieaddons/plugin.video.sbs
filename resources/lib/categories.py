@@ -43,8 +43,10 @@ def make_category_list(url):
                     #utils.log("Skip category due to no entries or url: '%s'" % c['name'])
                     continue
 
-                thumbnail = c.get('thumbnail', None)
-                listitem = xbmcgui.ListItem(label=c['name'], iconImage=thumbnail,
+                # If no thumbnail, make it an empty string as None makes
+                # XBMC v12 with a TypeError must be unicode or str
+                thumbnail = c.get('thumbnail', '')
+                listitem = xbmcgui.ListItem(label=c['name'],
                                             thumbnailImage=thumbnail)
                 ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=url,
                                                  listitem=listitem, isFolder=True)
