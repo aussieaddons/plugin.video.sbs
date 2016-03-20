@@ -35,6 +35,7 @@ def make_entries_list(url):
                                         iconImage=p.get_thumbnail(),
                                         thumbnailImage=p.get_thumbnail())
             listitem.setInfo('video', p.get_xbmc_list_item())
+            listitem.setProperty('IsPlayable', 'true')
 
             if hasattr(listitem, 'addStreamInfo'):
                 listitem.addStreamInfo('audio', p.get_xbmc_audio_stream_info())
@@ -45,7 +46,7 @@ def make_entries_list(url):
 
             # Add the program item to the list
             ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=url,
-                                             listitem=listitem, isFolder=False, 
+                                             listitem=listitem, isFolder=False,
                                              totalItems=len(programs))
 
         xbmcplugin.endOfDirectory(handle=int(sys.argv[1]), succeeded=ok)
