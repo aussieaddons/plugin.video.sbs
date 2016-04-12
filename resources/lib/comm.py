@@ -250,7 +250,6 @@ def create_program(jd):
             p.url = content['plfile$downloadUrl']
     else:
         utils.log("No 'media$content' found for %s" % p.title)
-    #print jd.get('pl1$pilatId')
 
     return p
 
