@@ -119,6 +119,7 @@ class Program(object):
         self.thumbnail = None
         self.url = None
         self.expire = None
+        self.subfilename = None
 
     def __repr__(self):
         return self.title
@@ -135,7 +136,7 @@ class Program(object):
         return utils.descape(self.title)
 
     def get_episode_title(self):
-        """ Return a string of the shorttitle entry, unless its not 
+        """ Return a string of the shorttitle entry, unless its not
             available, then we'll just use the program title instead.
         """
         if self.episode_title:
@@ -243,6 +244,12 @@ class Program(object):
         if self.expire:
             return self.expire.strftime("%Y-%m-%d %h:%m:%s")
 
+    def get_subfilename(self):
+        """ Returns the url for subtitles
+        """
+        if self.subfilename:
+            return self.subfilename+'.SRT'
+
     def get_xbmc_list_item(self):
         """ Returns a dict of program information, in the format which
             XBMC requires for video metadata.
@@ -315,12 +322,13 @@ class Program(object):
         if self.date:          d['date'] = self.date.strftime("%Y-%m-%d %H:%M:%S")
         if self.thumbnail:     d['thumbnail'] = self.thumbnail
         if self.url:           d['url'] = self.url
+        if self.subfilename:   d['subfilename'] = self.subfilename
 
         return utils.make_url(d)
 
 
     def parse_xbmc_url(self, string):
-        """ Takes a string input which is a URL representation of the 
+        """ Takes a string input which is a URL representation of the
            program object
         """
         d = utils.get_url(string)
@@ -333,6 +341,7 @@ class Program(object):
         self.rating        = d.get('rating')
         self.url           = d.get('url')
         self.thumbnail     = d.get('thumbnail')
+        self.subfilename   = d.get('subfilename')
         if d.has_key('date'):
            timestamp = time.mktime(time.strptime(d['date'], '%Y-%m-%d %H:%M:%S'))
            self.date = datetime.date.fromtimestamp(timestamp)
