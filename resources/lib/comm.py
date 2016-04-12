@@ -35,7 +35,7 @@ except:
 cache = StorageServer.StorageServer(config.ADDON_ID, 1)
 
 
-class JsonRedirectHandler(urllib2.HTTPRedirectHandler):
+class JsonRedirectHandler(urllib2.HTTPRedirectHandler): 
     def http_error_301(self, req, fp, code, msg, headers):
         utils.log('Redirected to: %s' % headers['location'])
         headers['location'] += '.json'
@@ -157,7 +157,7 @@ def get_series():
             break
 
     for entry in series_data:
-        try:
+        try: 
             series = classes.Series()
             series.title = entry.get('name')
             series.id = entry.get('dealcodes')
@@ -176,7 +176,7 @@ def get_categories(url):
 
     series_list = []
     for entry in json_data['entries']:
-        try:
+        try: 
             series = classes.Series()
             series.title = entry.get('name')
             series.id = entry.get('dealcodes')
@@ -250,6 +250,7 @@ def create_program(jd):
             p.url = content['plfile$downloadUrl']
     else:
         utils.log("No 'media$content' found for %s" % p.title)
+    #print jd.get('pl1$pilatId')
 
     return p
 
