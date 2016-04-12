@@ -136,7 +136,7 @@ class Program(object):
         return utils.descape(self.title)
 
     def get_episode_title(self):
-        """ Return a string of the shorttitle entry, unless its not
+        """ Return a string of the shorttitle entry, unless its not 
             available, then we'll just use the program title instead.
         """
         if self.episode_title:
@@ -328,7 +328,7 @@ class Program(object):
 
 
     def parse_xbmc_url(self, string):
-        """ Takes a string input which is a URL representation of the
+        """ Takes a string input which is a URL representation of the 
            program object
         """
         d = utils.get_url(string)
