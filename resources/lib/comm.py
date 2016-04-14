@@ -192,6 +192,8 @@ def create_program(jd):
     p = classes.Program()
     p.id = jd['id'].split('/')[-1] # ID on the end of URL
 
+    p.subfilename = jd.get('pl1$pilatId')
+
     p.title = jd.get('pl1$programName')
     if not p.title:
         p.title = jd.get('title')
@@ -248,6 +250,7 @@ def create_program(jd):
             p.url = content['plfile$downloadUrl']
     else:
         utils.log("No 'media$content' found for %s" % p.title)
+    #print jd.get('pl1$pilatId')
 
     return p
 
