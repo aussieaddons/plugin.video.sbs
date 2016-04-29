@@ -49,7 +49,7 @@ def play(url):
         listitem.setInfo('video', p.get_xbmc_list_item())
 
         #add subtitles if available
-        if addon.getSetting('subtitles_enabled') == 'true':
+        if addon.getSetting('subtitles_enabled') == 'true' and p.get_subfilename():
             subtitles = None
             profile = xbmcaddon.Addon().getAddonInfo('profile')
             path = xbmc.translatePath(profile).decode('utf-8')
@@ -81,7 +81,7 @@ def play(url):
         xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, listitem=listitem)
 
         # Enable subtitles for XBMC v13
-        if addon.getSetting('subtitles_enabled') == "true":
+        if addon.getSetting('subtitles_enabled') == "true" and p.get_subfilename():
             if subtitles == True:
                 if not hasattr(listitem, 'setSubtitles'):
                     player = xbmc.Player()
