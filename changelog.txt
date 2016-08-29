@@ -1,4 +1,13 @@
-[B]Version 1.0.8[/B]
+[B]Version 1.0.8-11-gd4b0dfb[/B]
+- Ignore SSL errors on Python 2.7.9+
+- Add handling for absence of subtitle metadata
+- Added files via upload
+- Update comm.py
+- Enable subtitles in settings
+- Add support for subtitles
+- Change method of playing videos
+
+[B]Version v1.0.8[/B]
 - Fix XBMC v12 thumbnail handling error
 
 [B]Version v1.0.7[/B]
