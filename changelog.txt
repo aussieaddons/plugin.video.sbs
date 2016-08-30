@@ -1,4 +1,5 @@
-[B]Version 1.0.9[/B]
+[B]Version 1.1.0[/B]
+- Properly fix SSL issues with Python 2.7.9+
 
 [B]Version v1.0.9[/B]
 - Ignore SSL errors on Python 2.7.9+
