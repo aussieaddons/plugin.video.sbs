@@ -35,6 +35,10 @@ except:
 
 cache = StorageServer.StorageServer(config.ADDON_ID, 1)
 
+# monkey patch SSL context to fix SSL errors on some platforms w/ python >= 2.7.9
+if hasattr(ssl, '_create_unverified_context'):
+    ssl._create_default_https_context = ssl._create_unverified_context
+
 
 class JsonRedirectHandler(urllib2.HTTPRedirectHandler): 
     def http_error_301(self, req, fp, code, msg, headers):
@@ -56,10 +60,6 @@ def fetch_url(url, headers={}):
     attempts = 3
     attempt = 0
     fail_exception = Exception("Unknown failure in URL fetch")
-
-    # monkey patch SSL context to fix SSL errors on some platforms w/ python >= 2.7.9
-    if hasattr(ssl, '_create_unverified_context'):
-        ssl._create_default_https_context = ssl._create_unverified_context
 
     while attempt < attempts:
         try:
@@ -87,7 +87,7 @@ def fetch_auth_token():
     """
     utils.log('Fetching new auth token')
     try:
-        req = urllib2.Request('https://secure.sbs.com.au/api/member/sessiontoken?context=android&form=json', '')
+        req = urllib2.Request(config.token_url, '')
         response = urllib2.urlopen(req)
         data = json.loads(response.read())
         token = data['sessiontoken']['response']['token']

@@ -249,15 +249,16 @@ def handle_error(err=None):
 
         if send_error:
             latest_version = issue_reporter.get_latest_version()
-            version_string = '.'.join([str(i) for i in latest_version])
-            if not issue_reporter.is_latest_version(config.VERSION,
-                                                    latest_version):
-                message.append("Your version of this add-on is outdated. "
-                               "Please try upgrading to the latest version: "
-                               "v%s" % version_string)
-                d.ok(*message)
-                return
-
+            if latest_version:
+                version_string = '.'.join([str(i) for i in latest_version])
+                if not issue_reporter.is_latest_version(config.VERSION,
+                                                        latest_version):
+                    message.append("Your version of this add-on is outdated. "
+                                   "Please try upgrading to the latest version: "
+                                   "v%s" % version_string)
+                    d.ok(*message)
+                    return
+ 
             # Only report if we haven't done one already
             try:
                 message.append("Would you like to automatically "

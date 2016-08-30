@@ -17,8 +17,12 @@
 #
 #
 
-import os, re, sys
-import urllib2, socket
+import os
+import re
+import sys
+import urllib2
+import socket
+import ssl
 import base64
 import config, utils
 import xbmc, xbmcplugin
@@ -34,6 +38,11 @@ LOG_FILTERS = (
     ('<user>.+?</user>', '<user>[FILTERED_USER]</user>'),
     ('<pass>.+?</pass>', '<pass>[FILTERED_PASSWORD]</pass>'),
 )
+
+# monkey patch SSL context to fix SSL errors on some platforms w/ python >= 2.7.9
+if hasattr(ssl, '_create_unverified_context'):
+    ssl._create_default_https_context = ssl._create_unverified_context
+
 
 def make_request(url):
     """
@@ -125,20 +134,23 @@ def fetch_tags():
     """
         Fetch the version tags from GitHub
     """
-    return json.load(urllib2.urlopen("%s/tags" % config.GITHUB_API_URL))
-
+    try:
+        return json.load(urllib2.urlopen("%s/tags" % config.GITHUB_API_URL))
+    except:
+        return None
 
 def get_versions():
     """
         Assemble a list of version from the tags, and split them into lists
     """
     tags = fetch_tags()
-    #utils.log('Version check: found tags: %s' % tags)
-    tag_names = map(lambda tag: tag['name'], tags)
-    versions = filter(lambda tag: re.match(r'v(\d+)\.(\d+)(?:\.(\d+))?', tag),
-                      tag_names)
-    return map(lambda tag: map(lambda v: int(v), tag[1::].split('.')),
-               versions)
+    if tags:
+        #utils.log('Version check: found tags: %s' % tags)
+        tag_names = map(lambda tag: tag['name'], tags)
+        versions = filter(lambda tag: re.match(r'v(\d+)\.(\d+)(?:\.(\d+))?',
+                          tag), tag_names)
+        return map(lambda tag: map(lambda v: int(v), tag[1::].split('.')),
+                   versions)
 
 
 def get_latest_version():
@@ -146,8 +158,9 @@ def get_latest_version():
         Sort the list, and get the latest version
     """
     versions = get_versions()
-    utils.log('Version check found versions: %s' % versions)
-    return sorted(versions, reverse=True)[0]
+    if versions:
+        utils.log('Version check found versions: %s' % versions)
+        return sorted(versions, reverse=True)[0]
 
 
 def is_latest_version(current_version, latest_version):

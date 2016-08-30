@@ -39,6 +39,7 @@ user_agent = '%s add-on for Kodi/XBMC %s%s' % (NAME, VERSION, os_string)
 
 config_url = 'http://www.sbs.com.au/api/video_config/?context=android&form=json'
 index_url = 'http://www.sbs.com.au/api/video_menu/?group=41&context=android&form=json'
+token_url = 'https://secure.sbs.com.au/api/member/sessiontoken?context=android&form=json'
 stream_url = 'http://www.sbs.com.au/api/video_feed/smil?context=android&form=xml&id=%s'
 subtitle_url = 'http://videocdn.sbs.com.au/u/video/SBS/managed/closedcaptions/'
 
