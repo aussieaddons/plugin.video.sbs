@@ -16,12 +16,12 @@
 #  along with this addon. If not, see <http://www.gnu.org/licenses/>.
 #
 
-import re
-import utils
 import datetime
-import urllib
+import re
 import time
-import utils
+
+from aussieaddonscommon import utils
+
 
 class Series(object):
 
@@ -38,39 +38,24 @@ class Series(object):
         return cmp(self.get_sort_title(), other.get_sort_title())
 
     def get_sort_title(self):
-        """ Return a munged version of the title which
-            forces correct sorting behaviour.
-        """
         sort_title = self.title.lower()
         sort_title = sort_title.replace('the ', '')
         return sort_title
 
     def get_title(self):
-        """ Return the program title, including the Series X part
-            on the end.
-        """
         return utils.descape(self.title)
 
     def get_list_title(self):
-        """ Return the program title with the number of episodes
-            together for the XBMC list
-        """
         return "%s (%d)" % (self.get_title(), self.get_num_episodes())
 
     def get_id(self):
-        """ Return the ID value of the series if set
-        """
         return self.id
 
     def get_season(self):
-        """ Return an integer of the Series, discovered by a regular
-            expression from the original title, unless its not available,
-            then a 0 will be returned.
-        """
         season = re.search('^.* Series (?P<season>\d+)$', self.get_title())
-        if title is None:
+        if season is None:
             return 0
-        return int(series.group('season'))
+        return int(season.group('season'))
 
     def increment_num_episodes(self):
         self.num_episodes += 1
@@ -79,8 +64,6 @@ class Series(object):
         return self.num_episodes
 
     def get_keywords(self):
-        """ Return a list of keywords
-        """
         if self.keywords:
             return self.keywords
 
@@ -93,13 +76,10 @@ class Series(object):
             return self.description
 
     def has_keyword(self, keyword):
-        """ Returns true if a keyword is found
-        """
         for kw in self.keywords:
             if kw == keyword:
                 return True
         return False
-
 
 
 class Program(object):
@@ -130,21 +110,13 @@ class Program(object):
                 cmp(self.episode, other.episode))
 
     def get_title(self):
-        """ Return the program title, including the Series X part
-            on the end.
-        """
         return utils.descape(self.title)
 
     def get_episode_title(self):
-        """ Return a string of the shorttitle entry, unless its not 
-            available, then we'll just use the program title instead.
-        """
         if self.episode_title:
             return utils.descape(self.episode_title)
 
     def get_list_title(self):
-        """ Return a string of the title, nicely formatted for XBMC list
-        """
         title = self.get_title()
 
         if (self.get_season() and self.get_episode()):
@@ -164,9 +136,6 @@ class Program(object):
         return title
 
     def get_description(self):
-        """ Return a string the program description, after running it through
-            the descape. Add the expires date to the end, if available
-        """
         description = ""
         if self.description:
             description = self.description
@@ -176,84 +145,58 @@ class Program(object):
         return utils.descape(description)
 
     def get_category(self):
-        """ Return a string of the category. E.g. Comedy
-        """
         if self.category:
             return utils.descape(self.category)
 
     def get_rating(self):
-        """ Return a string of the rating. E.g. PG, MA
-        """
         if self.rating:
             return utils.descape(self.rating)
 
     def get_duration(self):
-        """ Return the duration
-        """
         if self.duration:
             version = utils.get_xbmc_major_version()
             seconds = int(self.duration)
-            if version >= 15:
-                # Kodi v15 uses seconds
-                return seconds
-            else:
+            if version < 15:
                 # Older versions use minutes
                 minutes = seconds / 60
                 return minutes
+            else:
+                # Kodi v15 uses seconds
+                return seconds
 
     def get_date(self):
-        """ Return a string of the date in the format 2010-02-28
-            which is useful for XBMC labels.
-        """
         if self.date:
             return self.date.strftime("%Y-%m-%d")
 
     def get_year(self):
-        """ Return an integer of the year of publish date
-        """
         if self.date:
             return self.date.year
 
     def get_season(self):
-        """ Return an integer of the Series
-        """
         if self.series:
             return int(self.series)
 
     def get_episode(self):
-        """ Return an integer of the Episode
-        """
         if self.episode:
             return int(self.episode)
 
     def get_thumbnail(self):
-        """ Returns the thumbnail
-        """
         if self.thumbnail:
             return utils.descape(self.thumbnail)
 
     def get_url(self):
-        """ Returns the video url
-        """
         if self.url:
             return utils.descape(self.url)
 
     def get_expire(self):
-        """ Returns the expiry date
-        """
         if self.expire:
             return self.expire.strftime("%Y-%m-%d %h:%m:%s")
 
     def get_subfilename(self):
-        """ Returns the url for subtitles
-        """
         if self.subfilename:
             return self.subfilename+'.SRT'
 
     def get_xbmc_list_item(self):
-        """ Returns a dict of program information, in the format which
-            XBMC requires for video metadata.
-        """
         info_dict = {}
         if self.get_title():
             info_dict['tvshowtitle'] = self.get_title()
@@ -279,70 +222,65 @@ class Program(object):
             info_dict['mpaa'] = self.get_rating()
         return info_dict
 
-
     def get_xbmc_audio_stream_info(self):
-        """
-            Return an audio stream info dict
-        """
         info_dict = {}
         # This information may be incorrect
-        info_dict['codec']    = 'aac'
+        info_dict['codec'] = 'aac'
         info_dict['language'] = 'en'
         info_dict['channels'] = 2
         return info_dict
 
-
     def get_xbmc_video_stream_info(self):
-        """
-            Return a video stream info dict
-        """
         info_dict = {}
         if self.get_duration():
             info_dict['duration'] = self.get_duration()
 
         # This information may be incorrect
-        info_dict['codec']  = 'h264'
-        info_dict['width']  = '640'
+        info_dict['codec'] = 'h264'
+        info_dict['width'] = '640'
         info_dict['height'] = '360'
         return info_dict
 
-
     def make_xbmc_url(self):
-        """ Returns a string which represents the program object, but in
-            a format suitable for passing as a URL.
-        """
         d = {}
-        if self.id:            d['id'] = self.id
-        if self.title:         d['title'] = self.title
-        if self.episode_title: d['episode_title'] = self.episode_title
-        if self.description:   d['description'] = self.description
-        if self.duration:      d['duration'] = self.duration
-        if self.category:      d['category'] = self.category
-        if self.rating:        d['rating'] = self.rating
-        if self.date:          d['date'] = self.date.strftime("%Y-%m-%d %H:%M:%S")
-        if self.thumbnail:     d['thumbnail'] = self.thumbnail
-        if self.url:           d['url'] = self.url
-        if self.subfilename:   d['subfilename'] = self.subfilename
+        if self.id:
+            d['id'] = self.id
+        if self.title:
+            d['title'] = self.title
+        if self.episode_title:
+            d['episode_title'] = self.episode_title
+        if self.description:
+            d['description'] = self.description
+        if self.duration:
+            d['duration'] = self.duration
+        if self.category:
+            d['category'] = self.category
+        if self.rating:
+            d['rating'] = self.rating
+        if self.date:
+            d['date'] = self.date.strftime("%Y-%m-%d %H:%M:%S")
+        if self.thumbnail:
+            d['thumbnail'] = self.thumbnail
+        if self.url:
+            d['url'] = self.url
+        if self.subfilename:
+            d['subfilename'] = self.subfilename
 
         return utils.make_url(d)
 
-
     def parse_xbmc_url(self, string):
-        """ Takes a string input which is a URL representation of the 
-           program object
-        """
         d = utils.get_url(string)
-        self.id            = d.get('id')
-        self.title         = d.get('title')
+        self.id = d.get('id')
+        self.title = d.get('title')
         self.episode_title = d.get('episode_title')
-        self.description   = d.get('description')
-        self.duration      = d.get('duration')
-        self.category      = d.get('category')
-        self.rating        = d.get('rating')
-        self.url           = d.get('url')
-        self.thumbnail     = d.get('thumbnail')
-        self.subfilename   = d.get('subfilename')
-        if d.has_key('date'):
-           timestamp = time.mktime(time.strptime(d['date'], '%Y-%m-%d %H:%M:%S'))
-           self.date = datetime.date.fromtimestamp(timestamp)
-
+        self.description = d.get('description')
+        self.duration = d.get('duration')
+        self.category = d.get('category')
+        self.rating = d.get('rating')
+        self.url = d.get('url')
+        self.thumbnail = d.get('thumbnail')
+        self.subfilename = d.get('subfilename')
+        if 'date' in d:
+            timestamp = time.mktime(time.strptime(d['date'],
+                                                  '%Y-%m-%d %H:%M:%S'))
+            self.date = datetime.date.fromtimestamp(timestamp)

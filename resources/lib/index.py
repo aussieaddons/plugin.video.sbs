@@ -16,15 +16,15 @@
 #  along with this addon. If not, see <http://www.gnu.org/licenses/>.
 #
 
-import config
-import sys
 import comm
-import utils
+import sys
 import xbmcgui
 import xbmcplugin
 
-def make_index_list():
+from aussieaddonscommon import utils
 
+
+def make_index_list():
     try:
         index = comm.get_index()
         ok = True
@@ -40,5 +40,5 @@ def make_index_list():
 
         xbmcplugin.endOfDirectory(handle=int(sys.argv[1]), succeeded=ok)
         xbmcplugin.setContent(handle=int(sys.argv[1]), content='episodes')
-    except:
+    except Exception:
         utils.handle_error()

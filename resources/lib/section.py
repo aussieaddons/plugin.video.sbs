@@ -16,12 +16,13 @@
 #  along with this addon. If not, see <http://www.gnu.org/licenses/>.
 #
 
-import config
-import sys
 import comm
-import utils
+import sys
 import xbmcgui
 import xbmcplugin
+
+from aussieaddonscommon import utils
+
 
 def make_section_list(url):
     utils.log("Making section list")
@@ -34,8 +35,9 @@ def make_section_list(url):
             for s in section['children']:
                 entries_url = s.get('url')
                 if entries_url:
-                    url = "%s?%s" % (sys.argv[0],
-                               utils.make_url({'entries_url': entries_url}))
+                    url = "%s?%s" % (
+                        sys.argv[0],
+                        utils.make_url({'entries_url': entries_url}))
 
                     thumbnail = s.get('thumbnail')
                     listitem = xbmcgui.ListItem(s.get('name'),
@@ -65,8 +67,10 @@ def make_section_list(url):
                 listitem.setInfo('video', p.get_xbmc_list_item())
 
                 if hasattr(listitem, 'addStreamInfo'):
-                    listitem.addStreamInfo('audio', p.get_xbmc_audio_stream_info())
-                    listitem.addStreamInfo('video', p.get_xbmc_video_stream_info())
+                    listitem.addStreamInfo('audio',
+                                           p.get_xbmc_audio_stream_info())
+                    listitem.addStreamInfo('video',
+                                           p.get_xbmc_video_stream_info())
 
                 # Build the URL for the program, including the list_info
                 url = "%s?play=true&%s" % (sys.argv[0], p.make_xbmc_url())
@@ -82,5 +86,5 @@ def make_section_list(url):
 
         xbmcplugin.endOfDirectory(handle=int(sys.argv[1]), succeeded=ok)
         xbmcplugin.setContent(handle=int(sys.argv[1]), content='episodes')
-    except:
+    except Exception:
         utils.handle_error()

@@ -15,27 +15,14 @@
 #  You should have received a copy of the GNU General Public License
 #  along with this addon. If not, see <http://www.gnu.org/licenses/>.
 #
+# flake8: noqa
 
-import os
-import version
-
-NAME = 'SBS On Demand'
 ADDON_ID = 'plugin.video.sbs'
-VERSION = version.VERSION
 
 GITHUB_API_URL = 'https://api.github.com/repos/xbmc-catchuptv-au/plugin.video.sbs'
 ISSUE_API_URL = GITHUB_API_URL + '/issues'
 ISSUE_API_AUTH = 'eGJtY2JvdDo1OTQxNTJjMTBhZGFiNGRlN2M0YWZkZDYwZGQ5NDFkNWY4YmIzOGFj'
 GIST_API_URL = 'https://api.github.com/gists'
-
-# os.uname() is not available on Windows, so we make this optional.
-try:
-    uname = os.uname()
-    os_string = ' (%s %s %s)' % (uname[0], uname[2], uname[4])
-except AttributeError:
-    os_string = ''
-
-user_agent = '%s add-on for Kodi/XBMC %s%s' % (NAME, VERSION, os_string)
 
 config_url = 'http://www.sbs.com.au/api/video_config/?context=android&form=json'
 index_url = 'http://www.sbs.com.au/api/video_menu/?group=41&context=android&form=json'

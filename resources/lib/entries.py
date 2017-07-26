@@ -16,12 +16,13 @@
 #  along with this addon. If not, see <http://www.gnu.org/licenses/>.
 #
 
-import sys
 import comm
-import utils
-import xbmc
+import sys
 import xbmcgui
 import xbmcplugin
+
+from aussieaddonscommon import utils
+
 
 def make_entries_list(url):
     utils.log('Making entries list')
@@ -46,10 +47,10 @@ def make_entries_list(url):
 
             # Add the program item to the list
             ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=url,
-                                             listitem=listitem, isFolder=False, 
+                                             listitem=listitem, isFolder=False,
                                              totalItems=len(programs))
 
         xbmcplugin.endOfDirectory(handle=int(sys.argv[1]), succeeded=ok)
         xbmcplugin.setContent(handle=int(sys.argv[1]), content='episodes')
-    except:
+    except Exception:
         utils.handle_error('Unable to fetch program list')

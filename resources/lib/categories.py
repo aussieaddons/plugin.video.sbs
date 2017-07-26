@@ -16,12 +16,13 @@
 #  along with this addon. If not, see <http://www.gnu.org/licenses/>.
 #
 
-import sys
 import comm
-import utils
-import xbmc
+import sys
 import xbmcgui
 import xbmcplugin
+
+from aussieaddonscommon import utils
+
 
 def make_category_list(url):
     utils.log("Making category list")
@@ -40,7 +41,6 @@ def make_category_list(url):
                     url = "%s?%s" % (sys.argv[0], utils.make_url({
                                      'entries_url': c['url']}))
                 else:
-                    #utils.log("Skip category due to no entries or url: '%s'" % c['name'])
                     continue
 
                 # If no thumbnail, make it an empty string as None makes
@@ -48,8 +48,10 @@ def make_category_list(url):
                 thumbnail = c.get('thumbnail', '')
                 listitem = xbmcgui.ListItem(label=c['name'],
                                             thumbnailImage=thumbnail)
-                ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=url,
-                                                 listitem=listitem, isFolder=True)
+                ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),
+                                                 url=url,
+                                                 listitem=listitem,
+                                                 isFolder=True)
         else:
             # 'Coming soon' has no children
             jsonurl = categories['url']
@@ -62,18 +64,22 @@ def make_category_list(url):
                 listitem.setInfo('video', p.get_xbmc_list_item())
 
                 if hasattr(listitem, 'addStreamInfo'):
-                    listitem.addStreamInfo('audio', p.get_xbmc_audio_stream_info())
-                    listitem.addStreamInfo('video', p.get_xbmc_video_stream_info())
+                    listitem.addStreamInfo('audio',
+                                           p.get_xbmc_audio_stream_info())
+                    listitem.addStreamInfo('video',
+                                           p.get_xbmc_video_stream_info())
 
                 # Build the URL for the program, including the list_info
                 url = "%s?play=true&%s" % (sys.argv[0], p.make_xbmc_url())
 
                 # Add the program item to the list
-                ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=url,
-                                                 listitem=listitem, isFolder=False,
+                ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),
+                                                 url=url,
+                                                 listitem=listitem,
+                                                 isFolder=False,
                                                  totalItems=len(programs))
 
         xbmcplugin.endOfDirectory(handle=int(sys.argv[1]), succeeded=ok)
         xbmcplugin.setContent(handle=int(sys.argv[1]), content='episodes')
-    except:
+    except Exception:
         utils.handle_error()

@@ -16,32 +16,38 @@
 #  along with this plugin. If not, see <http://www.gnu.org/licenses/>.
 #
 
-import os, sys
+import os
+import sys
+
+from aussieaddonscommon import utils
 
 # Add our resources/lib to the python path
 try:
     current_dir = os.path.dirname(os.path.abspath(__file__))
-except:
+except Exception:
     current_dir = os.getcwd()
-
 sys.path.append(os.path.join(current_dir, 'resources', 'lib'))
-import config, utils, index, categories, section, entries, play
+
+import categories  # noqa: E402
+import entries  # noqa: E402
+import index  # noqa: E402
+import play  # noqa: E402
+import section  # noqa: E402
 
 # Print our platform/version debugging information
 utils.log_xbmc_platform_version()
 
-if __name__ == "__main__" :
+if __name__ == "__main__":
     params_str = sys.argv[2]
     params = utils.get_url(params_str)
-    utils.log("Loading add-on with params: %s" % params)
 
     if (len(params) == 0):
         index.make_index_list()
-    elif params.has_key('play'):
+    elif 'play' in params:
         play.play(params_str)
-    elif params.has_key('entries_url'):
+    elif 'entries_url' in params:
         entries.make_entries_list(params_str)
-    elif params.has_key('section'):
+    elif 'section' in params:
         section.make_section_list(params_str)
-    elif params.has_key('category'):
+    elif 'category' in params:
         categories.make_category_list(params_str)

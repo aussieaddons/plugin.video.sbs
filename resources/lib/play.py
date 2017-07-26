@@ -16,20 +16,22 @@
 #  along with this addon. If not, see <http://www.gnu.org/licenses/>.
 #
 
-import sys
-import os
-import urllib2
 import classes
 import comm
 import config
-import utils
+import os
+import sys
+import urllib2
 import xbmc
-import xbmcgui
 import xbmcaddon
+import xbmcgui
 import xbmcplugin
 
+from aussieaddonscommon import utils
+
+
 def play(url):
-    addon = xbmcaddon.Addon(config.ADDON_ID)
+    addon = xbmcaddon.Addon()
 
     try:
         p = classes.Program()
@@ -42,20 +44,22 @@ def play(url):
         else:
             stream_url = comm.get_stream(p.id)
 
-        listitem=xbmcgui.ListItem(label=p.get_list_title(),
-                                  iconImage=p.thumbnail,
-                                  thumbnailImage=p.thumbnail,
-                                  path=stream_url)
+        listitem = xbmcgui.ListItem(label=p.get_list_title(),
+                                    iconImage=p.thumbnail,
+                                    thumbnailImage=p.thumbnail,
+                                    path=stream_url)
         listitem.setInfo('video', p.get_xbmc_list_item())
 
-        #add subtitles if available
-        if addon.getSetting('subtitles_enabled') == 'true' and p.get_subfilename():
+        # Add subtitles if available
+        if addon.getSetting('subtitles_enabled') == 'true' and \
+                p.get_subfilename():
             subtitles = None
             profile = xbmcaddon.Addon().getAddonInfo('profile')
             path = xbmc.translatePath(profile).decode('utf-8')
             if not os.path.isdir(path):
                 os.makedirs(path)
-            subfile = xbmc.translatePath(os.path.join(path, 'subtitles.eng.srt'))
+            subfile = xbmc.translatePath(os.path.join(path,
+                                                      'subtitles.eng.srt'))
             if os.path.isfile(subfile):
                 os.remove(subfile)
             x = stream_url.find('managed')+8
@@ -71,7 +75,7 @@ def play(url):
                     listitem.setSubtitles([subfile])
                 else:
                     subtitles = True
-            except:
+            except Exception:
                 utils.log('Subtitles not available for this program')
 
         if hasattr(listitem, 'addStreamInfo'):
@@ -81,12 +85,13 @@ def play(url):
         xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, listitem=listitem)
 
         # Enable subtitles for XBMC v13
-        if addon.getSetting('subtitles_enabled') == "true" and p.get_subfilename():
-            if subtitles == True:
+        if addon.getSetting('subtitles_enabled') == "true" and \
+                p.get_subfilename():
+            if subtitles:
                 if not hasattr(listitem, 'setSubtitles'):
                     player = xbmc.Player()
                     while not player.isPlaying():
-                        xbmc.sleep(100) # wait until video is being played
+                        xbmc.sleep(100)  # wait until video is being played
                         player.setSubtitles(subfile)
-    except:
+    except Exception:
         utils.handle_error("Unable to play video")

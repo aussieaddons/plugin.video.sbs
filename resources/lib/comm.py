@@ -17,120 +17,99 @@
 #
 
 import base64
-import urllib2
-import config
 import classes
-import json
-import utils
-import gzip
+import config
 import datetime
-import ssl
+import json
+
+from aussieaddonscommon import session
+from aussieaddonscommon import utils
+
 from BeautifulSoup import BeautifulStoneSoup
 
 try:
     import StorageServer
-except:
+except Exception:
     utils.log("script.common.plugin.cache not found!")
     import storageserverdummy as StorageServer
 
 cache = StorageServer.StorageServer(config.ADDON_ID, 1)
 
-# monkey patch SSL context to fix SSL errors on some platforms w/ python >= 2.7.9
-if hasattr(ssl, '_create_unverified_context'):
-    ssl._create_default_https_context = ssl._create_unverified_context
 
-
-class JsonRedirectHandler(urllib2.HTTPRedirectHandler): 
-    def http_error_301(self, req, fp, code, msg, headers):
-        utils.log('Redirected to: %s' % headers['location'])
-        headers['location'] += '.json'
-        return urllib2.HTTPRedirectHandler.http_error_301(self, req, fp,
-                                                          code, msg, headers)
-
-def fetch_url(url, headers={}):
-    """ Fetches a URL using urllib2 with some basic retry.
-        An exception is raised if an error (e.g. 404) occurs after the max
-        number of retries.
-    """
-    utils.log("Fetching URL: %s" % url)
-    request = urllib2.Request(url, None, dict(headers.items() + {
-        'User-Agent' : config.user_agent
-    }.items()))
-
-    attempts = 3
-    attempt = 0
-    fail_exception = Exception("Unknown failure in URL fetch")
-
-    while attempt < attempts:
+def fetch_url(url, headers=None):
+    """Simple function that fetches a URL using requests."""
+    with session.Session() as sess:
+        if headers:
+            sess.headers.update(headers)
+        request = sess.get(url)
         try:
-            # Should always return < 10s, if not, it's a fail
-            timeout = 10
-            http = urllib2.urlopen(request, timeout=timeout)
-            return http.read()
-        except Exception, e:
-            fail_exception = e
-            attempt += 1
-            utils.log('Error fetching URL: "%s". Attempting to retry %d/%d'
-                      % (e, attempt, attempts))
-
-    # Pass the last exception though
-    raise fail_exception
+            request.raise_for_status()
+        except Exception as e:
+            # Just re-raise for now
+            raise e
+        data = request.text
+    return data
 
 
 def fetch_cache_url(url):
-    """ Call the get index function, but wrapped via caching
-    """
+    """Call the get index function, but wrapped via caching"""
     return cache.cacheFunction(fetch_url, url)
 
+
 def fetch_auth_token():
-    """ Perform a HTTP POST to secure server to fetch a token
-    """
+    """Perform a HTTP POST to secure server to fetch a token"""
     utils.log('Fetching new auth token')
     try:
-        req = urllib2.Request(config.token_url, '')
-        response = urllib2.urlopen(req)
-        data = json.loads(response.read())
+        sess = session.Session()
+        request = sess.post(config.token_url)
+        request.raise_for_status()
+        data = json.loads(request.text)
         token = data['sessiontoken']['response']['token']
         return token
     except Exception as e:
         raise Exception('Failed to fetch SBS streaming token: %s' % e)
 
+
 def fetch_cache_token():
-    """ Get the token from cache is possible
-    """
+    """Get the token from cache is possible"""
     utils.log('Fetching cached token if possible')
     return cache.cacheFunction(fetch_auth_token)
 
+
 def fetch_protected_url(url):
-    """ For protected URLs we add or Auth header when fetching
-    """
+    """For protected URLs we add or Auth header when fetching"""
     token = fetch_cache_token()
     encoded_token = base64.encodestring('%s:android' % token).replace('\n', '')
     headers = {'Authorization': 'Basic ' + encoded_token}
     return fetch_url(url, headers)
 
+
 def get_config():
-    """ This function fetches the SBS config
-    """
+    """This function fetches the SBS config"""
     try:
         resp = fetch_cache_url(config.config_url)
         sbs_config = json.loads(resp)
         return sbs_config
-    except:
+    except Exception:
         raise Exception("Error fetching SBS On Demand config."
                         "Service possibly unavailable")
 
+
 def get_index():
-    """ Fetch the main index. This contains a mix of actual program information
-        and URL references to other queries which return programs
+    """Fetch the main index.
+
+    This contains a mix of actual program information
+    and URL references to other queries which return programs
     """
     resp = fetch_cache_url(config.index_url)
     json_data = json.loads(resp)
     return json_data['get']['response']['Menu']['children']
 
+
 def get_category(category):
-    """ Fetch a given top level category from the index. This is usually
-        programs and movies.
+    """Fetch a given top level category from the index.
+
+    This is usually programs and movies.
     """
     utils.log("Fetching category: %s" % category)
     index = get_index()
@@ -138,12 +117,14 @@ def get_category(category):
         if c['name'] == category:
             return c
 
+
 def get_section(category, section):
     utils.log("Fetching section: %s" % section)
     category = get_category(category)
     for s in category['children']:
         if s['name'] == section:
             return s
+
 
 def get_series():
     series_list = []
@@ -162,7 +143,7 @@ def get_series():
             break
 
     for entry in series_data:
-        try: 
+        try:
             series = classes.Series()
             series.title = entry.get('name')
             series.id = entry.get('dealcodes')
@@ -170,18 +151,19 @@ def get_series():
             series.num_episodes = int(entry.get('totalMpegOnly', 0))
             if series.num_episodes > 0:
                 series_list.append(series)
-        except:
+        except Exception:
             utils.log('Error parsing entry: %s' % entry)
     return series_list
 
+
 def get_categories(url):
-    # TODO: Switch to use this function
+    # TODO(andy): Switch to use this function
     resp = fetch_cache_url(url)
     json_data = json.loads(resp)
 
     series_list = []
     for entry in json_data['entries']:
-        try: 
+        try:
             series = classes.Series()
             series.title = entry.get('name')
             series.id = entry.get('dealcodes')
@@ -189,13 +171,14 @@ def get_categories(url):
             series.num_episodes = int(entry.get('totalMpegOnly', 0))
             if series.num_episodes > 0:
                 series_list.append(series)
-        except:
+        except Exception:
             utils.log('Error parsing entry: %s' % entry)
     return series_list
 
+
 def create_program(jd):
     p = classes.Program()
-    p.id = jd['id'].split('/')[-1] # ID on the end of URL
+    p.id = jd['id'].split('/')[-1]  # ID on the end of URL
 
     p.subfilename = jd.get('pl1$pilatId')
 
@@ -207,7 +190,7 @@ def create_program(jd):
     try:
         p.series = int(jd.get('pl1$season'))
         p.episode = int(jd.get('pl1$episodeNumber'))
-    except:
+    except Exception:
         pass
 
     # If no other metadata available (mostly news), then use the
@@ -218,13 +201,13 @@ def create_program(jd):
     try:
         aired = int(jd.get('pubDate'))/1000
         p.date = datetime.datetime.fromtimestamp(aired)
-    except:
+    except Exception:
         pass
 
     try:
         expire = int(jd.get('media$expirationDate'))/1000
         p.expire = datetime.datetime.fromtimestamp(expire)
-    except:
+    except Exception:
         pass
 
     p.description = jd.get('pl1$shortSynopsis')
@@ -246,7 +229,7 @@ def create_program(jd):
 
         try:
             p.duration = int(float(content.get('plfile$duration')))
-        except:
+        except Exception:
             utils.log("Failed to parse duration: %s" %
                       content.get('plfile$duration'))
 
@@ -255,9 +238,9 @@ def create_program(jd):
             p.url = content['plfile$downloadUrl']
     else:
         utils.log("No 'media$content' found for %s" % p.title)
-    #print jd.get('pl1$pilatId')
 
     return p
+
 
 def get_entries(url):
     resp = fetch_cache_url(url)
@@ -268,15 +251,15 @@ def get_entries(url):
         try:
             p = create_program(entry)
             programs_list.append(p)
-        except:
+        except Exception:
             utils.log('Error parsing entry')
 
     return programs_list
+
 
 def get_stream(program_id):
     resp = fetch_protected_url(config.stream_url % program_id)
     xml = BeautifulStoneSoup(resp)
     for entry in xml.findAll('video', src=True):
-       # We get multiples of the same URL, so just use the first
-       return entry['src']
-
+        # We get multiples of the same URL, so just use the first
+        return entry['src']
