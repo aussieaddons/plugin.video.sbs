@@ -154,7 +154,7 @@ class Program(object):
 
     def get_duration(self):
         if self.duration:
-            version = utils.get_xbmc_major_version()
+            version = utils.get_kodi_major_version()
             seconds = int(self.duration)
             if version < 15:
                 # Older versions use minutes
@@ -196,7 +196,7 @@ class Program(object):
         if self.subfilename:
             return self.subfilename+'.SRT'
 
-    def get_xbmc_list_item(self):
+    def get_kodi_list_item(self):
         info_dict = {}
         if self.get_title():
             info_dict['tvshowtitle'] = self.get_title()
@@ -222,7 +222,7 @@ class Program(object):
             info_dict['mpaa'] = self.get_rating()
         return info_dict
 
-    def get_xbmc_audio_stream_info(self):
+    def get_kodi_audio_stream_info(self):
         info_dict = {}
         # This information may be incorrect
         info_dict['codec'] = 'aac'
@@ -230,7 +230,7 @@ class Program(object):
         info_dict['channels'] = 2
         return info_dict
 
-    def get_xbmc_video_stream_info(self):
+    def get_kodi_video_stream_info(self):
         info_dict = {}
         if self.get_duration():
             info_dict['duration'] = self.get_duration()
