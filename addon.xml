@@ -5,15 +5,21 @@
     <import addon="script.module.requests"/>
     <import addon="script.common.plugin.cache"/>
     <import addon="script.module.beautifulsoup"/>
-    <import addon="script.module.issuereporter"/>
   </requires>
   <extension library="default.py" point="xbmc.python.pluginsource" provides="video">
     <provides>video</provides>
   </extension>
   <extension library="default.py" point="xbmc.addon.metadata">
+    <assets>
+      <icon>icon.png</icon>
+      <fanart>fanart.jpg</fanart>
+    </assets>
     <summary>SBS On Demand by Aussie Add-ons</summary>
     <description>SBS On Demand provides free, unlimited streaming of TV shows, films and events. Watch full episodes of your favourite SBS shows online when you want.</description>
+    <website>http://aussieaddons.com/addons/sbs/</website>
+    <source>https://github.com/xbmc-catchuptv-au/plugin.video.sbs</source>
     <provides>video</provides>
     <platform>all</platform>
+    <license>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007</license>
   </extension>
 </addon>

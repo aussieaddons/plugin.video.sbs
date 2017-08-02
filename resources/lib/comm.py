@@ -29,11 +29,11 @@ from BeautifulSoup import BeautifulStoneSoup
 
 try:
     import StorageServer
-except Exception:
+except ImportError:
     utils.log("script.common.plugin.cache not found!")
     import storageserverdummy as StorageServer
 
-cache = StorageServer.StorageServer(config.ADDON_ID, 1)
+cache = StorageServer.StorageServer(utils.get_addon_id(), 1)
 
 
 def fetch_url(url, headers=None):
