@@ -25,7 +25,7 @@ import json
 from aussieaddonscommon import session
 from aussieaddonscommon import utils
 
-from BeautifulSoup import BeautifulStoneSoup
+from bs4 import BeautifulSoup
 
 try:
     import StorageServer
@@ -259,7 +259,9 @@ def get_entries(url):
 
 def get_stream(program_id):
     resp = fetch_protected_url(config.stream_url % program_id)
-    xml = BeautifulStoneSoup(resp)
-    for entry in xml.findAll('video', src=True):
-        # We get multiples of the same URL, so just use the first
-        return entry['src']
+    xml = BeautifulSoup(resp, 'html.parser')
+    stream = {}
+    stream['url'] = xml.video['src']
+    stream['subtitles'] = xml.find(
+        'textstream', attrs={'type': 'text/srt'})['src']
+    return stream
