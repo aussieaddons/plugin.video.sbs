@@ -262,6 +262,9 @@ def get_stream(program_id):
     xml = BeautifulSoup(resp, 'html.parser')
     stream = {}
     stream['url'] = xml.video['src']
-    stream['subtitles'] = xml.find(
-        'textstream', attrs={'type': 'text/srt'})['src']
+    subtitles = xml.find('textstream', attrs={'type': 'text/srt'})
+    if subtitles:
+        stream['subtitles'] = subtitles['src']
+    else:
+        stream['subtitles'] = None
     return stream
