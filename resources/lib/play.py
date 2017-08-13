@@ -44,7 +44,6 @@ def play(url):
         else:
             stream_info = comm.get_stream(p.id)
             stream_url = stream_info['url']
-            sub_url = stream_info['subtitles']
 
         listitem = xbmcgui.ListItem(label=p.get_list_title(),
                                     iconImage=p.thumbnail,
@@ -53,7 +52,8 @@ def play(url):
         listitem.setInfo('video', p.get_kodi_list_item())
 
         # Add subtitles if available
-        if sub_url:
+        if 'subtitles' in stream_info:
+            sub_url = stream_info['subtitles']
             profile = xbmcaddon.Addon().getAddonInfo('profile')
             path = xbmc.translatePath(profile).decode('utf-8')
             if not os.path.isdir(path):

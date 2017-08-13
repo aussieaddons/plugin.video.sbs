@@ -265,6 +265,4 @@ def get_stream(program_id):
     subtitles = xml.find('textstream', attrs={'type': 'text/srt'})
     if subtitles:
         stream['subtitles'] = subtitles['src']
-    else:
-        stream['subtitles'] = None
     return stream
