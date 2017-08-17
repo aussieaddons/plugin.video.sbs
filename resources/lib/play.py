@@ -39,8 +39,8 @@ def play(url):
         # Some programs don't have protected streams. 'Public' streams are
         # set in program.url, otherwise we fetch it separately
         if p.get_url():
+            stream_info = {}
             stream_url = p.get_url()
-            sub_url = None
         else:
             stream_info = comm.get_stream(p.id)
             stream_url = stream_info['url']
