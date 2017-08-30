@@ -1,4 +1,11 @@
-[B]Version 1.1.0[/B]
+[B]Version 1.1.1[/B]
+- Add user reporting, code updates
+- Metadata and common module update fixes
+- Fix missing requirement
+- Code cleanups, use common modules and update metadata
+- Update README.markdown
+
+[B]Version v1.1.0[/B]
 - Properly fix SSL issues with Python 2.7.9+
 
 [B]Version v1.0.9[/B]
