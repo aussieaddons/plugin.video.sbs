@@ -1,4 +1,9 @@
-[B]Version 1.1.1[/B]
+[B]Version 1.1.2[/B]
+- Version 1.1.1
+- Fixes unbound local errors
+- Revise subtitle metadata logic
+- Handle no subtitles available, remove subtitle setting
+- Fix subtitles
 - Add user reporting, code updates
 - Metadata and common module update fixes
 - Fix missing requirement
