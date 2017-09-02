@@ -30,8 +30,6 @@ from aussieaddonscommon import utils
 
 
 def play(url):
-    addon = xbmcaddon.Addon()
-
     try:
         p = classes.Program()
         p.parse_xbmc_url(url)
@@ -79,5 +77,5 @@ def play(url):
 
         xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, listitem=listitem)
 
-    except Exception:
-        utils.handle_error("Unable to play video")
+    except Exception as e:
+        utils.handle_error("Unable to play video", exc=e)
