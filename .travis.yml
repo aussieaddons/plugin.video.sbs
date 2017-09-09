@@ -5,15 +5,26 @@ env:
 install:
   - pip install GitPython
   - export TRAVIS_COMMIT_MSG="$TRAVIS_REPO_SLUG - $(git log --format=%B --no-merges -n 1)"
-  - git clone https://github.com/xbmc-catchuptv-au/repo-devel.git .deploy
 script:
-  - cd .deploy
-  - ./manage_repo.py ../
+  - 'if [ -z "$TRAVIS_TAG" ]; then
+         git clone https://github.com/glennguy/repo-devel.git .deploy || travis_terminate 1;
+         cd .deploy || travis_terminate 1;
+         ./manage_repo.py ../ || travis_terminate 1;
+     else
+         git clone https://github.com/glennguy/repo.git .deploy || travis_terminate 1;
+         cd .deploy || travis_terminate 1;
+         ./manage_repo.py --production ../ || travis_terminate 1;
+     fi'
 after_script:
   - git config --global user.email 'aussieaddons@aussieaddons.com'
   - git config --global user.name 'Aussie Add-ons Bot'
   - git config credential.helper "store --file=.git/credentials"
   - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
   - git add .
-  - git commit --allow-empty -m "$TRAVIS_COMMIT_MSG"
+  - 'if [ -z "$TRAVIS_TAG" ]; then
+         git commit --allow-empty -m "$TRAVIS_COMMIT_MSG" || travis_terminate 1;
+     else
+         ADDON_NAME="$(./get_addon_name.py ../)" || travis_terminate 1;
+         git commit --allow-empty -m "Update $ADDON_NAME to $TRAVIS_TAG" || travis_terminate 1;
+     fi'
   - git push
