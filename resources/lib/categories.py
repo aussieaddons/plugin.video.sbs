@@ -81,5 +81,5 @@ def make_category_list(url):
 
         xbmcplugin.endOfDirectory(handle=int(sys.argv[1]), succeeded=ok)
         xbmcplugin.setContent(handle=int(sys.argv[1]), content='episodes')
-    except Exception as e:
-        utils.handle_error('Unable to build categories list', exc=e)
+    except Exception:
+        utils.handle_error('Unable to build categories list')
