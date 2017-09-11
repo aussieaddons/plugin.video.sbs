@@ -9,7 +9,7 @@ script:
   - >
     git clone https://github.com/xbmc-catchuptv-au/repo-devel.git .deploy && 
     cd .deploy && 
-    ./manage_repo.py ../ || travis_terminate 1
+    ./manage_repo.py ../
   - |
     if [ -n "$TRAVIS_TAG" ]; then
         cd ..
@@ -31,7 +31,7 @@ after_script:
         cd ../.deploy-prod
         git config credential.helper "store --file=.git/credentials"
         echo "https://${GH_TOKEN}:@github.com" > .git/credentials
-        git add .
-        git commit --allow-empty -m "Update $(basename `git -C ../ rev-parse --show-toplevel`) to $TRAVIS_TAG"
-        git push
+        git add . && \
+        git commit --allow-empty -m "Update $(basename `git -C ../ rev-parse --show-toplevel`) to $TRAVIS_TAG && \
+        git push || travis_terminate 1
     fi
