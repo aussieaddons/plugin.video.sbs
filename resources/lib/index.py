@@ -41,4 +41,4 @@ def make_index_list():
         xbmcplugin.endOfDirectory(handle=int(sys.argv[1]), succeeded=ok)
         xbmcplugin.setContent(handle=int(sys.argv[1]), content='episodes')
     except Exception:
-        utils.handle_error()
+        utils.handle_error('Unable to build index')

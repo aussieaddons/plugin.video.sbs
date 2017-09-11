@@ -19,6 +19,8 @@
 import os
 import sys
 import xbmcaddon
+# fix for python bug
+import _strptime  # noqa: F401
 
 from aussieaddonscommon import utils
 

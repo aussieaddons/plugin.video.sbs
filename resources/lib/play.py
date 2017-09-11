@@ -30,8 +30,6 @@ from aussieaddonscommon import utils
 
 
 def play(url):
-    addon = xbmcaddon.Addon()
-
     try:
         p = classes.Program()
         p.parse_xbmc_url(url)
