@@ -32,6 +32,6 @@ after_script:
         git config credential.helper "store --file=.git/credentials"
         echo "https://${GH_TOKEN}:@github.com" > .git/credentials
         git add . && \
-        git commit --allow-empty -m "Update $(basename `git -C ../ rev-parse --show-toplevel`) to $TRAVIS_TAG && \
+        git commit --allow-empty -m "Update $(basename `git -C ../ rev-parse --show-toplevel`) to $TRAVIS_TAG" && \
         git push || travis_terminate 1
     fi
