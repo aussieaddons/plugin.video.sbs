@@ -54,3 +54,5 @@ if __name__ == "__main__":
     elif 'action' in params:
         if params['action'] == 'sendreport':
             utils.user_report()
+        elif params['action'] == 'settings':
+            xbmcaddon.Addon().openSettings()
