@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
   <!-- Debugging -->
+  <category label="10080">
+    <setting label="10094" type="enum" id="BANDWIDTH" values="Low (512Kb/s)|Med (1000Kb/s)|High (1500Kb/s)|Auto" default="3"/>
+  </category>
   <category label="10090">
     <setting label="10098" type="action" action="RunPlugin(plugin://plugin.video.sbs/?action=sendreport)"/>
   </category>

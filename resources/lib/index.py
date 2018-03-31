@@ -38,6 +38,13 @@ def make_index_list():
                                                  url=url, listitem=listitem,
                                                  isFolder=True)
 
+        listitem = xbmcgui.ListItem(label='Settings')
+        ok = xbmcplugin.addDirectoryItem(
+            handle=int(sys.argv[1]),
+            url="{0}?action=settings".format(sys.argv[0]),
+            listitem=listitem,
+            isFolder=False)
+
         xbmcplugin.endOfDirectory(handle=int(sys.argv[1]), succeeded=ok)
         xbmcplugin.setContent(handle=int(sys.argv[1]), content='episodes')
     except Exception:
