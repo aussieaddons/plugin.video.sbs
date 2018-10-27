@@ -47,11 +47,11 @@ def play(url):
         bandwidth = addon.getSetting('BANDWIDTH')
 
         if bandwidth == '0':
-            stream_url = stream_url.replace('&b=0-2000', '&b=400-600')
+            stream_url = stream_url.replace('&b=0-2000', '&b=0-700')
         elif bandwidth == '1':
-            stream_url = stream_url.replace('&b=0-2000', '&b=900-1100')
+            stream_url = stream_url.replace('&b=0-2000', '&b=701-1250')
         elif bandwidth == '2':
-            stream_url = stream_url.replace('&b=0-2000', '&b=1400-1600')
+            stream_url = stream_url.replace('&b=0-2000', '&b=1251-2000')
 
         listitem = xbmcgui.ListItem(label=p.get_list_title(),
                                     iconImage=p.thumbnail,
