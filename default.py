@@ -38,6 +38,14 @@ import section  # noqa: E402
 utils.log_kodi_platform_version()
 
 if __name__ == "__main__":
+
+    import xbmcgui
+    xbmcgui.Dialog().ok(
+        'Aussie Add-ons', 'Sorry, the SBS addon is currently broken. A new '
+        'version is on the way and will be here in the next few days. '
+        'Thanks for your patience - Aussie Add-ons')
+
+    """
     params_str = sys.argv[2]
     params = utils.get_url(params_str)
 
@@ -56,3 +64,4 @@ if __name__ == "__main__":
             utils.user_report()
         elif params['action'] == 'settings':
             xbmcaddon.Addon().openSettings()
+    """
