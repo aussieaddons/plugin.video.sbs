@@ -19,6 +19,15 @@ import play  # noqa: E402
 utils.log_kodi_platform_version()
 
 if __name__ == "__main__":
+    addon = xbmcaddon.Addon()
+    if addon.getSetting('firstrun') == 'true':
+        utils.dialog_message(
+            'Welcome to the new On Demand add-on. An SBS On Demand account '
+            'is now required to use this service. Please sign up at '
+            'sbs.com.au or in the mobile app, then enter your details in '
+            'the add-on settings.')
+        comm.get_login_token()
+        addon.setSetting('firstrun', 'false')
     params_str = sys.argv[2]
     params = utils.get_url(params_str)
     utils.log(params)

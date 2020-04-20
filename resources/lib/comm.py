@@ -31,9 +31,13 @@ def get_login_token():
     addon.setSetting('ad_id', str(uuid.uuid4()))
     username = xbmcgui.Dialog().input('Enter SBS on Demand username/email',
                                       type=xbmcgui.INPUT_ALPHANUM)
+    if not username:
+        return False
     password = xbmcgui.Dialog().input('Enter SBS on Demand password',
                                       type=xbmcgui.INPUT_ALPHANUM,
                                       option=xbmcgui.ALPHANUM_HIDE_INPUT)
+    if not password:
+        return False
     upresp = fetch_url(config.LOGIN1_URL, data={'context': 'android',
                                                 'device': 'phone',
                                                 'version': '3.2.1',

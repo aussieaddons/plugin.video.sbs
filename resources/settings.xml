@@ -8,6 +8,7 @@
   <!-- Debugging -->
   <category label="30002">
     <setting label="30005" type="action" action="RunPlugin(plugin://plugin.video.sbs/?action=sendreport)"/>
-    <setting id="user_token" default=""></setting>
+    <setting id="user_token" default=""/>
+    <setting id="firstrun" default="true" type="bool" visible="false"/>
   </category>
 </settings>
