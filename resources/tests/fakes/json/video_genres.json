@@ -1,0 +1,272 @@
+{
+  "@context": [
+    "http:\/\/www.sbs.com.au\/schemas\/"
+  ],
+  "type": "ItemList",
+  "name": "Programs Genres",
+  "itemListElement": [
+    {
+      "headerImageUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-header-factual.jpg",
+      "name": "Factual",
+      "slug": "factual",
+      "thumbnailUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-factual.jpg",
+      "thumbnails": [
+        {
+          "name": "Thumbnail 1x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-factual.jpg"
+        },
+        {
+          "name": "Thumbnail 2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-factual@2x.jpg"
+        },
+        {
+          "name": "Thumbnail 3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-factual@3x.jpg"
+        },
+        {
+          "name": "Thumbnail CTV",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-factual@CTV.jpg"
+        }
+      ],
+      "type": "ProgramGenre"
+    },
+    {
+      "headerImageUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-header-newsandcurrentaffairs.jpg",
+      "name": "News and Current Affairs",
+      "slug": "news-and-current-affairs",
+      "thumbnailUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-newsandcurrentaffairs.jpg",
+      "thumbnails": [
+        {
+          "name": "Thumbnail 1x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-newsandcurrentaffairs.jpg"
+        },
+        {
+          "name": "Thumbnail 2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-newsandcurrentaffairs@2x.jpg"
+        },
+        {
+          "name": "Thumbnail 3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-newsandcurrentaffairs@3x.jpg"
+        },
+        {
+          "name": "Thumbnail CTV",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-newsandcurrentaffairs@CTV.jpg"
+        }
+      ],
+      "type": "ProgramGenre"
+    },
+    {
+      "headerImageUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-header-sport.jpg",
+      "name": "Sport",
+      "slug": "sport",
+      "thumbnailUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-sport.jpg",
+      "thumbnails": [
+        {
+          "name": "Thumbnail 1x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-sport.jpg"
+        },
+        {
+          "name": "Thumbnail 2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-sport@2x.jpg"
+        },
+        {
+          "name": "Thumbnail 3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-sport@3x.jpg"
+        },
+        {
+          "name": "Thumbnail CTV",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-sport@CTV.jpg"
+        }
+      ],
+      "type": "ProgramGenre"
+    },
+    {
+      "headerImageUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-header-drama.jpg",
+      "name": "Drama",
+      "slug": "drama",
+      "thumbnailUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-drama.jpg",
+      "thumbnails": [
+        {
+          "name": "Thumbnail 1x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-drama.jpg"
+        },
+        {
+          "name": "Thumbnail 2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-drama@2x.jpg"
+        },
+        {
+          "name": "Thumbnail 3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-drama@3x.jpg"
+        },
+        {
+          "name": "Thumbnail CTV",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-drama@CTV.jpg"
+        }
+      ],
+      "type": "ProgramGenre"
+    },
+    {
+      "headerImageUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-header-food.jpg",
+      "name": "Food",
+      "slug": "food",
+      "thumbnailUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-food.jpg",
+      "thumbnails": [
+        {
+          "name": "Thumbnail 1x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-food.jpg"
+        },
+        {
+          "name": "Thumbnail 2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-food@2x.jpg"
+        },
+        {
+          "name": "Thumbnail 3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-food@3x.jpg"
+        },
+        {
+          "name": "Thumbnail CTV",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-food@CTV.jpg"
+        }
+      ],
+      "type": "ProgramGenre"
+    },
+    {
+      "headerImageUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-header-entertainment.jpg",
+      "name": "Entertainment",
+      "slug": "entertainment",
+      "thumbnailUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-entertainment.jpg",
+      "thumbnails": [
+        {
+          "name": "Thumbnail 1x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-entertainment.jpg"
+        },
+        {
+          "name": "Thumbnail 2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-entertainment@2x.jpg"
+        },
+        {
+          "name": "Thumbnail 3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-entertainment@3x.jpg"
+        },
+        {
+          "name": "Thumbnail CTV",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-entertainment@CTV.jpg"
+        }
+      ],
+      "type": "ProgramGenre"
+    },
+    {
+      "headerImageUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-header-comedy.jpg",
+      "name": "Comedy",
+      "slug": "comedy",
+      "thumbnailUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-comedy.jpg",
+      "thumbnails": [
+        {
+          "name": "Thumbnail 1x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-comedy.jpg"
+        },
+        {
+          "name": "Thumbnail 2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-comedy@2x.jpg"
+        },
+        {
+          "name": "Thumbnail 3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-comedy@3x.jpg"
+        },
+        {
+          "name": "Thumbnail CTV",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-comedy@CTV.jpg"
+        }
+      ],
+      "type": "ProgramGenre"
+    },
+    {
+      "headerImageUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-header-arts.jpg",
+      "name": "Arts",
+      "slug": "arts",
+      "thumbnailUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-arts.jpg",
+      "thumbnails": [
+        {
+          "name": "Thumbnail 1x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-arts.jpg"
+        },
+        {
+          "name": "Thumbnail 2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-arts@2x.jpg"
+        },
+        {
+          "name": "Thumbnail 3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-arts@3x.jpg"
+        },
+        {
+          "name": "Thumbnail CTV",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-arts@CTV.jpg"
+        }
+      ],
+      "type": "ProgramGenre"
+    },
+    {
+      "headerImageUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-header-specialevents.jpg",
+      "name": "Special Events",
+      "slug": "special-events",
+      "thumbnailUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-specialevents.jpg",
+      "thumbnails": [
+        {
+          "name": "Thumbnail 1x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-specialevents.jpg"
+        },
+        {
+          "name": "Thumbnail 2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-specialevents@2x.jpg"
+        },
+        {
+          "name": "Thumbnail 3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-specialevents@3x.jpg"
+        },
+        {
+          "name": "Thumbnail CTV",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/genres\/2019\/program-genre-tile-specialevents@CTV.jpg"
+        }
+      ],
+      "type": "ProgramGenre"
+    }
+  ],
+  "numberOfItems": 9,
+  "totalNumberOfItems": 9
+}

@@ -1,98 +1,82 @@
-#
-#  SBS On Demand Kodi Add-on
-#  Copyright (C) 2015 Andy Botting
-#
-#  This addon is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation, either version 3 of the License, or
-#  (at your option) any later version.
-#
-#  This addon is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#
-#  You should have received a copy of the GNU General Public License
-#  along with this addon. If not, see <http://www.gnu.org/licenses/>.
-#
-
 import base64
 import classes
 import config
-import datetime
 import json
+import uuid
 
 from aussieaddonscommon import session
 from aussieaddonscommon import utils
 
-from bs4 import BeautifulSoup
+import xbmcaddon
 
-try:
-    import StorageServer
-except ImportError:
-    utils.log("script.common.plugin.cache not found!")
-    import storageserverdummy as StorageServer
-
-cache = StorageServer.StorageServer(utils.get_addon_id(), 1)
+import xbmcgui
 
 
-def fetch_url(url, headers=None):
+def clear_login_token(show_dialog=True):
+    addon = xbmcaddon.Addon()
+    addon.setSetting('user_token', '')
+    addon.setSetting('unique_id', '')
+    addon.setSetting('ad_id', '')
+    if show_dialog:
+        utils.dialog_message('Login token cleared. Ensure you press OK in '
+                             'the settings to save this change.')
+
+
+def get_login_token():
+    addon = xbmcaddon.Addon()
+    encoded_token = addon.getSetting('user_token')
+    if encoded_token:
+        return encoded_token
+    addon.setSetting('unique_id', str(uuid.uuid4()))
+    addon.setSetting('ad_id', str(uuid.uuid4()))
+    username = xbmcgui.Dialog().input('Enter SBS on Demand username/email',
+                                      type=xbmcgui.INPUT_ALPHANUM)
+    if not username:
+        return False
+    password = xbmcgui.Dialog().input('Enter SBS on Demand password',
+                                      type=xbmcgui.INPUT_ALPHANUM,
+                                      option=xbmcgui.ALPHANUM_HIDE_INPUT)
+    if not password:
+        return False
+    upresp = fetch_url(config.LOGIN1_URL, data={'context': 'android',
+                                                'device': 'phone',
+                                                'version': '3.2.1',
+                                                'loginVersion': '1.0.0',
+                                                'user': username,
+                                                'pass': password,
+                                                'express': '0'})
+    upresp_json = json.loads(upresp)
+    if upresp_json.get('error', '') == 'invalid_credentials':
+        utils.dialog_message('Invalid username or password. Please check and '
+                             'try again.')
+        return False
+    access_token = upresp_json.get('access_token')
+    ## insert check for email validation??
+    atresp = fetch_url(config.LOGIN2_URL.format(token=access_token))
+    session_id = json.loads(atresp)['completelogin']['response'].get(
+        'sessionid')
+    encoded_token = base64.b64encode('{0}:android'.format(session_id))
+    addon.setSetting('user_token', encoded_token)
+    return encoded_token
+
+
+def fetch_url(url, headers=None, data=None):
     """Simple function that fetches a URL using requests."""
     with session.Session() as sess:
         if headers:
             sess.headers.update(headers)
-        request = sess.get(url)
-        try:
-            request.raise_for_status()
-        except Exception as e:
-            # Just re-raise for now
-            raise e
-        data = request.text
-    return data
+        if data:
+            request = sess.post(url, data=data)
+        else:
+            request = sess.get(url)
+        res = request.text
+    return res
 
 
-def fetch_cache_url(url):
-    """Call the get index function, but wrapped via caching"""
-    return cache.cacheFunction(fetch_url, url)
-
-
-def fetch_auth_token():
-    """Perform a HTTP POST to secure server to fetch a token"""
-    utils.log('Fetching new auth token')
-    try:
-        sess = session.Session()
-        request = sess.post(config.token_url)
-        request.raise_for_status()
-        data = json.loads(request.text)
-        token = data['sessiontoken']['response']['token']
-        return token
-    except Exception as e:
-        raise Exception('Failed to fetch SBS streaming token: %s' % e)
-
-
-def fetch_cache_token():
-    """Get the token from cache is possible"""
-    utils.log('Fetching cached token if possible')
-    return cache.cacheFunction(fetch_auth_token)
-
-
-def fetch_protected_url(url):
+def fetch_protected_url(url, token):
     """For protected URLs we add or Auth header when fetching"""
-    token = fetch_cache_token()
-    encoded_token = base64.encodestring('%s:android' % token).replace('\n', '')
-    headers = {'Authorization': 'Basic ' + encoded_token}
+    headers = {'Authorization': 'Basic ' + token}
     return fetch_url(url, headers)
-
-
-def get_config():
-    """This function fetches the SBS config"""
-    try:
-        resp = fetch_cache_url(config.config_url)
-        sbs_config = json.loads(resp)
-        return sbs_config
-    except Exception:
-        raise Exception("Error fetching SBS On Demand config."
-                        "Service possibly unavailable")
 
 
 def get_index():
@@ -101,168 +85,151 @@ def get_index():
     This contains a mix of actual program information
     and URL references to other queries which return programs
     """
-    resp = fetch_cache_url(config.index_url)
+    resp = fetch_url(config.CONFIG_URL)
     json_data = json.loads(resp)
-    return json_data['get']['response']['Menu']['children']
+    return json_data
 
 
-def get_category(category):
+def get_category(params):
     """Fetch a given top level category from the index.
-
     This is usually programs and movies.
     """
+    sub_cat = False
+    category = params.get('category')
+    if not category:
+        sub_cat = True
+        category = params.get('item_type')  # genre
+        if category == 'FilmGenre':
+            category = 'MovieGenre'
     utils.log("Fetching category: %s" % category)
-    index = get_index()
-    for c in index:
-        if c['name'] == category:
-            return c
-
-
-def get_section(category, section):
-    utils.log("Fetching section: %s" % section)
-    category = get_category(category)
-    for s in category['children']:
-        if s['name'] == section:
-            return s
-
-
-def get_series():
-    series_list = []
-    json_data = get_index()
-
-    category_data = None
-    for c in json_data['get']['response']['Menu']['children']:
-        if c['name'] == 'Programs':
-            category_data = c['children']
-            break
-
-    series_data = None
-    for s in category_data:
-        if s['name'] == 'Programs A-Z':
-            series_data = s['children']
-            break
-
-    for entry in series_data:
-        try:
-            series = classes.Series()
-            series.title = entry.get('name')
-            series.id = entry.get('dealcodes')
-            series.thumbnail = entry.get('thumbnail')
-            series.num_episodes = int(entry.get('totalMpegOnly', 0))
-            if series.num_episodes > 0:
-                series_list.append(series)
-        except Exception:
-            utils.log('Error parsing entry: %s' % entry)
-    return series_list
-
-
-def get_categories(url):
-    # TODO(andy): Switch to use this function
-    resp = fetch_cache_url(url)
+    resp = fetch_url(config.CONFIG_URL)
     json_data = json.loads(resp)
+    category_data = json_data.get(
+        'contentStructure').get('screens').get(category)
+    listing = []
 
-    series_list = []
-    for entry in json_data['entries']:
-        try:
-            series = classes.Series()
-            series.title = entry.get('name')
-            series.id = entry.get('dealcodes')
-            series.thumbnail = entry.get('thumbnail')
-            series.num_episodes = int(entry.get('totalMpegOnly', 0))
-            if series.num_episodes > 0:
-                series_list.append(series)
-        except Exception:
-            utils.log('Error parsing entry: %s' % entry)
-    return series_list
+    for c in category_data.get('rows'):
+
+        if 'feeds' in c:
+            data_list = c.get('feeds')
+            utils.log(data_list)
+        else:
+            data_list = [c]
+        for data in data_list:
+            s = classes.Series()
+            layout = data.get('layout')
+            if not layout:
+                continue
+            if layout.get('rowType') in ['policyChanges']:
+                continue
+            s.item_type = layout.get('itemType')
+            s.feed_url = data.get('feedUrl')
+            display = data.get('display')
+            if display:
+                if display.get('loggedIn'):
+                    s.require_login = 'True'
+            if sub_cat:
+                if '[GENRE]' in s.feed_url:
+                    s.feed_url = s.feed_url.replace('[GENRE]',
+                                                    params.get('title'))
+                if '[CHANNEL]' in s.feed_url:
+                    s.feed_url = s.feed_url.replace('[CHANNEL]',
+                                                    params.get('feed_id'))
+            s.title = data.get('name')
+            listing.append(s)
+    for a in listing:
+        utils.log(a.title)
+    return listing
 
 
-def create_program(jd):
+def create_program(entry):
     p = classes.Program()
-    p.id = jd['id'].split('/')[-1]  # ID on the end of URL
-
-    p.subfilename = jd.get('pl1$pilatId')
-
-    p.title = jd.get('pl1$programName')
-    if not p.title:
-        p.title = jd.get('title')
-
-    p.episode_title = jd.get('pl1$episodeTitle')
-    try:
-        p.series = int(jd.get('pl1$season'))
-        p.episode = int(jd.get('pl1$episodeNumber'))
-    except Exception:
-        pass
-
-    # If no other metadata available (mostly news), then use the
-    # regular title, which probably includes the date
-    if not p.series and not p.episode and not p.episode_title:
-        p.title = jd.get('title')
-
-    try:
-        aired = int(jd.get('pubDate'))/1000
-        p.date = datetime.datetime.fromtimestamp(aired)
-    except Exception:
-        pass
-
-    try:
-        expire = int(jd.get('media$expirationDate'))/1000
-        p.expire = datetime.datetime.fromtimestamp(expire)
-    except Exception:
-        pass
-
-    p.description = jd.get('pl1$shortSynopsis')
-    if not p.description:
-        p.description = jd.get('description')
-
-    p.thumbnail = jd.get('thumbnail')
-    if not p.thumbnail:
-        for image in jd['media$thumbnails']:
-            if 'Thumbnail Large' in image['plfile$assetTypes']:
-                p.thumbnail = image['plfile$downloadUrl']
-                break
-
-    if 'media$content' in jd:
-        # Sort media content by bitrate, highest last
-        content_list = sorted(jd['media$content'],
-                              key=lambda k: k['plfile$bitrate'])
-        content = content_list[-1]
-
-        try:
-            p.duration = int(float(content.get('plfile$duration')))
-        except Exception:
-            utils.log("Failed to parse duration: %s" %
-                      content.get('plfile$duration'))
-
-        # Some shows, mostly clips aren't protected
-        if 'Public' in content['plfile$assetTypes']:
-            p.url = content['plfile$downloadUrl']
-    else:
-        utils.log("No 'media$content' found for %s" % p.title)
-
+    p.title = str(entry.get('name'))
+    p.id = entry.get('id').split("/")[-1]
+    p.thumbnail = entry.get('thumbnailUrl')
+    p.description = entry.get('description')
     return p
 
 
-def get_entries(url):
-    resp = fetch_cache_url(url)
-    json_data = json.loads(resp)
+def create_series(entry):
+    s = classes.Series()
+    s.title = str(entry.get('name'))
+    s.id = entry.get('id').split("/")[-1]
+    s.feed_url = entry.get('feed')
+    s.thumbnail = entry.get('thumbnailUrl')
+    return s
 
-    programs_list = []
-    for entry in json_data['entries']:
+def create_channel(entry):
+    s = classes.Series()
+    s.title = str(entry.get('name'))
+    s.feed_id = entry.get('feedId')
+    s.thumbnail = entry.get('thumbnailUrl')
+    return s
+
+def create_genre_index(entry):
+    utils.log('creating genre index item')
+    s = classes.Series()
+    s.title = str(entry.get('name'))
+    s.item_type = entry.get('type')
+    s.thumbnail = entry.get('thumbnailUrl')
+    return s
+
+
+def get_entries(params):
+    """
+    Deal with everything else that isn't the main index! :)
+    :param url:
+    :return:
+    """
+    listing = []
+    if params.get('require_login') == 'True':
+        resp = fetch_protected_url(params.get('feed_url'))
+    else:
+        resp = fetch_url(params.get('feed_url'))
+    json_data = json.loads(resp)
+    for entry in json_data.get('itemListElement'):
         try:
-            p = create_program(entry)
-            programs_list.append(p)
+            if params.get('item_type') == 'genre':
+                p = create_genre_index(entry)
+            elif entry.get('type') == 'TVSeries':
+                p = create_series(entry)
+            elif entry.get('type') == 'Channel':
+                p = create_channel(entry)
+                p.item_type = 'Channel'
+            elif params.get('item_type') == 'hero':
+                if entry.get('type') == 'Program':
+                    p = create_series(entry.get('program'))
+                elif entry.get('type') == 'VideoCarouselItem':
+                    p = create_program(entry.get('video'))
+            else:
+                p = create_program(entry)
+            listing.append(p)
         except Exception:
             utils.log('Error parsing entry')
 
-    return programs_list
+    return listing
 
 
 def get_stream(program_id):
-    resp = fetch_protected_url(config.stream_url % program_id)
-    xml = BeautifulSoup(resp, 'html.parser')
-    stream = {}
-    stream['url'] = xml.video['src']
-    subtitles = xml.find('textstream', attrs={'type': 'text/srt'})
-    if subtitles:
-        stream['subtitles'] = subtitles['src']
-    return stream
+    addon = xbmcaddon.Addon()
+    token = get_login_token()
+    if not token:
+        return token
+    data_url = config.STREAM_URL.format(
+        VIDEOID=program_id,
+        UNIQUEID=addon.getSetting('unique_id'),
+        AAID=addon.getSetting('ad_id'),
+        OPTOUT='true')
+    video_stream_resp = fetch_protected_url(data_url, token)
+    vs_data = json.loads(video_stream_resp)
+    stream_info = {}
+    for provider in vs_data.get('streamProviders'):
+        if provider.get('providerName') == 'Akamai HLS':
+            stream_info['stream_url'] = provider.get('contentUrl')
+            subtitles = provider.get('subtitles')
+            if subtitles:
+                for subs in subtitles:
+                    if subs.get('language') == 'en':
+                        stream_info['subtitles'] = subs.get('srt')
+                        break
+    return stream_info

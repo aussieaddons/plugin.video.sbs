@@ -1,24 +1,11 @@
-#
-#  SBS On Demand Kodi Add-on
-#  Copyright (C) 2015 Andy Botting
-#
-#  This addon is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation, either version 3 of the License, or
-#  (at your option) any later version.
-#
-#  This addon is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#
-#  You should have received a copy of the GNU General Public License
-#  along with this addon. If not, see <http://www.gnu.org/licenses/>.
-#
-
 import datetime
 import re
 import time
+import unicodedata
+from builtins import str
+from collections import OrderedDict
+
+from future.moves.urllib.parse import parse_qsl, quote_plus, unquote_plus
 
 from aussieaddonscommon import utils
 
@@ -26,10 +13,15 @@ from aussieaddonscommon import utils
 class Series(object):
 
     def __init__(self):
-        self.id = None
         self.description = None
-        self.num_episodes = 1
+        self.num_episodes = 0
         self.thumbnail = None
+        self.item_type = None
+        self.feed_url = None
+        self.title = None
+        self.obj_type = 'Series'
+        self.feed_id = None
+        self.require_login = None
 
     def __repr__(self):
         return self.title
@@ -46,10 +38,11 @@ class Series(object):
         return utils.descape(self.title)
 
     def get_list_title(self):
-        return "%s (%d)" % (self.get_title(), self.get_num_episodes())
-
-    def get_id(self):
-        return self.id
+        num_episodes = self.get_num_episodes()
+        if num_episodes:
+            return "{0} ({1})".format(self.get_title(), num_episodes)
+        else:
+            return self.get_title()
 
     def get_season(self):
         season = re.search('^.* Series (?P<season>\d+)$', self.get_title())
@@ -63,10 +56,6 @@ class Series(object):
     def get_num_episodes(self):
         return self.num_episodes
 
-    def get_keywords(self):
-        if self.keywords:
-            return self.keywords
-
     def get_thumbnail(self):
         if self.thumbnail:
             return self.thumbnail
@@ -75,11 +64,36 @@ class Series(object):
         if self.description:
             return self.description
 
-    def has_keyword(self, keyword):
-        for kw in self.keywords:
-            if kw == keyword:
-                return True
-        return False
+    def make_kodi_url(self):
+        d_original = OrderedDict(
+            sorted(self.__dict__.items(), key=lambda x: x[0]))
+        d = d_original.copy()
+        for key, value in d_original.items():
+            if not value:
+                d.pop(key)
+                continue
+            if isinstance(value, str):
+                d[key] = unicodedata.normalize(
+                    'NFKD', value).encode('ascii', 'ignore').decode('utf-8')
+        url = ''
+        for key in d.keys():
+            if isinstance(d[key], (str, bytes)):
+                val = quote_plus(d[key])
+            else:
+                val = d[key]
+            url += '&{0}={1}'.format(key, val)
+        return url
+
+    def parse_kodi_url(self, url):
+        params = dict(parse_qsl(url))
+        for item in params.keys():
+            setattr(self, item, unquote_plus(params[item]))
+        if self.date:
+            try:
+                self.date = datetime.datetime.strptime(self.date, "%Y-%m-%d")
+            except TypeError:
+                self.date = datetime.datetime(
+                    *(time.strptime(self.date, "%Y-%m-%d")[0:6]))
 
 
 class Program(object):
@@ -95,11 +109,12 @@ class Program(object):
         self.keywords = []
         self.rating = 'PG'
         self.duration = None
-        self.date = datetime.datetime.now()
+        self.date = None
         self.thumbnail = None
         self.url = None
         self.expire = None
         self.subfilename = None
+        self.obj_type = 'Program'
 
     def __repr__(self):
         return self.title
@@ -108,6 +123,11 @@ class Program(object):
         return (cmp(self.title, other.title) or
                 cmp(self.series, other.series) or
                 cmp(self.episode, other.episode))
+
+    def get_sort_title(self):
+        sort_title = self.title.lower()
+        sort_title = sort_title.replace('the ', '')
+        return sort_title
 
     def get_title(self):
         return utils.descape(self.title)
@@ -240,6 +260,26 @@ class Program(object):
         info_dict['width'] = '640'
         info_dict['height'] = '360'
         return info_dict
+
+    def make_kodi_url(self):
+        d_original = OrderedDict(
+            sorted(self.__dict__.items(), key=lambda x: x[0]))
+        d = d_original.copy()
+        for key, value in d_original.items():
+            if not value:
+                d.pop(key)
+                continue
+            if isinstance(value, str):
+                d[key] = unicodedata.normalize(
+                    'NFKD', value).encode('ascii', 'ignore').decode('utf-8')
+        url = ''
+        for key in d.keys():
+            if isinstance(d[key], (str, bytes)):
+                val = quote_plus(d[key])
+            else:
+                val = d[key]
+            url += '&{0}={1}'.format(key, val)
+        return url
 
     def make_xbmc_url(self):
         d = {}
