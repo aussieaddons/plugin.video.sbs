@@ -1,32 +1,14 @@
-#
-#  SBS On Demand Kodi Add-on
-#  Copyright (C) 2015 Andy Botting
-#
-#  This addon is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation, either version 3 of the License, or
-#  (at your option) any later version.
-#
-#  This addon is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#
-#  You should have received a copy of the GNU General Public License
-#  along with this addon. If not, see <http://www.gnu.org/licenses/>.
-#
-
 import classes
 import comm
 import os
 import sys
-import urllib2
 import xbmc
 import xbmcaddon
 import xbmcgui
 import xbmcplugin
 
 from aussieaddonscommon import utils
+from aussieaddonscommon import session
 
 
 def play(url):
@@ -34,24 +16,21 @@ def play(url):
         addon = xbmcaddon.Addon()
         p = classes.Program()
         p.parse_xbmc_url(url)
+        stream_info = comm.get_stream(p.id)
+        if not stream_info:
+            return
+        stream_url = stream_info.get('stream_url')
 
-        # Some programs don't have protected streams. 'Public' streams are
-        # set in program.url, otherwise we fetch it separately
-        if p.get_url():
-            stream_info = {}
-            stream_url = p.get_url()
-        else:
-            stream_info = comm.get_stream(p.id)
-            stream_url = stream_info['url']
 
         bandwidth = addon.getSetting('BANDWIDTH')
 
         if bandwidth == '0':
-            stream_url = stream_url.replace('&b=0-2000', '&b=0-700')
+            stream_url = stream_url.replace('&b=0-2000', '&b=400-600')
         elif bandwidth == '1':
-            stream_url = stream_url.replace('&b=0-2000', '&b=701-1250')
+            stream_url = stream_url.replace('&b=0-2000', '&b=900-1100')
         elif bandwidth == '2':
-            stream_url = stream_url.replace('&b=0-2000', '&b=1251-2000')
+            stream_url = stream_url.replace('&b=0-2000', '&b=1400-1600')
+
 
         listitem = xbmcgui.ListItem(label=p.get_list_title(),
                                     iconImage=p.thumbnail,
@@ -71,7 +50,8 @@ def play(url):
             if os.path.isfile(subfile):
                 os.remove(subfile)
             try:
-                data = urllib2.urlopen(sub_url).read()
+                sess = session.Session()
+                data = sess.get(sub_url).text
                 f = open(subfile, 'w')
                 f.write(data)
                 f.close()
@@ -80,6 +60,11 @@ def play(url):
                     listitem.setSubtitles([subfile])
             except Exception:
                 utils.log('Subtitles not available for this program')
+
+
+        listitem.setProperty('inputstreamaddon', 'inputstream.adaptive')
+        listitem.setProperty('inputstream.adaptive.manifest_type', 'hls')
+        listitem.setProperty('inputstream.adaptive.license_key', stream_url)
 
         if hasattr(listitem, 'addStreamInfo'):
             listitem.addStreamInfo('audio', p.get_kodi_audio_stream_info())
