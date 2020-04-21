@@ -183,7 +183,8 @@ def get_entries(params):
     """
     listing = []
     if params.get('require_login') == 'True':
-        resp = fetch_protected_url(params.get('feed_url'))
+        token = get_login_token()
+        resp = fetch_protected_url(params.get('feed_url'), token)
     else:
         resp = fetch_url(params.get('feed_url'))
     json_data = json.loads(resp)
