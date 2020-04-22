@@ -79,6 +79,12 @@ def fetch_protected_url(url, token):
     return fetch_url(url, headers)
 
 
+def get_attr(attrs, name, key):
+    for attr in attrs:
+        if attr.get(name) == key:
+            return attr.get('contentUrl')
+
+
 def get_index():
     """Fetch the main index.
 
@@ -124,6 +130,8 @@ def get_category(params):
                 continue
             s.item_type = layout.get('itemType')
             s.feed_url = data.get('feedUrl')
+            if s.item_type in ['genre']:
+                s.feed_url += '&range=1-100'
             display = data.get('display')
             if display:
                 if display.get('loggedIn'):
@@ -144,10 +152,20 @@ def get_category(params):
 
 def create_program(entry):
     p = classes.Program()
-    p.title = str(entry.get('name'))
     p.id = entry.get('id').split("/")[-1]
-    p.thumbnail = entry.get('thumbnailUrl')
+    p.thumb = entry.get('thumbnailUrl')
     p.description = entry.get('description')
+    p.season_no = entry.get('partOfSeason', {}).get('seasonNumber')
+    p.episode_no = entry.get('episodeNumber')
+    titles = entry.get('displayTitles')
+    if titles and p.season_no and p.episode_no:
+        p.series_title = titles.get('title')
+        p.title = titles.get('videoPlayer', {}).get('title')
+        if not p.series_title or not p.title:
+            p.title = str(entry.get('name'))
+            p.series_title = None
+    else:
+        p.title = str(entry.get('name'))
     return p
 
 
@@ -155,25 +173,48 @@ def create_series(entry):
     s = classes.Series()
     s.title = str(entry.get('name'))
     s.id = entry.get('id').split("/")[-1]
-    s.feed_url = entry.get('feed')
-    s.thumbnail = entry.get('thumbnailUrl')
+    s.thumb = entry.get('thumbnailUrl')
+    seasons = entry.get('containSeasons', [])
+    if len(seasons) > 1:
+        s.multi_series = 'True'
+        s.feed_url = config.SERIES_URL.replace('[SERIESID]', s.id)
+    else:
+        s.feed_url = entry.get('feed')
     return s
 
 def create_channel(entry):
     s = classes.Series()
     s.title = str(entry.get('name'))
     s.feed_id = entry.get('feedId')
-    s.thumbnail = entry.get('thumbnailUrl')
+    s.thumb = entry.get('thumbnailUrl')
     return s
 
 def create_genre_index(entry):
-    utils.log('creating genre index item')
     s = classes.Series()
     s.title = str(entry.get('name'))
     s.item_type = entry.get('type')
-    s.thumbnail = entry.get('thumbnailUrl')
+    s.thumb = entry.get('thumbnailUrl')
     return s
 
+
+def create_season(entry, thumb):
+    s = classes.Series()
+    s.title = str(entry.get('name'))
+    s.thumb = thumb
+    s.feed_url = entry.get('feedUrl')
+    return s
+
+
+def create_collection(entry):
+    s = classes.Series()
+    s.title = str(entry.get('name'))
+    s.description = entry.get('description')
+    s.feed_url = entry.get('feedUrl')
+    s.item_type = entry.get('type')
+    thumbs = entry.get('thumbnails', [])
+    s.fanart = get_attr(thumbs, 'name', 'Background 2X')
+    s.thumb = get_attr(thumbs, 'name', 'Thumbnail Large')
+    return s
 
 def get_entries(params):
     """
@@ -182,31 +223,52 @@ def get_entries(params):
     :return:
     """
     listing = []
+    feed_url = params.get('feed_url')
+    if params.get('item_type') == 'Collection':
+        feed_url += '&range=1-200'
     if params.get('require_login') == 'True':
         token = get_login_token()
-        resp = fetch_protected_url(params.get('feed_url'), token)
+        resp = fetch_protected_url(feed_url, token)
     else:
-        resp = fetch_url(params.get('feed_url'))
+        resp = fetch_url(feed_url)
     json_data = json.loads(resp)
-    for entry in json_data.get('itemListElement'):
-        try:
-            if params.get('item_type') == 'genre':
-                p = create_genre_index(entry)
-            elif entry.get('type') == 'TVSeries':
-                p = create_series(entry)
-            elif entry.get('type') == 'Channel':
-                p = create_channel(entry)
-                p.item_type = 'Channel'
-            elif params.get('item_type') == 'hero':
-                if entry.get('type') == 'Program':
-                    p = create_series(entry.get('program'))
-                elif entry.get('type') == 'VideoCarouselItem':
-                    p = create_program(entry.get('video'))
-            else:
-                p = create_program(entry)
-            listing.append(p)
-        except Exception:
-            utils.log('Error parsing entry')
+    if params.get('multi_series') == 'True':
+        seasons = []
+        thumb = json_data.get('program').get('thumbnailUrl')
+        for row in json_data.get('rows'):
+            if row.get('name') == 'Seasons':
+                seasons = row
+                break
+        for entry in seasons.get('feeds'):
+            try:
+                s = create_season(entry, thumb)
+                listing.append(s)
+            except Exception:
+                utils.log('Error parsing season entry')
+
+    else:
+        for entry in json_data.get('itemListElement'):
+            try:
+                if params.get('item_type') == 'genre':
+                    p = create_genre_index(entry)
+                elif entry.get('type') == 'TVSeries':
+                    p = create_series(entry)
+                elif entry.get('type') == 'Channel':
+                    p = create_channel(entry)
+                    p.item_type = 'Channel'
+                elif params.get('item_type') == 'hero':
+                    if entry.get('type') == 'Program':
+                        p = create_series(entry.get('program'))
+                    elif entry.get('type') == 'VideoCarouselItem':
+                        p = create_program(entry.get('video'))
+                elif params.get('item_type') == 'collection':
+                    p = create_collection(entry)
+                else:
+                    p = create_program(entry)
+                listing.append(p)
+            except Exception:
+                raise
+                utils.log('Error parsing entry')
 
     return listing
 

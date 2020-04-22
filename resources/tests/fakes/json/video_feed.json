@@ -1,0 +1,2110 @@
+{
+  "@context": [
+    "http:\/\/www.sbs.com.au\/schemas\/"
+  ],
+  "type": "ItemList",
+  "name": "Section - Programs",
+  "itemListElement": [
+    {
+      "actor": [],
+      "consumerAdvice": [
+        "a"
+      ],
+      "contentRating": "pg",
+      "country": {
+        "name": "USA"
+      },
+      "datePublished": "2018-01-01T01:01:01",
+      "description": "Picking up approximately three years after the Season Six finale, Jess and Nick return from a European book tour for \u201cThe Pepperwood Chronicles.\u201d Schmidt and Cece celebrate their daughter, Ruth\u2019s (Rhiannon and Danielle Rockoff), birthday with a party, where Jess runs into her ex, Russell (guest star Dermot Mulroney). Meanwhile, Winston and Aly (guest star Nasim Pedrad) try to pick a pregnancy photo.",
+      "descriptionHtml": "Picking up approximately three years after the Season Six finale, Jess and Nick return from a European book tour for \u201cThe Pepperwood Chronicles.\u201d Schmidt and Cece celebrate their daughter, Ruth\u2019s (Rhiannon and Danielle Rockoff), birthday with a party, where Jess runs into her ex, Russell (guest star Dermot Mulroney). Meanwhile, Winston and Aly (guest star Nasim Pedrad) try to pick a pregnancy photo. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+      "director": [],
+      "displayTitles": {
+        "double": {
+          "title": "New Girl",
+          "subtitle": "Season 7 Episode 1 - About Three Years Later"
+        },
+        "appleumc": {
+          "descriptive": "About Three Years Later",
+          "formatted": "About Three Years Later, Season 7 Episode 1"
+        },
+        "programpage": {
+          "playButton": "Play Season 7 Episode 1"
+        },
+        "seasonListTitle": "1. About Three Years Later",
+        "seasonlist": {
+          "title": "1. About Three Years Later"
+        },
+        "videoPlayer": {
+          "title": "About Three Years Later",
+          "subtitle": "New Girl, Season 7 Episode 1"
+        },
+        "episodePromotion": {
+          "title": "About Three Years Later",
+          "subtitle": "Season 7 Episode 1"
+        },
+        "title": "New Girl",
+        "subtitle": "Season 7 Episode 1 - About Three Years Later",
+        "components": {
+          "seasonEpisodeFull": "Season 7 Episode 1",
+          "seasonEpisodeAbbreviated": "S7 E1"
+        }
+      },
+      "duration": 1242,
+      "episodeNumber": 1,
+      "externalRelations": {
+        "mpx": {
+          "guid": 663580
+        },
+        "pilat": {
+          "deal": {
+            "id": "http:\/\/www.sbs.com.au\/pilatDealcode\/181034"
+          }
+        },
+        "roku": {
+          "mediatype": "episode",
+          "contentid": 663580
+        },
+        "appleUniversalSearch": {
+          "mediaIdentifier": "EPISODE_1604591171777"
+        }
+      },
+      "id": "http:\/\/www.sbs.com.au\/ondemand\/video\/1604591171777",
+      "inLanguage": [
+        {
+          "type": "Language",
+          "name": "English"
+        }
+      ],
+      "inStreamEvents": {
+        "chapters": [
+          0,
+          470.792,
+          767.166
+        ],
+        "creditsBegin": 1239,
+        "openingTitlesBegin": 169,
+        "openingTitlesEnd": 173
+      },
+      "name": "New Girl S7 Ep1 - About Three Years Later",
+      "offer": {
+        "availabilityStarts": "2019-09-30T14:00:00Z",
+        "availabilityEnds": "2020-09-30T13:59:59Z"
+      },
+      "partOfSeason": {
+        "seasonNumber": "7"
+      },
+      "partOfSeries": {
+        "name": "New Girl",
+        "id": "http:\/\/www.sbs.com.au\/program\/6627",
+        "slug": "new-girl"
+      },
+      "pilat": {
+        "id": "http:\/\/www.sbs.com.au\/pilatId\/663580"
+      },
+      "publication": {
+        "type": "BroadcastEvent",
+        "startDate": "2019-09-30T14:00:00Z"
+      },
+      "requiresSubscription": true,
+      "revision": {
+        "date": "20200416142820",
+        "id": 1843
+      },
+      "shortDescription": "Picking up approximately three years after the Season 6 finale, Jess and Nick return from a European book tour for \u201cThe Pepperwood Chronicles.\u201d",
+      "shortDescriptionHtml": "Picking up approximately three years after the Season 6 finale, Jess and Nick return from a European book tour for \u201cThe Pepperwood Chronicles.\u201d [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+      "taxonomy": {
+        "useType": "Full Episode",
+        "genre": [
+          {
+            "type": "Term",
+            "name": "Comedy"
+          }
+        ],
+        "subGenre": [
+          {
+            "type": "Term",
+            "name": "Comedy\/Narrative"
+          }
+        ],
+        "section": [
+          {
+            "type": "Term",
+            "name": "Programs"
+          }
+        ],
+        "channel": [
+          {
+            "type": "Term",
+            "name": "On Demand"
+          }
+        ],
+        "grouping": [
+          {
+            "type": "Term",
+            "name": "AVOD Drama"
+          }
+        ]
+      },
+      "thumbnailUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171777_09270409_image163502_large.jpg",
+      "thumbnails": [
+        {
+          "name": "4x3",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171777_09270409_image163502_4:3.jpg",
+          "width": 640,
+          "height": 480
+        },
+        {
+          "name": "Double",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171777_09270409_image163502_double.jpg",
+          "width": 460,
+          "height": 290
+        },
+        {
+          "name": "Facebook",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171777_09270409_image163502_facebook.jpg",
+          "width": 200,
+          "height": 200
+        },
+        {
+          "name": "Full",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171777_09270409_image163502_full.jpg",
+          "width": 704,
+          "height": 396
+        },
+        {
+          "name": "Full Mobile",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171777_09270409_image163502_fullmobile.jpg",
+          "width": 320,
+          "height": 180
+        },
+        {
+          "name": "Hd720",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171777_09270409_image163502_hd720.jpg",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "name": "Network Tile",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171777_09270409_image163502_networktile.jpg",
+          "width": 300,
+          "height": 250
+        },
+        {
+          "name": "Programs Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171777_09270409_image163502_programslarge.jpg",
+          "width": 460,
+          "height": 258
+        },
+        {
+          "name": "Programs Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171777_09270409_image163502_programssmall.jpg",
+          "width": 220,
+          "height": 122
+        },
+        {
+          "name": "Single",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171777_09270409_image163502_single.jpg",
+          "width": 220,
+          "height": 290
+        },
+        {
+          "name": "Sony",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171777_09270409_image163502_sony.jpg",
+          "width": 128,
+          "height": 96
+        },
+        {
+          "name": "Thumb Carousel Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171777_09270409_image163502_carousellarge.jpg",
+          "width": 396,
+          "height": 260
+        },
+        {
+          "name": "Thumb Carousel Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171777_09270409_image163502_carouselsmall.jpg",
+          "width": 220,
+          "height": 124
+        },
+        {
+          "name": "Thumb Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171777_09270409_image163502_thumbsmall.jpg",
+          "width": 100,
+          "height": 100
+        },
+        {
+          "name": "Thumbnail",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171777_09270409_image163502_small.jpg",
+          "width": 189,
+          "height": 106
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171777_09270409_image163502_large.jpg",
+          "width": 640,
+          "height": 360
+        }
+      ],
+      "type": "Episode",
+      "videoFormat": "HD",
+      "visualAids": {
+        "subtitles": [],
+        "closedCaptions": []
+      }
+    },
+    {
+      "actor": [],
+      "consumerAdvice": [
+        "a"
+      ],
+      "contentRating": "pg",
+      "country": {
+        "name": "USA"
+      },
+      "datePublished": "2018-01-01T01:01:01",
+      "description": "Jess feels neglected at work; after getting advice from a drunk and caffeinated Cece, she confronts her boss Russell about it. When Nick's draft on a new Pepperwood Chronicles novel is turned down by his editor Merle, Nick gets writer's block, so Schmidt and Winston try to help him with ideas. When Ruth and Schmidt visit Nick at the loft, Winston sees correlations between the lives of the three former roommates and the Three Men and a Baby films.",
+      "descriptionHtml": "Jess feels neglected at work; after getting advice from a drunk and caffeinated Cece, she confronts her boss Russell about it. When Nick's draft on a new Pepperwood Chronicles novel is turned down by his editor Merle, Nick gets writer's block, so Schmidt and Winston try to help him with ideas. When Ruth and Schmidt visit Nick at the loft, Winston sees correlations between the lives of the three former roommates and the Three Men and a Baby films. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+      "director": [],
+      "displayTitles": {
+        "double": {
+          "title": "New Girl",
+          "subtitle": "Season 7 Episode 2 - Tuesday Meeting"
+        },
+        "appleumc": {
+          "descriptive": "Tuesday Meeting",
+          "formatted": "Tuesday Meeting, Season 7 Episode 2"
+        },
+        "programpage": {
+          "playButton": "Play Season 7 Episode 2"
+        },
+        "seasonListTitle": "2. Tuesday Meeting",
+        "seasonlist": {
+          "title": "2. Tuesday Meeting"
+        },
+        "videoPlayer": {
+          "title": "Tuesday Meeting",
+          "subtitle": "New Girl, Season 7 Episode 2"
+        },
+        "episodePromotion": {
+          "title": "Tuesday Meeting",
+          "subtitle": "Season 7 Episode 2"
+        },
+        "title": "New Girl",
+        "subtitle": "Season 7 Episode 2 - Tuesday Meeting",
+        "components": {
+          "seasonEpisodeFull": "Season 7 Episode 2",
+          "seasonEpisodeAbbreviated": "S7 E2"
+        }
+      },
+      "duration": 1242,
+      "episodeNumber": 2,
+      "externalRelations": {
+        "mpx": {
+          "guid": 663581
+        },
+        "pilat": {
+          "deal": {
+            "id": "http:\/\/www.sbs.com.au\/pilatDealcode\/181034"
+          }
+        },
+        "roku": {
+          "mediatype": "episode",
+          "contentid": 663581
+        },
+        "appleUniversalSearch": {
+          "mediaIdentifier": "EPISODE_1604591171778"
+        }
+      },
+      "id": "http:\/\/www.sbs.com.au\/ondemand\/video\/1604591171778",
+      "inLanguage": [
+        {
+          "type": "Language",
+          "name": "English"
+        }
+      ],
+      "inStreamEvents": {
+        "chapters": [
+          0,
+          297.5,
+          771.625
+        ],
+        "creditsBegin": 1239,
+        "openingTitlesBegin": 118,
+        "openingTitlesEnd": 121
+      },
+      "name": "New Girl S7 Ep2 - Tuesday Meeting",
+      "offer": {
+        "availabilityStarts": "2019-09-30T14:00:00Z",
+        "availabilityEnds": "2020-09-30T13:59:59Z"
+      },
+      "partOfSeason": {
+        "seasonNumber": "7"
+      },
+      "partOfSeries": {
+        "name": "New Girl",
+        "id": "http:\/\/www.sbs.com.au\/program\/6627",
+        "slug": "new-girl"
+      },
+      "pilat": {
+        "id": "http:\/\/www.sbs.com.au\/pilatId\/663581"
+      },
+      "publication": {
+        "type": "BroadcastEvent",
+        "startDate": "2019-09-30T14:00:00Z"
+      },
+      "requiresSubscription": true,
+      "revision": {
+        "date": "20200416143757",
+        "id": 1812
+      },
+      "shortDescription": "Jess feels neglected at work; after getting advice from a drunk and caffeinated Cece, she confronts her boss Russell about it.",
+      "shortDescriptionHtml": "Jess feels neglected at work; after getting advice from a drunk and caffeinated Cece, she confronts her boss Russell about it. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+      "taxonomy": {
+        "useType": "Full Episode",
+        "genre": [
+          {
+            "type": "Term",
+            "name": "Comedy"
+          }
+        ],
+        "subGenre": [
+          {
+            "type": "Term",
+            "name": "Comedy\/Narrative"
+          }
+        ],
+        "section": [
+          {
+            "type": "Term",
+            "name": "Programs"
+          }
+        ],
+        "channel": [
+          {
+            "type": "Term",
+            "name": "On Demand"
+          }
+        ],
+        "grouping": [
+          {
+            "type": "Term",
+            "name": "AVOD Drama"
+          }
+        ]
+      },
+      "thumbnailUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171778_09270409_image163509_large.jpg",
+      "thumbnails": [
+        {
+          "name": "4x3",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171778_09270409_image163509_4:3.jpg",
+          "width": 640,
+          "height": 480
+        },
+        {
+          "name": "Double",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171778_09270409_image163509_double.jpg",
+          "width": 460,
+          "height": 290
+        },
+        {
+          "name": "Facebook",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171778_09270409_image163509_facebook.jpg",
+          "width": 200,
+          "height": 200
+        },
+        {
+          "name": "Full",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171778_09270409_image163509_full.jpg",
+          "width": 704,
+          "height": 396
+        },
+        {
+          "name": "Full Mobile",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171778_09270409_image163509_fullmobile.jpg",
+          "width": 320,
+          "height": 180
+        },
+        {
+          "name": "Hd720",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171778_09270409_image163509_hd720.jpg",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "name": "Network Tile",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171778_09270409_image163509_networktile.jpg",
+          "width": 300,
+          "height": 250
+        },
+        {
+          "name": "Programs Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171778_09270409_image163509_programslarge.jpg",
+          "width": 460,
+          "height": 258
+        },
+        {
+          "name": "Programs Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171778_09270409_image163509_programssmall.jpg",
+          "width": 220,
+          "height": 122
+        },
+        {
+          "name": "Single",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171778_09270409_image163509_single.jpg",
+          "width": 220,
+          "height": 290
+        },
+        {
+          "name": "Sony",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171778_09270409_image163509_sony.jpg",
+          "width": 128,
+          "height": 96
+        },
+        {
+          "name": "Thumb Carousel Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171778_09270409_image163509_carousellarge.jpg",
+          "width": 396,
+          "height": 260
+        },
+        {
+          "name": "Thumb Carousel Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171778_09270409_image163509_carouselsmall.jpg",
+          "width": 220,
+          "height": 124
+        },
+        {
+          "name": "Thumb Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171778_09270409_image163509_thumbsmall.jpg",
+          "width": 100,
+          "height": 100
+        },
+        {
+          "name": "Thumbnail",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171778_09270409_image163509_small.jpg",
+          "width": 189,
+          "height": 106
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171778_09270409_image163509_large.jpg",
+          "width": 640,
+          "height": 360
+        }
+      ],
+      "type": "Episode",
+      "videoFormat": "HD",
+      "visualAids": {
+        "subtitles": [],
+        "closedCaptions": []
+      }
+    },
+    {
+      "actor": [],
+      "consumerAdvice": [
+        "v",
+        "s"
+      ],
+      "contentRating": "m",
+      "country": {
+        "name": "USA"
+      },
+      "datePublished": "2018-01-01T01:01:01",
+      "description": "Nervous about Ruth\u2019s interview at a prestigious pre-school, Schmidt recruits Jess to help her prepare. Meanwhile, Nick procrastinates writing, and Winston prepares to confront his fear of testifying in court.",
+      "descriptionHtml": "Nervous about Ruth\u2019s interview at a prestigious pre-school, Schmidt recruits Jess to help her prepare. Meanwhile, Nick procrastinates writing, and Winston prepares to confront his fear of testifying in court. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+      "director": [],
+      "displayTitles": {
+        "double": {
+          "title": "New Girl",
+          "subtitle": "Season 7 Episode 3 - Lilypads"
+        },
+        "appleumc": {
+          "descriptive": "Lilypads",
+          "formatted": "Lilypads, Season 7 Episode 3"
+        },
+        "programpage": {
+          "playButton": "Play Season 7 Episode 3"
+        },
+        "seasonListTitle": "3. Lilypads",
+        "seasonlist": {
+          "title": "3. Lilypads"
+        },
+        "videoPlayer": {
+          "title": "Lilypads",
+          "subtitle": "New Girl, Season 7 Episode 3"
+        },
+        "episodePromotion": {
+          "title": "Lilypads",
+          "subtitle": "Season 7 Episode 3"
+        },
+        "title": "New Girl",
+        "subtitle": "Season 7 Episode 3 - Lilypads",
+        "components": {
+          "seasonEpisodeFull": "Season 7 Episode 3",
+          "seasonEpisodeAbbreviated": "S7 E3"
+        }
+      },
+      "duration": 1240,
+      "episodeNumber": 3,
+      "externalRelations": {
+        "mpx": {
+          "guid": 663582
+        },
+        "pilat": {
+          "deal": {
+            "id": "http:\/\/www.sbs.com.au\/pilatDealcode\/181034"
+          }
+        },
+        "roku": {
+          "mediatype": "episode",
+          "contentid": 663582
+        },
+        "appleUniversalSearch": {
+          "mediaIdentifier": "EPISODE_1604591171779"
+        }
+      },
+      "id": "http:\/\/www.sbs.com.au\/ondemand\/video\/1604591171779",
+      "inLanguage": [
+        {
+          "type": "Language",
+          "name": "English"
+        }
+      ],
+      "inStreamEvents": {
+        "chapters": [
+          0,
+          453.375,
+          784.5
+        ],
+        "creditsBegin": 1237,
+        "openingTitlesBegin": 111,
+        "openingTitlesEnd": 114
+      },
+      "name": "New Girl S7 Ep3 - Lilypads",
+      "offer": {
+        "availabilityStarts": "2019-09-30T14:00:00Z",
+        "availabilityEnds": "2020-09-30T13:59:59Z"
+      },
+      "partOfSeason": {
+        "seasonNumber": "7"
+      },
+      "partOfSeries": {
+        "name": "New Girl",
+        "id": "http:\/\/www.sbs.com.au\/program\/6627",
+        "slug": "new-girl"
+      },
+      "pilat": {
+        "id": "http:\/\/www.sbs.com.au\/pilatId\/663582"
+      },
+      "publication": {
+        "type": "BroadcastEvent",
+        "startDate": "2019-09-30T14:00:00Z"
+      },
+      "requiresSubscription": true,
+      "revision": {
+        "date": "20200416142839",
+        "id": 1811
+      },
+      "shortDescription": "Nervous about Ruth\u2019s interview at a prestigious pre-school, Schmidt recruits Jess to help her prepare.",
+      "shortDescriptionHtml": "Nervous about Ruth\u2019s interview at a prestigious pre-school, Schmidt recruits Jess to help her prepare. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+      "taxonomy": {
+        "useType": "Full Episode",
+        "genre": [
+          {
+            "type": "Term",
+            "name": "Comedy"
+          }
+        ],
+        "subGenre": [
+          {
+            "type": "Term",
+            "name": "Comedy\/Narrative"
+          }
+        ],
+        "section": [
+          {
+            "type": "Term",
+            "name": "Programs"
+          }
+        ],
+        "channel": [
+          {
+            "type": "Term",
+            "name": "On Demand"
+          }
+        ],
+        "grouping": [
+          {
+            "type": "Term",
+            "name": "AVOD Drama"
+          }
+        ]
+      },
+      "thumbnailUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171779_09270409_image163513_large.jpg",
+      "thumbnails": [
+        {
+          "name": "4x3",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171779_09270409_image163513_4:3.jpg",
+          "width": 640,
+          "height": 480
+        },
+        {
+          "name": "Double",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171779_09270409_image163513_double.jpg",
+          "width": 460,
+          "height": 290
+        },
+        {
+          "name": "Facebook",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171779_09270409_image163513_facebook.jpg",
+          "width": 200,
+          "height": 200
+        },
+        {
+          "name": "Full",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171779_09270409_image163513_full.jpg",
+          "width": 704,
+          "height": 396
+        },
+        {
+          "name": "Full Mobile",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171779_09270409_image163513_fullmobile.jpg",
+          "width": 320,
+          "height": 180
+        },
+        {
+          "name": "Hd720",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171779_09270409_image163513_hd720.jpg",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "name": "Network Tile",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171779_09270409_image163513_networktile.jpg",
+          "width": 300,
+          "height": 250
+        },
+        {
+          "name": "Programs Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171779_09270409_image163513_programslarge.jpg",
+          "width": 460,
+          "height": 258
+        },
+        {
+          "name": "Programs Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171779_09270409_image163513_programssmall.jpg",
+          "width": 220,
+          "height": 122
+        },
+        {
+          "name": "Single",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171779_09270409_image163513_single.jpg",
+          "width": 220,
+          "height": 290
+        },
+        {
+          "name": "Sony",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171779_09270409_image163513_sony.jpg",
+          "width": 128,
+          "height": 96
+        },
+        {
+          "name": "Thumb Carousel Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171779_09270409_image163513_carousellarge.jpg",
+          "width": 396,
+          "height": 260
+        },
+        {
+          "name": "Thumb Carousel Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171779_09270409_image163513_carouselsmall.jpg",
+          "width": 220,
+          "height": 124
+        },
+        {
+          "name": "Thumb Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171779_09270409_image163513_thumbsmall.jpg",
+          "width": 100,
+          "height": 100
+        },
+        {
+          "name": "Thumbnail",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171779_09270409_image163513_small.jpg",
+          "width": 189,
+          "height": 106
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171779_09270409_image163513_large.jpg",
+          "width": 640,
+          "height": 360
+        }
+      ],
+      "type": "Episode",
+      "videoFormat": "HD",
+      "visualAids": {
+        "subtitles": [],
+        "closedCaptions": []
+      }
+    },
+    {
+      "actor": [],
+      "consumerAdvice": [
+        "s",
+        "a"
+      ],
+      "contentRating": "pg",
+      "country": {
+        "name": "USA"
+      },
+      "datePublished": "2018-01-01T01:01:01",
+      "description": "The gang gathers for a one-year memorial service for a beloved friend. Meanwhile, Jess discovers Coach owes Nick a large sum of money.",
+      "descriptionHtml": "The gang gathers for a one-year memorial service for a beloved friend. Meanwhile, Jess discovers Coach owes Nick a large sum of money. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+      "director": [],
+      "displayTitles": {
+        "double": {
+          "title": "New Girl",
+          "subtitle": "Season 7 Episode 4 - Where The Road Goes"
+        },
+        "appleumc": {
+          "descriptive": "Where The Road Goes",
+          "formatted": "Where The Road Goes, Season 7 Episode 4"
+        },
+        "programpage": {
+          "playButton": "Play Season 7 Episode 4"
+        },
+        "seasonListTitle": "4. Where The Road Goes",
+        "seasonlist": {
+          "title": "4. Where The Road Goes"
+        },
+        "videoPlayer": {
+          "title": "Where The Road Goes",
+          "subtitle": "New Girl, Season 7 Episode 4"
+        },
+        "episodePromotion": {
+          "title": "Where The Road Goes",
+          "subtitle": "Season 7 Episode 4"
+        },
+        "title": "New Girl",
+        "subtitle": "Season 7 Episode 4 - Where The Road Goes",
+        "components": {
+          "seasonEpisodeFull": "Season 7 Episode 4",
+          "seasonEpisodeAbbreviated": "S7 E4"
+        }
+      },
+      "duration": 1242,
+      "episodeNumber": 4,
+      "externalRelations": {
+        "mpx": {
+          "guid": 663583
+        },
+        "pilat": {
+          "deal": {
+            "id": "http:\/\/www.sbs.com.au\/pilatDealcode\/181034"
+          }
+        },
+        "roku": {
+          "mediatype": "episode",
+          "contentid": 663583
+        },
+        "appleUniversalSearch": {
+          "mediaIdentifier": "EPISODE_1604591171780"
+        }
+      },
+      "id": "http:\/\/www.sbs.com.au\/ondemand\/video\/1604591171780",
+      "inLanguage": [
+        {
+          "type": "Language",
+          "name": "English"
+        }
+      ],
+      "inStreamEvents": {
+        "chapters": [
+          0,
+          411.833,
+          605.833
+        ],
+        "creditsBegin": 1239,
+        "openingTitlesBegin": 132,
+        "openingTitlesEnd": 136
+      },
+      "name": "New Girl S7 Ep4 - Where The Road Goes",
+      "offer": {
+        "availabilityStarts": "2019-09-30T14:00:00Z",
+        "availabilityEnds": "2020-09-30T13:59:59Z"
+      },
+      "partOfSeason": {
+        "seasonNumber": "7"
+      },
+      "partOfSeries": {
+        "name": "New Girl",
+        "id": "http:\/\/www.sbs.com.au\/program\/6627",
+        "slug": "new-girl"
+      },
+      "pilat": {
+        "id": "http:\/\/www.sbs.com.au\/pilatId\/663583"
+      },
+      "publication": {
+        "type": "BroadcastEvent",
+        "startDate": "2019-09-30T14:00:00Z"
+      },
+      "requiresSubscription": true,
+      "revision": {
+        "date": "20200416143329",
+        "id": 1801
+      },
+      "shortDescription": "The gang pays tribute to an old friend.",
+      "shortDescriptionHtml": "The gang pays tribute to an old friend. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+      "taxonomy": {
+        "useType": "Full Episode",
+        "genre": [
+          {
+            "type": "Term",
+            "name": "Comedy"
+          }
+        ],
+        "subGenre": [
+          {
+            "type": "Term",
+            "name": "Comedy\/Narrative"
+          }
+        ],
+        "section": [
+          {
+            "type": "Term",
+            "name": "Programs"
+          }
+        ],
+        "channel": [
+          {
+            "type": "Term",
+            "name": "On Demand"
+          }
+        ],
+        "grouping": [
+          {
+            "type": "Term",
+            "name": "AVOD Drama"
+          }
+        ]
+      },
+      "thumbnailUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171780_09270409_image163516_large.jpg",
+      "thumbnails": [
+        {
+          "name": "4x3",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171780_09270409_image163516_4:3.jpg",
+          "width": 640,
+          "height": 480
+        },
+        {
+          "name": "Double",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171780_09270409_image163516_double.jpg",
+          "width": 460,
+          "height": 290
+        },
+        {
+          "name": "Facebook",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171780_09270409_image163516_facebook.jpg",
+          "width": 200,
+          "height": 200
+        },
+        {
+          "name": "Full",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171780_09270409_image163516_full.jpg",
+          "width": 704,
+          "height": 396
+        },
+        {
+          "name": "Full Mobile",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171780_09270409_image163516_fullmobile.jpg",
+          "width": 320,
+          "height": 180
+        },
+        {
+          "name": "Hd720",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171780_09270409_image163516_hd720.jpg",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "name": "Network Tile",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171780_09270409_image163516_networktile.jpg",
+          "width": 300,
+          "height": 250
+        },
+        {
+          "name": "Programs Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171780_09270409_image163516_programslarge.jpg",
+          "width": 460,
+          "height": 258
+        },
+        {
+          "name": "Programs Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171780_09270409_image163516_programssmall.jpg",
+          "width": 220,
+          "height": 122
+        },
+        {
+          "name": "Single",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171780_09270409_image163516_single.jpg",
+          "width": 220,
+          "height": 290
+        },
+        {
+          "name": "Sony",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171780_09270409_image163516_sony.jpg",
+          "width": 128,
+          "height": 96
+        },
+        {
+          "name": "Thumb Carousel Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171780_09270409_image163516_carousellarge.jpg",
+          "width": 396,
+          "height": 260
+        },
+        {
+          "name": "Thumb Carousel Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171780_09270409_image163516_carouselsmall.jpg",
+          "width": 220,
+          "height": 124
+        },
+        {
+          "name": "Thumb Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171780_09270409_image163516_thumbsmall.jpg",
+          "width": 100,
+          "height": 100
+        },
+        {
+          "name": "Thumbnail",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171780_09270409_image163516_small.jpg",
+          "width": 189,
+          "height": 106
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171780_09270409_image163516_large.jpg",
+          "width": 640,
+          "height": 360
+        }
+      ],
+      "type": "Episode",
+      "videoFormat": "HD",
+      "visualAids": {
+        "subtitles": [],
+        "closedCaptions": []
+      }
+    },
+    {
+      "actor": [],
+      "consumerAdvice": [
+        "s",
+        "a"
+      ],
+      "contentRating": "pg",
+      "country": {
+        "name": "USA"
+      },
+      "datePublished": "2018-01-01T01:01:01",
+      "description": "Jess tries to appease Winston\u2019s anxiety about his impending fatherhood by tracking down his long lost dad. Meanwhile, Schmidt goes back to work for the first time since Ruth\u2019s birth.",
+      "descriptionHtml": "Jess tries to appease Winston\u2019s anxiety about his impending fatherhood by tracking down his long lost dad. Meanwhile, Schmidt goes back to work for the first time since Ruth\u2019s birth. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+      "director": [],
+      "displayTitles": {
+        "double": {
+          "title": "New Girl",
+          "subtitle": "Season 7 Episode 5 - Godparents"
+        },
+        "appleumc": {
+          "descriptive": "Godparents",
+          "formatted": "Godparents, Season 7 Episode 5"
+        },
+        "programpage": {
+          "playButton": "Play Season 7 Episode 5"
+        },
+        "seasonListTitle": "5. Godparents",
+        "seasonlist": {
+          "title": "5. Godparents"
+        },
+        "videoPlayer": {
+          "title": "Godparents",
+          "subtitle": "New Girl, Season 7 Episode 5"
+        },
+        "episodePromotion": {
+          "title": "Godparents",
+          "subtitle": "Season 7 Episode 5"
+        },
+        "title": "New Girl",
+        "subtitle": "Season 7 Episode 5 - Godparents",
+        "components": {
+          "seasonEpisodeFull": "Season 7 Episode 5",
+          "seasonEpisodeAbbreviated": "S7 E5"
+        }
+      },
+      "duration": 1242,
+      "episodeNumber": 5,
+      "externalRelations": {
+        "mpx": {
+          "guid": 663584
+        },
+        "pilat": {
+          "deal": {
+            "id": "http:\/\/www.sbs.com.au\/pilatDealcode\/181034"
+          }
+        },
+        "roku": {
+          "mediatype": "episode",
+          "contentid": 663584
+        },
+        "appleUniversalSearch": {
+          "mediaIdentifier": "EPISODE_1604591171781"
+        }
+      },
+      "id": "http:\/\/www.sbs.com.au\/ondemand\/video\/1604591171781",
+      "inLanguage": [
+        {
+          "type": "Language",
+          "name": "English"
+        }
+      ],
+      "inStreamEvents": {
+        "chapters": [
+          0,
+          400.125,
+          692.583
+        ],
+        "creditsBegin": 1239,
+        "openingTitlesBegin": 123,
+        "openingTitlesEnd": 126
+      },
+      "name": "New Girl S7 Ep5 - Godparents",
+      "offer": {
+        "availabilityStarts": "2019-09-30T14:00:00Z",
+        "availabilityEnds": "2020-09-30T13:59:59Z"
+      },
+      "partOfSeason": {
+        "seasonNumber": "7"
+      },
+      "partOfSeries": {
+        "name": "New Girl",
+        "id": "http:\/\/www.sbs.com.au\/program\/6627",
+        "slug": "new-girl"
+      },
+      "pilat": {
+        "id": "http:\/\/www.sbs.com.au\/pilatId\/663584"
+      },
+      "publication": {
+        "type": "BroadcastEvent",
+        "startDate": "2019-09-30T14:00:00Z"
+      },
+      "requiresSubscription": true,
+      "revision": {
+        "date": "20200418040842",
+        "id": 1832
+      },
+      "shortDescription": "WInston reunites with his dad.",
+      "shortDescriptionHtml": "WInston reunites with his dad. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+      "taxonomy": {
+        "useType": "Full Episode",
+        "genre": [
+          {
+            "type": "Term",
+            "name": "Comedy"
+          }
+        ],
+        "subGenre": [
+          {
+            "type": "Term",
+            "name": "Comedy\/Narrative"
+          }
+        ],
+        "section": [
+          {
+            "type": "Term",
+            "name": "Programs"
+          }
+        ],
+        "channel": [
+          {
+            "type": "Term",
+            "name": "On Demand"
+          }
+        ],
+        "grouping": [
+          {
+            "type": "Term",
+            "name": "AVOD Drama"
+          }
+        ]
+      },
+      "thumbnailUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171781_09270409_image163519_large.jpg",
+      "thumbnails": [
+        {
+          "name": "4x3",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171781_09270409_image163519_4:3.jpg",
+          "width": 640,
+          "height": 480
+        },
+        {
+          "name": "Double",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171781_09270409_image163519_double.jpg",
+          "width": 460,
+          "height": 290
+        },
+        {
+          "name": "Facebook",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171781_09270409_image163519_facebook.jpg",
+          "width": 200,
+          "height": 200
+        },
+        {
+          "name": "Full",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171781_09270409_image163519_full.jpg",
+          "width": 704,
+          "height": 396
+        },
+        {
+          "name": "Full Mobile",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171781_09270409_image163519_fullmobile.jpg",
+          "width": 320,
+          "height": 180
+        },
+        {
+          "name": "Hd720",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171781_09270409_image163519_hd720.jpg",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "name": "Network Tile",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171781_09270409_image163519_networktile.jpg",
+          "width": 300,
+          "height": 250
+        },
+        {
+          "name": "Programs Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171781_09270409_image163519_programslarge.jpg",
+          "width": 460,
+          "height": 258
+        },
+        {
+          "name": "Programs Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171781_09270409_image163519_programssmall.jpg",
+          "width": 220,
+          "height": 122
+        },
+        {
+          "name": "Single",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171781_09270409_image163519_single.jpg",
+          "width": 220,
+          "height": 290
+        },
+        {
+          "name": "Sony",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171781_09270409_image163519_sony.jpg",
+          "width": 128,
+          "height": 96
+        },
+        {
+          "name": "Thumb Carousel Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171781_09270409_image163519_carousellarge.jpg",
+          "width": 396,
+          "height": 260
+        },
+        {
+          "name": "Thumb Carousel Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171781_09270409_image163519_carouselsmall.jpg",
+          "width": 220,
+          "height": 124
+        },
+        {
+          "name": "Thumb Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171781_09270409_image163519_thumbsmall.jpg",
+          "width": 100,
+          "height": 100
+        },
+        {
+          "name": "Thumbnail",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171781_09270409_image163519_small.jpg",
+          "width": 189,
+          "height": 106
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171781_09270409_image163519_large.jpg",
+          "width": 640,
+          "height": 360
+        }
+      ],
+      "type": "Episode",
+      "videoFormat": "HD",
+      "visualAids": {
+        "subtitles": [],
+        "closedCaptions": []
+      }
+    },
+    {
+      "actor": [],
+      "consumerAdvice": [
+        "s"
+      ],
+      "contentRating": "m",
+      "country": {
+        "name": "USA"
+      },
+      "datePublished": "2018-01-01T01:01:01",
+      "description": "Nick\u2019s plan to propose to Jess is thrown off-course when they decide to get a dog, Winston sees colour for the first time and Schmidt worries about Cece getting pregnant again.",
+      "descriptionHtml": "Nick\u2019s plan to propose to Jess is thrown off-course when they decide to get a dog, Winston sees colour for the first time and Schmidt worries about Cece getting pregnant again. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+      "director": [],
+      "displayTitles": {
+        "double": {
+          "title": "New Girl",
+          "subtitle": "Season 7 Episode 6 - Mario"
+        },
+        "appleumc": {
+          "descriptive": "Mario",
+          "formatted": "Mario, Season 7 Episode 6"
+        },
+        "programpage": {
+          "playButton": "Play Season 7 Episode 6"
+        },
+        "seasonListTitle": "6. Mario",
+        "seasonlist": {
+          "title": "6. Mario"
+        },
+        "videoPlayer": {
+          "title": "Mario",
+          "subtitle": "New Girl, Season 7 Episode 6"
+        },
+        "episodePromotion": {
+          "title": "Mario",
+          "subtitle": "Season 7 Episode 6"
+        },
+        "title": "New Girl",
+        "subtitle": "Season 7 Episode 6 - Mario",
+        "components": {
+          "seasonEpisodeFull": "Season 7 Episode 6",
+          "seasonEpisodeAbbreviated": "S7 E6"
+        }
+      },
+      "duration": 1242,
+      "episodeNumber": 6,
+      "externalRelations": {
+        "mpx": {
+          "guid": 663585
+        },
+        "pilat": {
+          "deal": {
+            "id": "http:\/\/www.sbs.com.au\/pilatDealcode\/181034"
+          }
+        },
+        "roku": {
+          "mediatype": "episode",
+          "contentid": 663585
+        },
+        "appleUniversalSearch": {
+          "mediaIdentifier": "EPISODE_1604591171782"
+        }
+      },
+      "id": "http:\/\/www.sbs.com.au\/ondemand\/video\/1604591171782",
+      "inLanguage": [
+        {
+          "type": "Language",
+          "name": "English"
+        }
+      ],
+      "inStreamEvents": {
+        "chapters": [
+          0,
+          503.5,
+          836.958
+        ],
+        "creditsBegin": 1205,
+        "openingTitlesBegin": 199,
+        "openingTitlesEnd": 202
+      },
+      "name": "New Girl S7 Ep6 - Mario",
+      "offer": {
+        "availabilityStarts": "2019-09-30T14:00:00Z",
+        "availabilityEnds": "2020-09-30T13:59:59Z"
+      },
+      "partOfSeason": {
+        "seasonNumber": "7"
+      },
+      "partOfSeries": {
+        "name": "New Girl",
+        "id": "http:\/\/www.sbs.com.au\/program\/6627",
+        "slug": "new-girl"
+      },
+      "pilat": {
+        "id": "http:\/\/www.sbs.com.au\/pilatId\/663585"
+      },
+      "publication": {
+        "type": "BroadcastEvent",
+        "startDate": "2019-09-30T14:00:00Z"
+      },
+      "requiresSubscription": true,
+      "revision": {
+        "date": "20200418144009",
+        "id": 1828
+      },
+      "shortDescription": "Jess and Nick consider adding to the family.",
+      "shortDescriptionHtml": "Jess and Nick consider adding to the family. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+      "taxonomy": {
+        "useType": "Full Episode",
+        "genre": [
+          {
+            "type": "Term",
+            "name": "Comedy"
+          }
+        ],
+        "subGenre": [
+          {
+            "type": "Term",
+            "name": "Comedy\/Narrative"
+          }
+        ],
+        "section": [
+          {
+            "type": "Term",
+            "name": "Programs"
+          }
+        ],
+        "channel": [
+          {
+            "type": "Term",
+            "name": "On Demand"
+          }
+        ],
+        "grouping": [
+          {
+            "type": "Term",
+            "name": "AVOD Drama"
+          }
+        ]
+      },
+      "thumbnailUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171782_09270409_image163524_large.jpg",
+      "thumbnails": [
+        {
+          "name": "4x3",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171782_09270409_image163524_4:3.jpg",
+          "width": 640,
+          "height": 480
+        },
+        {
+          "name": "Double",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171782_09270409_image163524_double.jpg",
+          "width": 460,
+          "height": 290
+        },
+        {
+          "name": "Facebook",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171782_09270409_image163524_facebook.jpg",
+          "width": 200,
+          "height": 200
+        },
+        {
+          "name": "Full",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171782_09270409_image163524_full.jpg",
+          "width": 704,
+          "height": 396
+        },
+        {
+          "name": "Full Mobile",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171782_09270409_image163524_fullmobile.jpg",
+          "width": 320,
+          "height": 180
+        },
+        {
+          "name": "Hd720",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171782_09270409_image163524_hd720.jpg",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "name": "Network Tile",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171782_09270409_image163524_networktile.jpg",
+          "width": 300,
+          "height": 250
+        },
+        {
+          "name": "Programs Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171782_09270409_image163524_programslarge.jpg",
+          "width": 460,
+          "height": 258
+        },
+        {
+          "name": "Programs Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171782_09270409_image163524_programssmall.jpg",
+          "width": 220,
+          "height": 122
+        },
+        {
+          "name": "Single",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171782_09270409_image163524_single.jpg",
+          "width": 220,
+          "height": 290
+        },
+        {
+          "name": "Sony",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171782_09270409_image163524_sony.jpg",
+          "width": 128,
+          "height": 96
+        },
+        {
+          "name": "Thumb Carousel Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171782_09270409_image163524_carousellarge.jpg",
+          "width": 396,
+          "height": 260
+        },
+        {
+          "name": "Thumb Carousel Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171782_09270409_image163524_carouselsmall.jpg",
+          "width": 220,
+          "height": 124
+        },
+        {
+          "name": "Thumb Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171782_09270409_image163524_thumbsmall.jpg",
+          "width": 100,
+          "height": 100
+        },
+        {
+          "name": "Thumbnail",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171782_09270409_image163524_small.jpg",
+          "width": 189,
+          "height": 106
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171782_09270409_image163524_large.jpg",
+          "width": 640,
+          "height": 360
+        }
+      ],
+      "type": "Episode",
+      "videoFormat": "HD",
+      "visualAids": {
+        "subtitles": [],
+        "closedCaptions": []
+      }
+    },
+    {
+      "actor": [],
+      "consumerAdvice": [
+        "d"
+      ],
+      "contentRating": "m",
+      "country": {
+        "name": "USA"
+      },
+      "datePublished": "2018-01-01T01:01:01",
+      "description": "Jess and Nick make two life-changing decisions and Winston and Aly\u2019s big day arrives.",
+      "descriptionHtml": "Jess and Nick make two life-changing decisions and Winston and Aly\u2019s big day arrives. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+      "director": [],
+      "displayTitles": {
+        "double": {
+          "title": "New Girl",
+          "subtitle": "Season 7 Episode 7 - The Curse Of The Pirate Bride"
+        },
+        "appleumc": {
+          "descriptive": "The Curse Of The Pirate Bride",
+          "formatted": "The Curse Of The Pirate Bride, Season 7 Episode 7"
+        },
+        "programpage": {
+          "playButton": "Play Season 7 Episode 7"
+        },
+        "seasonListTitle": "7. The Curse Of The Pirate Bride",
+        "seasonlist": {
+          "title": "7. The Curse Of The Pirate Bride"
+        },
+        "videoPlayer": {
+          "title": "The Curse Of The Pirate Bride",
+          "subtitle": "New Girl, Season 7 Episode 7"
+        },
+        "episodePromotion": {
+          "title": "The Curse Of The Pirate Bride",
+          "subtitle": "Season 7 Episode 7"
+        },
+        "title": "New Girl",
+        "subtitle": "Season 7 Episode 7 - The Curse Of The Pirate Bride",
+        "components": {
+          "seasonEpisodeFull": "Season 7 Episode 7",
+          "seasonEpisodeAbbreviated": "S7 E7"
+        }
+      },
+      "duration": 1242,
+      "episodeNumber": 7,
+      "externalRelations": {
+        "mpx": {
+          "guid": 663586
+        },
+        "pilat": {
+          "deal": {
+            "id": "http:\/\/www.sbs.com.au\/pilatDealcode\/181034"
+          }
+        },
+        "roku": {
+          "mediatype": "episode",
+          "contentid": 663586
+        },
+        "appleUniversalSearch": {
+          "mediaIdentifier": "EPISODE_1604591171783"
+        }
+      },
+      "id": "http:\/\/www.sbs.com.au\/ondemand\/video\/1604591171783",
+      "inLanguage": [
+        {
+          "type": "Language",
+          "name": "English"
+        }
+      ],
+      "inStreamEvents": {
+        "chapters": [
+          0,
+          457.5,
+          716.458
+        ],
+        "creditsBegin": 1234,
+        "openingTitlesBegin": 187,
+        "openingTitlesEnd": 190
+      },
+      "name": "New Girl S7 Ep7 - The Curse Of The Pirate Bride",
+      "offer": {
+        "availabilityStarts": "2019-09-30T14:00:00Z",
+        "availabilityEnds": "2020-09-30T13:59:59Z"
+      },
+      "partOfSeason": {
+        "seasonNumber": "7"
+      },
+      "partOfSeries": {
+        "name": "New Girl",
+        "id": "http:\/\/www.sbs.com.au\/program\/6627",
+        "slug": "new-girl"
+      },
+      "pilat": {
+        "id": "http:\/\/www.sbs.com.au\/pilatId\/663586"
+      },
+      "publication": {
+        "type": "BroadcastEvent",
+        "startDate": "2019-09-30T14:00:00Z"
+      },
+      "requiresSubscription": true,
+      "revision": {
+        "date": "20200418144011",
+        "id": 1836
+      },
+      "shortDescription": "Jess makes big decisions.",
+      "shortDescriptionHtml": "Jess makes big decisions. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+      "taxonomy": {
+        "useType": "Full Episode",
+        "genre": [
+          {
+            "type": "Term",
+            "name": "Comedy"
+          }
+        ],
+        "subGenre": [
+          {
+            "type": "Term",
+            "name": "Comedy\/Narrative"
+          }
+        ],
+        "section": [
+          {
+            "type": "Term",
+            "name": "Programs"
+          }
+        ],
+        "channel": [
+          {
+            "type": "Term",
+            "name": "On Demand"
+          }
+        ],
+        "grouping": [
+          {
+            "type": "Term",
+            "name": "AVOD Drama"
+          }
+        ]
+      },
+      "thumbnailUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171783_09270409_image163526_large.jpg",
+      "thumbnails": [
+        {
+          "name": "4x3",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171783_09270409_image163526_4:3.jpg",
+          "width": 640,
+          "height": 480
+        },
+        {
+          "name": "Double",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171783_09270409_image163526_double.jpg",
+          "width": 460,
+          "height": 290
+        },
+        {
+          "name": "Facebook",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171783_09270409_image163526_facebook.jpg",
+          "width": 200,
+          "height": 200
+        },
+        {
+          "name": "Full",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171783_09270409_image163526_full.jpg",
+          "width": 704,
+          "height": 396
+        },
+        {
+          "name": "Full Mobile",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171783_09270409_image163526_fullmobile.jpg",
+          "width": 320,
+          "height": 180
+        },
+        {
+          "name": "Hd720",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171783_09270409_image163526_hd720.jpg",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "name": "Network Tile",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171783_09270409_image163526_networktile.jpg",
+          "width": 300,
+          "height": 250
+        },
+        {
+          "name": "Programs Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171783_09270409_image163526_programslarge.jpg",
+          "width": 460,
+          "height": 258
+        },
+        {
+          "name": "Programs Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171783_09270409_image163526_programssmall.jpg",
+          "width": 220,
+          "height": 122
+        },
+        {
+          "name": "Single",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171783_09270409_image163526_single.jpg",
+          "width": 220,
+          "height": 290
+        },
+        {
+          "name": "Sony",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171783_09270409_image163526_sony.jpg",
+          "width": 128,
+          "height": 96
+        },
+        {
+          "name": "Thumb Carousel Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171783_09270409_image163526_carousellarge.jpg",
+          "width": 396,
+          "height": 260
+        },
+        {
+          "name": "Thumb Carousel Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171783_09270409_image163526_carouselsmall.jpg",
+          "width": 220,
+          "height": 124
+        },
+        {
+          "name": "Thumb Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171783_09270409_image163526_thumbsmall.jpg",
+          "width": 100,
+          "height": 100
+        },
+        {
+          "name": "Thumbnail",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171783_09270409_image163526_small.jpg",
+          "width": 189,
+          "height": 106
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171783_09270409_image163526_large.jpg",
+          "width": 640,
+          "height": 360
+        }
+      ],
+      "type": "Episode",
+      "videoFormat": "HD",
+      "visualAids": {
+        "subtitles": [],
+        "closedCaptions": []
+      }
+    },
+    {
+      "actor": [],
+      "consumerAdvice": [
+        "s"
+      ],
+      "contentRating": "m",
+      "country": {
+        "name": "USA"
+      },
+      "datePublished": "2018-01-01T01:01:01",
+      "description": "One month after getting married, Nick and Jess call Cece, Schmidt and Winston to inform them that they're being evicted by \"Engram Pattersky\", along with everyone else in the building. Jess tries to make everyone express their feelings about leaving the loft forever. Although the others have already let go, they see how much it means to Jess, so they go along with her activity, nostalgically going through old items and also trying things they have never done at the loft before. They then play True American: Packing Edition, during which a flash-forward is shown of them and their kids playing the game.",
+      "descriptionHtml": "One month after getting married, Nick and Jess call Cece, Schmidt and Winston to inform them that they're being evicted by \"Engram Pattersky\", along with everyone else in the building. Jess tries to make everyone express their feelings about leaving the loft forever. Although the others have already let go, they see how much it means to Jess, so they go along with her activity, nostalgically going through old items and also trying things they have never done at the loft before. They then play True American: Packing Edition, during which a flash-forward is shown of them and their kids playing the game. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+      "director": [],
+      "displayTitles": {
+        "double": {
+          "title": "New Girl",
+          "subtitle": "Season 7 Episode 8 - Engram Pattersky"
+        },
+        "appleumc": {
+          "descriptive": "Engram Pattersky",
+          "formatted": "Engram Pattersky, Season 7 Episode 8"
+        },
+        "programpage": {
+          "playButton": "Play Season 7 Episode 8"
+        },
+        "seasonListTitle": "8. Engram Pattersky",
+        "seasonlist": {
+          "title": "8. Engram Pattersky"
+        },
+        "videoPlayer": {
+          "title": "Engram Pattersky",
+          "subtitle": "New Girl, Season 7 Episode 8"
+        },
+        "episodePromotion": {
+          "title": "Engram Pattersky",
+          "subtitle": "Season 7 Episode 8"
+        },
+        "title": "New Girl",
+        "subtitle": "Season 7 Episode 8 - Engram Pattersky",
+        "components": {
+          "seasonEpisodeFull": "Season 7 Episode 8",
+          "seasonEpisodeAbbreviated": "S7 E8"
+        }
+      },
+      "duration": 1242,
+      "episodeNumber": 8,
+      "externalRelations": {
+        "mpx": {
+          "guid": 663587
+        },
+        "pilat": {
+          "deal": {
+            "id": "http:\/\/www.sbs.com.au\/pilatDealcode\/181034"
+          }
+        },
+        "roku": {
+          "mediatype": "episode",
+          "contentid": 663587
+        },
+        "appleUniversalSearch": {
+          "mediaIdentifier": "EPISODE_1604591171784"
+        }
+      },
+      "id": "http:\/\/www.sbs.com.au\/ondemand\/video\/1604591171784",
+      "inLanguage": [
+        {
+          "type": "Language",
+          "name": "English"
+        }
+      ],
+      "inStreamEvents": {
+        "chapters": [
+          0,
+          348.333,
+          678.041
+        ],
+        "creditsBegin": 1232,
+        "openingTitlesBegin": 163,
+        "openingTitlesEnd": 166
+      },
+      "name": "New Girl S7 Ep8 - Engram Pattersky",
+      "offer": {
+        "availabilityStarts": "2019-09-30T14:00:00Z",
+        "availabilityEnds": "2020-09-30T13:59:59Z"
+      },
+      "partOfSeason": {
+        "seasonNumber": "7"
+      },
+      "partOfSeries": {
+        "name": "New Girl",
+        "id": "http:\/\/www.sbs.com.au\/program\/6627",
+        "slug": "new-girl"
+      },
+      "pilat": {
+        "id": "http:\/\/www.sbs.com.au\/pilatId\/663587"
+      },
+      "publication": {
+        "type": "BroadcastEvent",
+        "startDate": "2019-09-30T14:00:00Z"
+      },
+      "requiresSubscription": true,
+      "revision": {
+        "date": "20200418144014",
+        "id": 1826
+      },
+      "shortDescription": "One month after getting married, Nick and Jess call Cece, Schmidt and Winston to inform them that they're being evicted.",
+      "shortDescriptionHtml": "One month after getting married, Nick and Jess call Cece, Schmidt and Winston to inform them that they're being evicted. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+      "taxonomy": {
+        "useType": "Full Episode",
+        "genre": [
+          {
+            "type": "Term",
+            "name": "Comedy"
+          }
+        ],
+        "subGenre": [
+          {
+            "type": "Term",
+            "name": "Comedy\/Narrative"
+          }
+        ],
+        "section": [
+          {
+            "type": "Term",
+            "name": "Programs"
+          }
+        ],
+        "channel": [
+          {
+            "type": "Term",
+            "name": "On Demand"
+          }
+        ],
+        "grouping": [
+          {
+            "type": "Term",
+            "name": "AVOD Drama"
+          }
+        ]
+      },
+      "thumbnailUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171784_09270409_image163530_large.jpg",
+      "thumbnails": [
+        {
+          "name": "4x3",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171784_09270409_image163530_4:3.jpg",
+          "width": 640,
+          "height": 480
+        },
+        {
+          "name": "Double",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171784_09270409_image163530_double.jpg",
+          "width": 460,
+          "height": 290
+        },
+        {
+          "name": "Facebook",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171784_09270409_image163530_facebook.jpg",
+          "width": 200,
+          "height": 200
+        },
+        {
+          "name": "Full",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171784_09270409_image163530_full.jpg",
+          "width": 704,
+          "height": 396
+        },
+        {
+          "name": "Full Mobile",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171784_09270409_image163530_fullmobile.jpg",
+          "width": 320,
+          "height": 180
+        },
+        {
+          "name": "Hd720",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171784_09270409_image163530_hd720.jpg",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "name": "Network Tile",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171784_09270409_image163530_networktile.jpg",
+          "width": 300,
+          "height": 250
+        },
+        {
+          "name": "Programs Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171784_09270409_image163530_programslarge.jpg",
+          "width": 460,
+          "height": 258
+        },
+        {
+          "name": "Programs Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171784_09270409_image163530_programssmall.jpg",
+          "width": 220,
+          "height": 122
+        },
+        {
+          "name": "Single",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171784_09270409_image163530_single.jpg",
+          "width": 220,
+          "height": 290
+        },
+        {
+          "name": "Sony",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171784_09270409_image163530_sony.jpg",
+          "width": 128,
+          "height": 96
+        },
+        {
+          "name": "Thumb Carousel Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171784_09270409_image163530_carousellarge.jpg",
+          "width": 396,
+          "height": 260
+        },
+        {
+          "name": "Thumb Carousel Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171784_09270409_image163530_carouselsmall.jpg",
+          "width": 220,
+          "height": 124
+        },
+        {
+          "name": "Thumb Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171784_09270409_image163530_thumbsmall.jpg",
+          "width": 100,
+          "height": 100
+        },
+        {
+          "name": "Thumbnail",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171784_09270409_image163530_small.jpg",
+          "width": 189,
+          "height": 106
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/27\/1604591171784_09270409_image163530_large.jpg",
+          "width": 640,
+          "height": 360
+        }
+      ],
+      "type": "Episode",
+      "videoFormat": "HD",
+      "visualAids": {
+        "subtitles": [],
+        "closedCaptions": []
+      }
+    }
+  ],
+  "numberOfItems": 8,
+  "totalNumberOfItems": 8
+}

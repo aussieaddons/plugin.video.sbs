@@ -1,0 +1,438 @@
+{
+  "@context": "http:\/\/www.sbs.com.au\/schemas\/",
+  "type": "ItemList",
+  "name": "Collection List",
+  "numberOfItems": 11,
+  "totalNumberOfItems": 11,
+  "itemListElement": [
+    {
+      "type": "Collection",
+      "feedUrl": "http:\/\/www.sbs.com.au\/api\/v3\/video_collections?context=tvos&device=appletv&collection=Adored+Adaptations",
+      "name": "Adored Adaptations",
+      "slug": "adored-adaptations",
+      "description": "Behold our beloved books, brought to life with some cinematic magic, in these illuminating adaptations.",
+      "audio": {
+        "type": "AudioObject",
+        "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/audio\/appletv\/collections\/collection-audio-adored-adaptations.mp3",
+        "encodingFormat": "mp3"
+      },
+      "numberOfItems": 19,
+      "itemBreakdown": {
+        "episodes": 20,
+        "movies": 19
+      },
+      "thumbnails": [
+        {
+          "name": "Background 1X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/adored-adaptations.jpg"
+        },
+        {
+          "name": "Background 2X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/adored-adaptations@2x.jpg"
+        },
+        {
+          "name": "Background 3X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/adored-adaptations@3x.jpg"
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/adored-adaptations-tile.jpg"
+        }
+      ]
+    },
+    {
+      "type": "Collection",
+      "feedUrl": "http:\/\/www.sbs.com.au\/api\/v3\/video_collections?context=tvos&device=appletv&collection=Famous+Faces",
+      "name": "Famous Faces",
+      "slug": "famous-faces",
+      "description": "Soak up the spotlight of the best and the brightest stars in some of their finest films.",
+      "audio": {
+        "type": "AudioObject",
+        "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/audio\/appletv\/collections\/collection-audio-famous-faces.mp3",
+        "encodingFormat": "mp3"
+      },
+      "numberOfItems": 112,
+      "itemBreakdown": {
+        "episodes": 138,
+        "movies": 112
+      },
+      "thumbnails": [
+        {
+          "name": "Background 1X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/famous-faces.jpg"
+        },
+        {
+          "name": "Background 2X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/famous-faces@2x.jpg"
+        },
+        {
+          "name": "Background 3X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/famous-faces@3x.jpg"
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/famous-faces-tile.jpg"
+        }
+      ]
+    },
+    {
+      "type": "Collection",
+      "feedUrl": "http:\/\/www.sbs.com.au\/api\/v3\/video_collections?context=tvos&device=appletv&collection=Festival+Favourites",
+      "name": "Festival Favourites",
+      "slug": "festival-favourites",
+      "description": "Enjoy an award-winning selection of movies that have taken the world by storm.",
+      "audio": {
+        "type": "AudioObject",
+        "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/audio\/appletv\/collections\/collection-audio-festival-favourites.mp3",
+        "encodingFormat": "mp3"
+      },
+      "numberOfItems": 79,
+      "itemBreakdown": {
+        "episodes": 95,
+        "movies": 79
+      },
+      "thumbnails": [
+        {
+          "name": "Background 1X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/festival-favourites.jpg"
+        },
+        {
+          "name": "Background 2X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/festival-favourites@2x.jpg"
+        },
+        {
+          "name": "Background 3X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/festival-favourites@3x.jpg"
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/festival-favourites-tile.jpg"
+        }
+      ]
+    },
+    {
+      "type": "Collection",
+      "feedUrl": "http:\/\/www.sbs.com.au\/api\/v3\/video_collections?context=tvos&device=appletv&collection=French+Connections",
+      "name": "French Connections",
+      "slug": "french-connections",
+      "description": "Pack your bags, we\u2019re off to France with this collection of French films and dramas that will leave you breathless. Tr\u00e8s bon!",
+      "audio": {
+        "type": "AudioObject",
+        "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/audio\/appletv\/collections\/collection-audio-french-connections.mp3",
+        "encodingFormat": "mp3"
+      },
+      "numberOfItems": 143,
+      "itemBreakdown": {
+        "episodes": 169,
+        "movies": 143
+      },
+      "thumbnails": [
+        {
+          "name": "Background 1X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/french-connections.jpg"
+        },
+        {
+          "name": "Background 2X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/french-connections@2x.jpg"
+        },
+        {
+          "name": "Background 3X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/french-connections@3x.jpg"
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/french-connections-tile.jpg"
+        }
+      ]
+    },
+    {
+      "type": "Collection",
+      "feedUrl": "http:\/\/www.sbs.com.au\/api\/v3\/video_collections?context=tvos&device=appletv&collection=Fright+Night",
+      "name": "Fright Night",
+      "slug": "fright-night",
+      "description": "Kick start your heart with this range of cult thrillers and horror flicks, guaranteed to send a chill down any spine.",
+      "audio": {
+        "type": "AudioObject",
+        "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/audio\/appletv\/collections\/collection-audio-fright-night.mp3",
+        "encodingFormat": "mp3"
+      },
+      "numberOfItems": 31,
+      "itemBreakdown": {
+        "episodes": 38,
+        "movies": 31
+      },
+      "thumbnails": [
+        {
+          "name": "Background 1X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/fright-night.jpg"
+        },
+        {
+          "name": "Background 2X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/fright-night@2x.jpg"
+        },
+        {
+          "name": "Background 3X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/fright-night@3x.jpg"
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/fright-night-tile.jpg"
+        }
+      ]
+    },
+    {
+      "type": "Collection",
+      "feedUrl": "http:\/\/www.sbs.com.au\/api\/v3\/video_collections?context=tvos&device=appletv&collection=Get+A+Room",
+      "name": "Get A Room",
+      "slug": "get-a-room",
+      "description": "Set your pulse racing with international stories of human sexuality that leave little to the imagination.",
+      "audio": {
+        "type": "AudioObject",
+        "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/audio\/appletv\/collections\/collection-audio-get-a-room.mp3",
+        "encodingFormat": "mp3"
+      },
+      "numberOfItems": 17,
+      "itemBreakdown": {
+        "episodes": 22,
+        "movies": 17
+      },
+      "thumbnails": [
+        {
+          "name": "Background 1X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/get-a-room.jpg"
+        },
+        {
+          "name": "Background 2X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/get-a-room@2x.jpg"
+        },
+        {
+          "name": "Background 3X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/get-a-room@3x.jpg"
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/get-a-room-tile.jpg"
+        }
+      ]
+    },
+    {
+      "type": "Collection",
+      "feedUrl": "http:\/\/www.sbs.com.au\/api\/v3\/video_collections?context=tvos&device=appletv&collection=Life+Of+Crime",
+      "name": "Life Of Crime",
+      "slug": "life-of-crime",
+      "description": "Prowl into the criminal underworld with this gang of moody mobsters, trigger-happy hitmen and creepy crooks. It's an offer you can't refuse.",
+      "audio": {
+        "type": "AudioObject",
+        "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/audio\/appletv\/collections\/collection-audio-life-of-crime.mp3",
+        "encodingFormat": "mp3"
+      },
+      "numberOfItems": 9,
+      "itemBreakdown": {
+        "episodes": 13,
+        "movies": 9
+      },
+      "thumbnails": [
+        {
+          "name": "Background 1X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/life-of-crime.jpg"
+        },
+        {
+          "name": "Background 2X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/life-of-crime@2x.jpg"
+        },
+        {
+          "name": "Background 3X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/life-of-crime@3x.jpg"
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/life-of-crime-tile.jpg"
+        }
+      ]
+    },
+    {
+      "type": "Collection",
+      "feedUrl": "http:\/\/www.sbs.com.au\/api\/v3\/video_collections?context=tvos&device=appletv&collection=Music+In+The+Movies",
+      "name": "Music In The Movies",
+      "slug": "music-in-the-movies",
+      "description": "Video celebrates the radio star, and all forms of music, with this toe-tapping troupe of flicks.",
+      "audio": {
+        "type": "AudioObject",
+        "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/audio\/appletv\/collections\/collection-audio-music-in-the-movies.mp3",
+        "encodingFormat": "mp3"
+      },
+      "numberOfItems": 30,
+      "itemBreakdown": {
+        "episodes": 39,
+        "movies": 30
+      },
+      "thumbnails": [
+        {
+          "name": "Background 1X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/music-in-the-movies.jpg"
+        },
+        {
+          "name": "Background 2X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/music-in-the-movies@2x.jpg"
+        },
+        {
+          "name": "Background 3X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/music-in-the-movies@3x.jpg"
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/music-in-the-movies-tile.jpg"
+        }
+      ]
+    },
+    {
+      "type": "Collection",
+      "feedUrl": "http:\/\/www.sbs.com.au\/api\/v3\/video_collections?context=tvos&device=appletv&collection=Rainbow+Pride",
+      "name": "Rainbow Pride",
+      "slug": "rainbow-pride",
+      "description": "Celebrate all things that veer towards the queer with this colourful, thought-provoking collection of films.",
+      "audio": {
+        "type": "AudioObject",
+        "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/audio\/appletv\/collections\/collection-audio-rainbow-pride.mp3",
+        "encodingFormat": "mp3"
+      },
+      "numberOfItems": 32,
+      "itemBreakdown": {
+        "episodes": 35,
+        "movies": 32
+      },
+      "thumbnails": [
+        {
+          "name": "Background 1X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/rainbow-pride.jpg"
+        },
+        {
+          "name": "Background 2X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/rainbow-pride@2x.jpg"
+        },
+        {
+          "name": "Background 3X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/rainbow-pride@3x.jpg"
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/rainbow-pride-tile.jpg"
+        }
+      ]
+    },
+    {
+      "type": "Collection",
+      "feedUrl": "http:\/\/www.sbs.com.au\/api\/v3\/video_collections?context=tvos&device=appletv&collection=Secrets+And+Spies",
+      "name": "Secrets And Spies",
+      "slug": "secrets-and-spies",
+      "description": "",
+      "audio": {
+        "type": "AudioObject",
+        "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/audio\/appletv\/collections\/collection-audio-secrets-and-spies.mp3",
+        "encodingFormat": "mp3"
+      },
+      "numberOfItems": 15,
+      "itemBreakdown": {
+        "episodes": 19,
+        "movies": 15
+      },
+      "thumbnails": [
+        {
+          "name": "Background 1X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/secrets-and-spies.jpg"
+        },
+        {
+          "name": "Background 2X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/secrets-and-spies@2x.jpg"
+        },
+        {
+          "name": "Background 3X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/secrets-and-spies@3x.jpg"
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/secrets-and-spies-tile.jpg"
+        }
+      ]
+    },
+    {
+      "type": "Collection",
+      "feedUrl": "http:\/\/www.sbs.com.au\/api\/v3\/video_collections?context=tvos&device=appletv&collection=True+Stories",
+      "name": "True Stories",
+      "slug": "true-stories",
+      "description": "Sometimes the truth is stranger than fiction. Get back to reality with these tales of true love, true crime, true tragedy and true triumph.",
+      "audio": {
+        "type": "AudioObject",
+        "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/audio\/appletv\/collections\/collection-audio-true-stories.mp3",
+        "encodingFormat": "mp3"
+      },
+      "numberOfItems": 25,
+      "itemBreakdown": {
+        "episodes": 32,
+        "movies": 25
+      },
+      "thumbnails": [
+        {
+          "name": "Background 1X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/true-stories.jpg"
+        },
+        {
+          "name": "Background 2X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/true-stories@2x.jpg"
+        },
+        {
+          "name": "Background 3X",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/true-stories@3x.jpg"
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpg",
+          "contentUrl": "http:\/\/resources.sbs.com.au\/vod\/sbs\/images\/ios\/collections\/true-stories-tile.jpg"
+        }
+      ]
+    }
+  ]
+}

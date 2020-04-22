@@ -15,7 +15,7 @@ def play(url):
     try:
         addon = xbmcaddon.Addon()
         p = classes.Program()
-        p.parse_xbmc_url(url)
+        p.parse_kodi_url(url)
         stream_info = comm.get_stream(p.id)
         if not stream_info:
             return
@@ -33,8 +33,8 @@ def play(url):
 
 
         listitem = xbmcgui.ListItem(label=p.get_list_title(),
-                                    iconImage=p.thumbnail,
-                                    thumbnailImage=p.thumbnail,
+                                    iconImage=p.thumb,
+                                    thumbnailImage=p.thumb,
                                     path=stream_url)
         listitem.setInfo('video', p.get_kodi_list_item())
 

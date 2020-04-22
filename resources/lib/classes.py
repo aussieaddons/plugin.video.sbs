@@ -15,13 +15,15 @@ class Series(object):
     def __init__(self):
         self.description = None
         self.num_episodes = 0
-        self.thumbnail = None
+        self.thumb = None
+        self.fanart = None
         self.item_type = None
         self.feed_url = None
         self.title = None
         self.obj_type = 'Series'
         self.feed_id = None
         self.require_login = None
+        self.multi_series = None
 
     def __repr__(self):
         return self.title
@@ -56,9 +58,11 @@ class Series(object):
     def get_num_episodes(self):
         return self.num_episodes
 
-    def get_thumbnail(self):
-        if self.thumbnail:
-            return self.thumbnail
+    def get_thumb(self):
+        return self.thumb
+
+    def get_fanart(self):
+        return self.fanart
 
     def get_description(self):
         if self.description:
@@ -101,16 +105,18 @@ class Program(object):
     def __init__(self):
         self.id = -1
         self.title = None
+        self.series_title = None
         self.episode_title = None
         self.description = None
-        self.series = None
-        self.episode = None
+        self.season_no = None
+        self.episode_no = None
         self.category = None
         self.keywords = []
         self.rating = 'PG'
         self.duration = None
         self.date = None
-        self.thumbnail = None
+        self.thumb = None
+        self.fanart = None
         self.url = None
         self.expire = None
         self.subfilename = None
@@ -120,9 +126,7 @@ class Program(object):
         return self.title
 
     def __cmp__(self, other):
-        return (cmp(self.title, other.title) or
-                cmp(self.series, other.series) or
-                cmp(self.episode, other.episode))
+        return cmp(self.get_list_title(), other.get_list_title())
 
     def get_sort_title(self):
         sort_title = self.title.lower()
@@ -136,19 +140,27 @@ class Program(object):
         if self.episode_title:
             return utils.descape(self.episode_title)
 
+    def get_series_title(self):
+        return self.series_title
+
+    #todo Fix only episode / only season
     def get_list_title(self):
         title = self.get_title()
 
-        if (self.get_season() and self.get_episode()):
+        if (self.get_season_no() and self.get_episode_no()
+                and self.get_series_title):
             # Series and episode information
-            title = "%s (S%02dE%02d)" % (title, self.get_season(),
-                                         self.get_episode())
-        elif self.get_episode():
+            title = "{0} - S{1:02d}E{2:02d} - {3}".format(
+                self.get_series_title(),
+                self.get_season_no(),
+                self.get_episode_no(),
+                title)
+        elif self.get_episode_no():
             # Only episode information
-            title = "%s (E%02d)" % (title, self.get_episode())
-        elif self.get_season():
+            title = "%s (E%02d)" % (title, self.get_episode_no())
+        elif self.get_season_no():
             # Only season information
-            title = "%s (S%02d)" % (title, self.get_season())
+            title = "%s (S%02d)" % (title, self.get_season_no())
 
         if self.get_episode_title():
             title = "%s: %s" % (title, self.get_episode_title())
@@ -192,17 +204,20 @@ class Program(object):
         if self.date:
             return self.date.year
 
-    def get_season(self):
-        if self.series:
-            return int(self.series)
+    def get_season_no(self):
+        if self.season_no:
+            return int(self.season_no)
 
-    def get_episode(self):
-        if self.episode:
-            return int(self.episode)
+    def get_episode_no(self):
+        if self.episode_no:
+            return int(self.episode_no)
 
-    def get_thumbnail(self):
-        if self.thumbnail:
-            return utils.descape(self.thumbnail)
+    def get_thumb(self):
+        if self.thumb:
+            return utils.descape(self.thumb)
+
+    def get_fanart(self):
+        return self.fanart
 
     def get_url(self):
         if self.url:
@@ -234,10 +249,10 @@ class Program(object):
             info_dict['year'] = self.get_year()
         if self.get_date():
             info_dict['aired'] = self.get_date()
-        if self.get_season():
-            info_dict['season'] = self.get_season()
-        if self.get_episode():
-            info_dict['episode'] = self.get_episode()
+        if self.get_season_no():
+            info_dict['season'] = self.get_season_no()
+        if self.get_episode_no():
+            info_dict['episode'] = self.get_episode_no()
         if self.get_rating():
             info_dict['mpaa'] = self.get_rating()
         return info_dict
@@ -281,46 +296,8 @@ class Program(object):
             url += '&{0}={1}'.format(key, val)
         return url
 
-    def make_xbmc_url(self):
-        d = {}
-        if self.id:
-            d['id'] = self.id
-        if self.title:
-            d['title'] = self.title
-        if self.episode_title:
-            d['episode_title'] = self.episode_title
-        if self.description:
-            d['description'] = self.description
-        if self.duration:
-            d['duration'] = self.duration
-        if self.category:
-            d['category'] = self.category
-        if self.rating:
-            d['rating'] = self.rating
-        if self.date:
-            d['date'] = self.date.strftime("%Y-%m-%d %H:%M:%S")
-        if self.thumbnail:
-            d['thumbnail'] = self.thumbnail
-        if self.url:
-            d['url'] = self.url
-        if self.subfilename:
-            d['subfilename'] = self.subfilename
 
-        return utils.make_url(d)
-
-    def parse_xbmc_url(self, string):
-        d = utils.get_url(string)
-        self.id = d.get('id')
-        self.title = d.get('title')
-        self.episode_title = d.get('episode_title')
-        self.description = d.get('description')
-        self.duration = d.get('duration')
-        self.category = d.get('category')
-        self.rating = d.get('rating')
-        self.url = d.get('url')
-        self.thumbnail = d.get('thumbnail')
-        self.subfilename = d.get('subfilename')
-        if 'date' in d:
-            timestamp = time.mktime(time.strptime(d['date'],
-                                                  '%Y-%m-%d %H:%M:%S'))
-            self.date = datetime.date.fromtimestamp(timestamp)
+    def parse_kodi_url(self, url):
+        params = dict(parse_qsl(url))
+        for item in params.keys():
+            setattr(self, item, unquote_plus(params[item]))
