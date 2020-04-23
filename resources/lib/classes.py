@@ -24,6 +24,7 @@ class Series(object):
         self.feed_id = None
         self.require_login = None
         self.multi_series = None
+        self.single_series = None
 
     def __repr__(self):
         return self.title

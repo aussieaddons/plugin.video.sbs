@@ -79,10 +79,14 @@ def fetch_protected_url(url, token):
     return fetch_url(url, headers)
 
 
-def get_attr(attrs, name, key):
+def get_attr(attrs, key, val, result_key='', default=None):
     for attr in attrs:
-        if attr.get(name) == key:
-            return attr.get('contentUrl')
+        if attr.get(key) == val:
+            if result_key:
+                return attr.get(result_key)
+            else:
+                return attr
+    return default
 
 
 def get_index():
@@ -177,9 +181,9 @@ def create_series(entry):
     seasons = entry.get('containSeasons', [])
     if len(seasons) > 1:
         s.multi_series = 'True'
-        s.feed_url = config.SERIES_URL.replace('[SERIESID]', s.id)
     else:
-        s.feed_url = entry.get('feed')
+        s.single_series = 'True'
+    s.feed_url = config.SERIES_URL.replace('[SERIESID]', s.id)
     return s
 
 def create_channel(entry):
@@ -212,13 +216,25 @@ def create_collection(entry):
     s.feed_url = entry.get('feedUrl')
     s.item_type = entry.get('type')
     thumbs = entry.get('thumbnails', [])
-    s.fanart = get_attr(thumbs, 'name', 'Background 2X')
-    s.thumb = get_attr(thumbs, 'name', 'Thumbnail Large')
+    s.fanart = get_attr(thumbs, 'name', 'Background 2X', 'contentUrl')
+    s.thumb = get_attr(thumbs, 'name', 'Thumbnail Large', 'contentUrl')
     return s
+
+
+def create_seasons_list(seasons, thumb):
+    listing = []
+    for entry in seasons.get('feeds'):
+        try:
+            s = create_season(entry, thumb)
+            listing.append(s)
+        except Exception:
+            utils.log('Error parsing season entry')
+    return listing
+
 
 def get_entries(params):
     """
-    Deal with everything else that isn't the main index! :)
+    Deal with everything else that isn't the main index or a category/genre! :)
     :param url:
     :return:
     """
@@ -233,20 +249,17 @@ def get_entries(params):
         resp = fetch_url(feed_url)
     json_data = json.loads(resp)
     if params.get('multi_series') == 'True':
-        seasons = []
         thumb = json_data.get('program').get('thumbnailUrl')
-        for row in json_data.get('rows'):
-            if row.get('name') == 'Seasons':
-                seasons = row
-                break
-        for entry in seasons.get('feeds'):
-            try:
-                s = create_season(entry, thumb)
-                listing.append(s)
-            except Exception:
-                utils.log('Error parsing season entry')
-
+        seasons = get_attr(
+            json_data.get('rows'), 'name', 'Seasons', default=[])
+        for season in create_seasons_list(seasons, thumb):
+            listing.append(season)
     else:
+        if params.get('single_series') == 'True':  # flatten single series
+            seasons = get_attr(
+                json_data.get('rows'), 'name', 'Seasons', 'feeds', default=[])
+            season = seasons[0]
+            json_data = json.loads(fetch_url(season.get('feedUrl')))
         for entry in json_data.get('itemListElement'):
             try:
                 if params.get('item_type') == 'genre':
@@ -267,7 +280,7 @@ def get_entries(params):
                     p = create_program(entry)
                 listing.append(p)
             except Exception:
-                raise
+                raise  # remove once stable
                 utils.log('Error parsing entry')
 
     return listing
