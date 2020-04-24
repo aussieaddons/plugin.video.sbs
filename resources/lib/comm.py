@@ -268,11 +268,7 @@ def get_entries(params):
         multi_page = True
         sort = True
     elif params.get('sub_category') == 'True':
-        if params.get('title') == 'All Programs A-Z':
-            size = 100
-            multi_page = True
-        else:
-            multi_page = True
+        multi_page = True
     feed_url = append_range(feed_url_no_range, begin, size)
     if params.get('require_login') == 'True':
         token = get_login_token()
