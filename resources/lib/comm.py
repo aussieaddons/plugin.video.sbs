@@ -292,6 +292,9 @@ def get_entries(params):
                 json_data.get('rows'), 'name', 'Seasons', 'feeds', default=[])
             season = seasons[0]
             json_data = json.loads(fetch_url(season.get('feedUrl')))
+        total_items = int(json_data.get('totalNumberOfItems'))
+        if not multi_page and total_items > begin + size - 1:
+            multi_page = True
         for entry in json_data.get('itemListElement'):
             try:
                 if params.get('item_type') == 'genre':
@@ -316,9 +319,6 @@ def get_entries(params):
                 utils.log('Error parsing entry')
     if sort:
         listing = sorted(listing)
-    total_items = int(json_data.get('totalNumberOfItems'))
-    if not multi_page and total_items > begin + size - 1:
-        multi_page = True
     if multi_page:
         begin += size
         listing.append(create_page(begin, size, feed_url_no_range))
