@@ -26,6 +26,8 @@ class Series(object):
         self.multi_series = None
         self.single_series = None
         self.sub_category = None
+        self.page_begin = None
+        self.page_size = None
 
     def __repr__(self):
         return self.title

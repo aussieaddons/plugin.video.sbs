@@ -236,6 +236,22 @@ def create_seasons_list(seasons, thumb):
     return listing
 
 
+def append_range(url, begin, size):
+    end = begin + size - 1
+    return '{url}&range={begin}-{end}'.format(
+        url=url, begin=begin, end=end)
+
+
+def create_page(begin, size, feed_url):
+    s = classes.Series()
+    end = begin + size - 1
+    s.title = 'Next page ({0} - {1})'.format(begin, end)
+    s.page_begin = begin
+    s.page_size = size
+    s.feed_url = feed_url
+    return s
+
+
 def get_entries(params):
     """
     Deal with everything else that isn't the main index or a category/genre! :)
@@ -245,17 +261,19 @@ def get_entries(params):
     listing = []
     sort = False
     multi_page = False
-    feed_url = params.get('feed_url')
+    begin = int(params.get('page_begin', 1))
+    size = int(params.get('page_size', 50))
+    feed_url_no_range = params.get('feed_url')
     if params.get('item_type') == 'Collection':
-        feed_url += '&range=1-100'
         multi_page = True
         sort = True
     elif params.get('sub_category') == 'True':
         if params.get('title') == 'All Programs A-Z':
-            feed_url += '&range=1-100'
+            size = 100
             multi_page = True
         else:
-            feed_url += '&range=1-50'
+            multi_page = True
+    feed_url = append_range(feed_url_no_range, begin, size)
     if params.get('require_login') == 'True':
         token = get_login_token()
         resp = fetch_protected_url(feed_url, token)
@@ -298,8 +316,12 @@ def get_entries(params):
                 utils.log('Error parsing entry')
     if sort:
         listing = sorted(listing)
+    total_items = int(json_data.get('totalNumberOfItems'))
+    if not multi_page and total_items > begin + size - 1:
+        multi_page = True
     if multi_page:
-        pass
+        begin += size
+        listing.append(create_page(begin, size, feed_url_no_range))
     return listing
 
 
