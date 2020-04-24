@@ -58,7 +58,7 @@ def make_entries_list(params):
         programs = comm.get_entries(params)
         t = time.time()
         ok = True
-        for p in sorted(programs):
+        for p in programs:
             if ver >= 18:
                 listitem = xbmcgui.ListItem(label=p.get_list_title(),
                                             offscreen=True)

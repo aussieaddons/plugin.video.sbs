@@ -119,10 +119,8 @@ def get_category(params):
     listing = []
 
     for c in category_data.get('rows'):
-
         if 'feeds' in c:
             data_list = c.get('feeds')
-            utils.log(data_list)
         else:
             data_list = [c]
         for data in data_list:
@@ -146,6 +144,7 @@ def get_category(params):
                 if display.get('loggedIn'):
                     s.require_login = 'True'
             if sub_cat:
+                s.sub_category = 'True'
                 if '[GENRE]' in s.feed_url:
                     s.feed_url = s.feed_url.replace('[GENRE]',
                                                     params.get('title'))
@@ -171,10 +170,10 @@ def create_program(entry):
         p.series_title = titles.get('title')
         p.title = titles.get('videoPlayer', {}).get('title')
         if not p.series_title or not p.title:
-            p.title = str(entry.get('name'))
+            p.title = entry.get('name')
             p.series_title = None
     else:
-        p.title = str(entry.get('name'))
+        p.title = entry.get('name')
     return p
 
 
@@ -244,9 +243,19 @@ def get_entries(params):
     :return:
     """
     listing = []
+    sort = False
+    multi_page = False
     feed_url = params.get('feed_url')
     if params.get('item_type') == 'Collection':
-        feed_url += '&range=1-200'
+        feed_url += '&range=1-100'
+        multi_page = True
+        sort = True
+    elif params.get('sub_category') == 'True':
+        if params.get('title') == 'All Programs A-Z':
+            feed_url += '&range=1-100'
+            multi_page = True
+        else:
+            feed_url += '&range=1-50'
     if params.get('require_login') == 'True':
         token = get_login_token()
         resp = fetch_protected_url(feed_url, token)
@@ -287,7 +296,10 @@ def get_entries(params):
             except Exception:
                 raise  # remove once stable
                 utils.log('Error parsing entry')
-
+    if sort:
+        listing = sorted(listing)
+    if multi_page:
+        pass
     return listing
 
 

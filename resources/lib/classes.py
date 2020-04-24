@@ -25,6 +25,7 @@ class Series(object):
         self.require_login = None
         self.multi_series = None
         self.single_series = None
+        self.sub_category = None
 
     def __repr__(self):
         return self.title
