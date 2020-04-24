@@ -126,7 +126,12 @@ def get_category(params):
         else:
             data_list = [c]
         for data in data_list:
+            title = data.get('name')
+            if (title == 'Football Highlights' and
+                    params.get('title') != 'Sport'):
+                continue
             s = classes.Series()
+            s.title = title
             layout = data.get('layout')
             if not layout:
                 continue
@@ -147,7 +152,7 @@ def get_category(params):
                 if '[CHANNEL]' in s.feed_url:
                     s.feed_url = s.feed_url.replace('[CHANNEL]',
                                                     params.get('feed_id'))
-            s.title = data.get('name')
+
             listing.append(s)
     for a in listing:
         utils.log(a.title)
