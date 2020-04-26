@@ -265,10 +265,7 @@ def get_entries(params):
     size = int(params.get('page_size', 50))
     feed_url_no_range = params.get('feed_url')
     if params.get('item_type') == 'Collection':
-        multi_page = True
         sort = True
-    elif params.get('sub_category') == 'True':
-        multi_page = True
     feed_url = append_range(feed_url_no_range, begin, size)
     if params.get('require_login') == 'True':
         token = get_login_token()
@@ -289,7 +286,7 @@ def get_entries(params):
             season = seasons[0]
             json_data = json.loads(fetch_url(season.get('feedUrl')))
         total_items = int(json_data.get('totalNumberOfItems'))
-        if not multi_page and total_items > begin + size - 1:
+        if total_items > begin + size - 1:
             multi_page = True
         for entry in json_data.get('itemListElement'):
             try:
