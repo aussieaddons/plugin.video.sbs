@@ -6,7 +6,11 @@ import xbmcaddon
 import xbmcgui
 import xbmcplugin
 
+from future.moves.urllib.parse import quote_plus
+
 from aussieaddonscommon import utils
+
+import resources.lib.search as search
 
 
 def make_index_list():
@@ -15,8 +19,6 @@ def make_index_list():
         index = comm.get_index()['contentStructure'].get('menu')
         ok = True
         for i in index:
-            if i == 'Search':  # implement at a later stage
-                continue
             url = "%s?%s" % (sys.argv[0], utils.make_url({
                              'category': i}))
             if ver >= 18:
@@ -142,3 +144,57 @@ def make_genre_categories(params):
         xbmcplugin.setContent(handle=int(sys.argv[1]), content='episodes')
     except Exception:
         utils.handle_error('Unable to build genre categories list')
+
+
+def make_search_history_list():
+    try:
+        listing = search.get_search_history_listing()
+        ok = True
+        for item in listing:
+            listitem = xbmcgui.ListItem(label=item)
+            listitem.setInfo('video', {'plot': ''})
+            listitem.addContextMenuItems(
+                [('Remove from search history',
+                  ('RunPlugin(plugin://plugin.video.sbs/?action=remove'
+                   'search&name={0})'.format(item)))])
+            url = "{0}?action=searchhistory&name={1}".format(
+                sys.argv[0], quote_plus(item))
+
+            ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),
+                                             url=url,
+                                             listitem=listitem,
+                                             isFolder=True)
+        xbmcplugin.endOfDirectory(handle=int(sys.argv[1]), succeeded=ok,
+                                  cacheToDisc=False)
+        xbmcplugin.setContent(handle=int(sys.argv[1]), content='tvshows')
+    except Exception as e:
+        utils.handle_error('Unable to fetch search history list')
+        raise e
+
+
+def make_search_list(params):
+    try:
+        listing = comm.get_search_results(params)
+        ok = True
+        for s in listing:
+            url = "{0}?action=series_list&{1}".format(sys.argv[0],
+                                                      s.make_kodi_url())
+            thumb = s.get_thumb()
+            listitem = xbmcgui.ListItem(s.get_list_title())
+            listitem.setArt({'icon': thumb,
+                             'thumb': thumb})
+            listitem.setInfo('video', {'plot': s.get_description()})
+            folder = False
+            if type(s) is classes.Program:
+                listitem.setProperty('IsPlayable', 'true')
+            else:
+                folder = True
+
+            ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),
+                                             url=url,
+                                             listitem=listitem,
+                                             isFolder=folder)
+        xbmcplugin.endOfDirectory(handle=int(sys.argv[1]), succeeded=ok)
+        xbmcplugin.setContent(handle=int(sys.argv[1]), content='tvshows')
+    except Exception:
+        utils.handle_error('Unable to fetch search history list')

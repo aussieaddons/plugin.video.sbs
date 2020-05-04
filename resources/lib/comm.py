@@ -7,6 +7,8 @@ import uuid
 from aussieaddonscommon import session
 from aussieaddonscommon import utils
 
+import resources.lib.search as search
+
 import xbmcaddon
 
 import xbmcgui
@@ -112,8 +114,7 @@ def get_category(params):
         if category == 'FilmGenre':
             category = 'MovieGenre'
     utils.log("Fetching category: %s" % category)
-    resp = fetch_url(config.CONFIG_URL)
-    json_data = json.loads(resp)
+    json_data = get_index()
     category_data = json_data.get(
         'contentStructure').get('screens').get(category)
     listing = []
@@ -190,12 +191,14 @@ def create_series(entry):
     s.feed_url = config.SERIES_URL.replace('[SERIESID]', s.id)
     return s
 
+
 def create_channel(entry):
     s = classes.Series()
     s.title = str(entry.get('name'))
     s.feed_id = entry.get('feedId')
     s.thumb = entry.get('thumbnailUrl')
     return s
+
 
 def create_genre_index(entry):
     s = classes.Series()
@@ -236,6 +239,15 @@ def create_seasons_list(seasons, thumb):
     return listing
 
 
+def create_search(entry, name):
+    s = classes.Series()
+    s.title = str(entry.get('name'))
+    s.feed_url = entry.get('feedUrl').replace('[QUERY]', name)
+    json_data = json.loads(fetch_url(s.feed_url))
+    s.num_episodes = json_data.get('totalNumberOfItems')
+    return s
+
+
 def append_range(url, begin, size):
     end = begin + size - 1
     return '{url}&range={begin}-{end}'.format(
@@ -250,6 +262,21 @@ def create_page(begin, size, feed_url):
     s.page_size = size
     s.feed_url = feed_url
     return s
+
+
+def get_search_results(params):
+    name = params.get('name')
+    json_data = get_index().get(
+        'contentStructure').get('screens').get('Search')
+    seen = []
+    listing = []
+    for tab in json_data.get('tabs'):
+        for row in tab.get('rows'):
+            feed_url = row.get('feedUrl')
+            if feed_url not in seen:
+                seen.append(feed_url)
+                listing.append(create_search(row, name))
+    return listing
 
 
 def get_entries(params):

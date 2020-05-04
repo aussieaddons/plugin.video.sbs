@@ -7,13 +7,13 @@ import _strptime  # noqa: F401
 
 from aussieaddonscommon import utils
 
-# Add our resources/lib to the python path
-addon_dir = xbmcaddon.Addon().getAddonInfo('path')
-sys.path.insert(0, os.path.join(addon_dir, 'resources', 'lib'))
+from resources.lib import comm
 
-import comm  # noqa: E402
-import index  # noqa: E402
-import play  # noqa: E402
+from resources.lib import index
+
+from resources.lib import play
+
+from resources.lib import search
 
 # Print our platform/version debugging information
 utils.log_kodi_platform_version()
@@ -38,14 +38,25 @@ if __name__ == "__main__":
     elif 'feed_url' in params:
         index.make_entries_list(params)
     elif 'category' in params or params.get('item_type') in ['ProgramGenre', 'FilmGenre', 'Channel']:
-        index.make_category_list(params)
+        if params['category'] == 'Search':
+            index.make_search_history_list()
+        else:
+            index.make_category_list(params)
     elif 'action' in params:
-        if params['action'] == 'sendreport':
+        action = params.get('action')
+        if action == 'searchhistory':
+            if params.get('name') == 'New Search':
+                search.get_search_input()
+            else:
+                index.make_search_list(params)
+        elif action == 'removesearch':
+            search.remove_from_search_history(params.get('name'))
+        elif action == 'sendreport':
             utils.user_report()
-        elif params['action'] == 'settings':
+        elif action == 'settings':
             xbmcaddon.Addon().openSettings()
-        elif params['action'] == 'logout':
+        elif action == 'logout':
             comm.clear_login_token()
-        elif params['action'] == 'login':
+        elif action == 'login':
             comm.get_login_token()
             xbmc.executebuiltin('Container.Refresh')
