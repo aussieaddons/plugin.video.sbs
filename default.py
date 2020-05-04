@@ -38,7 +38,7 @@ if __name__ == "__main__":
     elif 'feed_url' in params:
         index.make_entries_list(params)
     elif 'category' in params or params.get('item_type') in ['ProgramGenre', 'FilmGenre', 'Channel']:
-        if params['category'] == 'Search':
+        if params.get('category') == 'Search':
             index.make_search_history_list()
         else:
             index.make_category_list(params)
