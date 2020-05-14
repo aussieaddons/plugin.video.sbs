@@ -310,6 +310,8 @@ def get_entries(params):
         if params.get('single_series') == 'True':  # flatten single series
             seasons = get_attr(
                 json_data.get('rows'), 'name', 'Seasons', 'feeds', default=[])
+            if not seasons:  # new series but no episodes yet
+                return listing
             season = seasons[0]
             json_data = json.loads(fetch_url(season.get('feedUrl')))
         total_items = int(json_data.get('totalNumberOfItems'))
