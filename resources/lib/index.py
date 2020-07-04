@@ -87,7 +87,6 @@ def make_entries_list(params):
 
         xbmcplugin.endOfDirectory(handle=int(sys.argv[1]), succeeded=ok)
         xbmcplugin.setContent(handle=int(sys.argv[1]), content='episodes')
-        utils.log('Time taken was: {0}'.format(str(time.time()-t)))
     except Exception:
         utils.handle_error('Unable to fetch entries list')
 

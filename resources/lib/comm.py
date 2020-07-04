@@ -154,8 +154,6 @@ def get_category(params):
                                                     params.get('feed_id'))
 
             listing.append(s)
-    for a in listing:
-        utils.log(a.title)
     return listing
 
 
@@ -351,7 +349,7 @@ def get_stream(program_id):
     addon = xbmcaddon.Addon()
     token = get_login_token()
     if not token:
-        return token
+        return
     data_url = config.STREAM_URL.format(
         VIDEOID=program_id,
         UNIQUEID=addon.getSetting('unique_id'),
@@ -359,6 +357,10 @@ def get_stream(program_id):
         OPTOUT='true')
     video_stream_resp = fetch_protected_url(data_url, token)
     vs_data = json.loads(video_stream_resp)
+    if vs_data.get('error'):
+        utils.dialog_message(
+            'Error getting stream info - please log out and log in again')
+        return
     stream_info = {}
     for provider in vs_data.get('streamProviders'):
         if provider.get('providerName') == 'Akamai HLS':

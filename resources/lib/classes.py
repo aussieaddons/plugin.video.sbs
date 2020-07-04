@@ -210,11 +210,39 @@ class Program(object):
 
     def get_season_no(self):
         if self.season_no:
-            return int(self.season_no)
+            try:
+                return int(self.season_no)
+            except ValueError:
+                if isinstance(self.season_no, float):
+                    utils.log(
+                        'Invalid season number (float {0}), rounding to '
+                        'int'.format(
+                            self.season_no))
+                    return int(float(self.season_no))
+                else:
+                    utils.log(
+                        'Invalid season number (string {0}), returning '
+                        '0'.format(
+                            self.season_no))
+                    return 0
 
     def get_episode_no(self):
         if self.episode_no:
-            return int(self.episode_no)
+            try:
+                return int(self.episode_no)
+            except ValueError:
+                if isinstance(self.episode_no, float):
+                    utils.log(
+                        'Invalid episode number (float {0}), rounding to '
+                        'int'.format(
+                            self.episode_no))
+                    return int(float(self.episode_no))
+                else:
+                    utils.log(
+                        'Invalid episode number (string {0}), returning '
+                        '0'.format(
+                            self.episode_no))
+                    return 0
 
     def get_thumb(self):
         if self.thumb:
