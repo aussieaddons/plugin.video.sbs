@@ -16,7 +16,7 @@ import resources.lib.search as search
 def make_index_list():
     try:
         ver = utils.get_kodi_major_version()
-        index = comm.get_index()['contentStructure'].get('menu')
+        index = comm.get_config()['contentStructure'].get('menu')
         ok = True
         for i in index:
             url = "%s?%s" % (sys.argv[0], utils.make_url({
@@ -29,6 +29,13 @@ def make_index_list():
             ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),
                                              url=url, listitem=listitem,
                                              isFolder=True)
+
+        listitem = xbmcgui.ListItem(label='Favourites')
+        ok = xbmcplugin.addDirectoryItem(
+            handle=int(sys.argv[1]),
+            url="{0}?action=favouritescategories".format(sys.argv[0]),
+            listitem=listitem,
+            isFolder=True)
 
         listitem = xbmcgui.ListItem(label='Settings')
         ok = xbmcplugin.addDirectoryItem(
@@ -80,6 +87,21 @@ def make_entries_list(params):
             url = '{0}?{1}'.format(sys.argv[0], p.make_kodi_url())
             # Add the program item to the list
             isFolder = type(p) is classes.Series
+            if p.entry_type in ['TVSeries', 'Movie', 'OneOff']:
+                if params.get('favourite'):
+                    listitem.addContextMenuItems(
+                        [('Remove from SBS favourites',
+                          ('RunPlugin(plugin://plugin.video.sbs/?action=remove'
+                           'favourites&program_id={0}&entry_type={1})'.format(
+                              p.id, p.entry_type
+                          )))])
+                else:
+                    listitem.addContextMenuItems(
+                        [('Add to SBS favourites',
+                          ('RunPlugin(plugin://plugin.video.sbs/?action=add'
+                           'favourites&program_id={0}&entry_type={1})'.format(
+                              p.id, p.entry_type
+                          )))])
             ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=url,
                                              listitem=listitem,
                                              isFolder=isFolder,
@@ -197,3 +219,28 @@ def make_search_list(params):
         xbmcplugin.setContent(handle=int(sys.argv[1]), content='tvshows')
     except Exception:
         utils.handle_error('Unable to fetch search history list')
+
+
+def make_favourites_categories_list():
+    utils.log("Making favourites category list")
+    try:
+        ver = utils.get_kodi_major_version()
+        favourites_categories = comm.get_favourites_categories()
+        ok = True
+        for c in favourites_categories:
+            url = '{0}?{1}'.format(sys.argv[0], c.make_kodi_url())
+
+            if ver >= 18:
+                listitem = xbmcgui.ListItem(label=c.get_list_title(),
+                                            offscreen=True)
+            else:
+                listitem = xbmcgui.ListItem(label=c.get_list_title())
+            ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),
+                                             url=url,
+                                             listitem=listitem,
+                                             isFolder=True)
+
+        xbmcplugin.endOfDirectory(handle=int(sys.argv[1]), succeeded=ok)
+        xbmcplugin.setContent(handle=int(sys.argv[1]), content='episodes')
+    except Exception:
+        utils.handle_error('Unable to build favourites categories list')

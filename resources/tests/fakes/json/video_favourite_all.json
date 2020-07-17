@@ -1,0 +1,11 @@
+{
+    "all": {
+        "response": {
+            "movies": [],
+            "programs": [
+                "6000"
+            ]
+        },
+        "status": true
+    }
+}

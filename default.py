@@ -18,7 +18,7 @@ from resources.lib import search
 # Print our platform/version debugging information
 utils.log_kodi_platform_version()
 
-if __name__ == "__main__":
+def main():
     addon = xbmcaddon.Addon()
     if addon.getSetting('firstrun') == 'true':
         utils.dialog_message(
@@ -44,7 +44,16 @@ if __name__ == "__main__":
             index.make_category_list(params)
     elif 'action' in params:
         action = params.get('action')
-        if action == 'searchhistory':
+        if action == 'favouritescategories':
+          index.make_favourites_categories_list()
+        elif action == 'addfavourites':
+            result = comm.add_to_favourites(params)
+            return result
+        elif action == 'removefavourites':
+            result = comm.remove_from_favourites(params)
+            xbmc.executebuiltin('Container.Refresh')
+            return result
+        elif action == 'searchhistory':
             if params.get('name') == 'New Search':
                 search.get_search_input()
             else:
@@ -60,3 +69,6 @@ if __name__ == "__main__":
         elif action == 'login':
             comm.get_login_token()
             xbmc.executebuiltin('Container.Refresh')
+
+if __name__ == "__main__":
+    main()

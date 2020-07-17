@@ -1,0 +1,12 @@
+{
+    "add": {
+        "response": {
+            "detail": {
+                "itemId": "6000",
+                "type": "program"
+            },
+            "result": true
+        },
+        "status": true
+    }
+}

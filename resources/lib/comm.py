@@ -9,6 +9,8 @@ from aussieaddonscommon import utils
 
 import resources.lib.search as search
 
+import xbmc
+
 import xbmcaddon
 
 import xbmcgui
@@ -91,8 +93,8 @@ def get_attr(attrs, key, val, result_key='', default=None):
     return default
 
 
-def get_index():
-    """Fetch the main index.
+def get_config():
+    """Fetch the main config data.
 
     This contains a mix of actual program information
     and URL references to other queries which return programs
@@ -114,7 +116,7 @@ def get_category(params):
         if category == 'FilmGenre':
             category = 'MovieGenre'
     utils.log("Fetching category: %s" % category)
-    json_data = get_index()
+    json_data = get_config()
     category_data = json_data.get(
         'contentStructure').get('screens').get(category)
     listing = []
@@ -159,6 +161,7 @@ def get_category(params):
 
 def create_program(entry):
     p = classes.Program()
+    p.entry_type = entry.get('type')
     p.id = entry.get('id').split("/")[-1]
     p.thumb = entry.get('thumbnailUrl')
     p.description = entry.get('description')
@@ -178,6 +181,7 @@ def create_program(entry):
 
 def create_series(entry):
     s = classes.Series()
+    s.entry_type = entry.get('type')
     s.title = str(entry.get('name'))
     s.id = entry.get('id').split("/")[-1]
     s.thumb = entry.get('thumbnailUrl')
@@ -262,9 +266,18 @@ def create_page(begin, size, feed_url):
     return s
 
 
+def create_fav_category(title, feed_url):
+    s = classes.Series()
+    s.title = title
+    s.feed_url = feed_url
+    s.require_login = True
+    s.favourite = True
+    return s
+
+
 def get_search_results(params):
     name = params.get('name')
-    json_data = get_index().get(
+    json_data = get_config().get(
         'contentStructure').get('screens').get('Search')
     seen = []
     listing = []
@@ -343,6 +356,70 @@ def get_entries(params):
         begin += size
         listing.append(create_page(begin, size, feed_url_no_range))
     return listing
+
+
+def get_favourites_data(config_data):
+    token = get_login_token()
+    if not token:
+        utils.dialog_message('You must be logged in to view favourites')
+        return {}
+    fav_all_url = config_data.get('favourites').get('listAll')
+    json_data = json.loads(fetch_protected_url(fav_all_url, token))
+    if json_data.get('all').get('status') is True:
+        return json_data
+    else:
+        utils.log(json_data)
+        raise Exception('invalid favourites data')
+
+
+def get_favourites_categories():
+    config_data = get_config()
+    fav_all_json = get_favourites_data(config_data)
+    if not fav_all_json:
+        return []
+    fav_feed_list = config_data.get(
+        'contentStructure').get('screens').get('Favourites').get('rows')
+    utils.log(fav_feed_list)
+    listing = []
+    response = fav_all_json.get('all').get('response')
+    for cat in response:
+        if response.get(cat):
+            title = cat.capitalize()
+            feed_url = get_attr(fav_feed_list, 'name', title, 'feedUrl')
+            utils.log('FEED ULR IS: {0}'.format(feed_url))
+            listing.append(create_fav_category(title, feed_url))
+    return listing
+
+
+def add_to_favourites(params):
+    token = get_login_token()
+    if not token:
+        utils.dialog_message('You must be logged in to add favourites')
+        return
+    conf = get_config()
+    entry_type = params.get('entry_type')
+    url = conf.get('favourites').get(
+        'add{0}'.format(config.FAV_DICT[entry_type]))
+    resp = fetch_protected_url(
+        url.replace('[ID]', params.get('program_id')), token)
+    json_data = json.loads(resp)
+    if (json_data.get('add').get('status') == True
+            and json_data.get('add').get('response').get('result') == True):
+        return True
+
+
+def remove_from_favourites(params):
+    token = get_login_token()  # assume we're logged in if we are here
+    conf = get_config()
+    entry_type = params.get('entry_type')
+    url = conf.get('favourites').get(
+        'remove{0}'.format(config.FAV_DICT[entry_type]))
+    resp = fetch_protected_url(
+        url.replace('[ID]', params.get('program_id')), token)
+    json_data = json.loads(resp)
+    if (json_data.get('remove').get('status') == True
+            and json_data.get('remove').get('response').get('result') == True):
+        return True
 
 
 def get_stream(program_id):

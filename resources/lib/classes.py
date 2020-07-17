@@ -21,6 +21,7 @@ class Series(object):
         self.feed_url = None
         self.title = None
         self.obj_type = 'Series'
+        self.entry_type = None
         self.feed_id = None
         self.require_login = None
         self.multi_series = None
@@ -28,6 +29,8 @@ class Series(object):
         self.sub_category = None
         self.page_begin = None
         self.page_size = None
+        self.id = None
+        self.favourite = None
 
     def __repr__(self):
         return self.title
@@ -107,7 +110,7 @@ class Series(object):
 class Program(object):
 
     def __init__(self):
-        self.id = -1
+        self.id = None
         self.title = None
         self.series_title = None
         self.episode_title = None
@@ -125,6 +128,8 @@ class Program(object):
         self.expire = None
         self.subfilename = None
         self.obj_type = 'Program'
+        self.entry_type = None
+        self.favourite = False
 
     def __repr__(self):
         return self.title
