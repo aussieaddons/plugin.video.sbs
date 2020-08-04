@@ -1,5 +1,6 @@
 import classes
 import comm
+from upnext import upnext_signal
 import os
 import sys
 import xbmc
@@ -61,7 +62,6 @@ def play(url):
             except Exception:
                 utils.log('Subtitles not available for this program')
 
-
         listitem.setProperty('inputstreamaddon', 'inputstream.adaptive')
         listitem.setProperty('inputstream.adaptive.manifest_type', 'hls')
         listitem.setProperty('inputstream.adaptive.license_key', stream_url)
@@ -70,7 +70,55 @@ def play(url):
             listitem.addStreamInfo('audio', p.get_kodi_audio_stream_info())
             listitem.addStreamInfo('video', p.get_kodi_video_stream_info())
 
+        listitem.setProperty('isPlayable', 'true')
+        listitem.setIsFolder(False)
+
         xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, listitem=listitem)
+
+        np = comm.get_next_program(p)
+        if not isinstance(np, classes.Program):
+            return
+
+        next_info = dict(
+            current_episode=dict(
+                episodeid=p.id,
+                tvshowid=p.get_tvshowid(),
+                title=p.get_episode_title(),
+                art={
+                    'thumb': p.get_thumb(),
+                    'tvshow.fanart': p.get_fanart(),
+                },
+                season=p.get_season_no(),
+                episode=p.get_episode_no(),
+                showtitle=p.get_series_title(),
+                plot=p.get_description(),
+                playcount=0,
+                rating=None,
+                firstaired=p.get_date(),
+                runtime=p.get_duration(),
+            ),
+            next_episode=dict(
+                episodeid=np.id,
+                tvshowid=np.get_tvshowid(),
+                title=np.get_episode_title(),
+                art={
+                    'thumb': np.get_thumb(),
+                    'tvshow.fanart': np.get_fanart(),
+                },
+                season=np.get_season_no(),
+                episode=np.get_episode_no(),
+                showtitle=np.get_series_title(),
+                plot=np.get_description(),
+                playcount=0,
+                rating=None,
+                firstaired=np.get_date(),
+                runtime=np.get_duration(),
+            ),
+            play_url='{0}?{1}'.format(sys.argv[0], np.make_kodi_url()),
+            notification_offset=p.get_credits_time()
+        )
+
+        upnext_signal('plugin.video.sbs', next_info)
 
     except Exception:
         utils.handle_error("Unable to play video")

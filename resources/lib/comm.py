@@ -162,11 +162,21 @@ def get_category(params):
 def create_program(entry):
     p = classes.Program()
     p.entry_type = entry.get('type')
-    p.id = entry.get('id').split("/")[-1]
+    p.id = entry.get('id',entry.get('pilat').get('id')).split("/")[-1]
     p.thumb = entry.get('thumbnailUrl')
+    p.outline = entry.get('shortDescription')
     p.description = entry.get('description')
+    p.duration = entry.get('duration')
+    p.creditsBegin = entry.get('inStreamEvents').get('creditsBegin')
     p.season_no = entry.get('partOfSeason', {}).get('seasonNumber')
     p.episode_no = entry.get('episodeNumber')
+    p.pilatDealcode = (entry.get('externalRelations')
+                            .get('pilat')
+                            .get('deal')
+                            .get('id').split("/")[-1])
+    p.rating = entry.get('contentRating')
+    p.date = entry.get('publication').get('startDate')
+    p.expire = entry.get('offer').get('availabilityEnds')
     titles = entry.get('displayTitles')
     if titles and p.season_no and p.episode_no:
         p.series_title = titles.get('title')
@@ -358,6 +368,20 @@ def get_entries(params):
     return listing
 
 
+def get_next_program(program):
+    if (not program or not program.pilatDealcode or not program.season_no
+        or not program.episode_no):
+        return None
+
+    params = {'feed_url':config.EPISODE_URL.format(
+                            pilatDealcode=program.pilatDealcode,
+                            season=program.season_no,
+                            episodeNumber=int(program.episode_no)+1)}
+
+    programs = get_entries(params=params)
+    return programs[0] if programs else None
+
+
 def get_favourites_data(config_data):
     token = get_login_token()
     if not token:
@@ -386,7 +410,7 @@ def get_favourites_categories():
         if response.get(cat):
             title = cat.capitalize()
             feed_url = get_attr(fav_feed_list, 'name', title, 'feedUrl')
-            utils.log('FEED ULR IS: {0}'.format(feed_url))
+            utils.log('FEED URL IS: {0}'.format(feed_url))
             listing.append(create_fav_category(title, feed_url))
     return listing
 

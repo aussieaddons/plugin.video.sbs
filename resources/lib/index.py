@@ -67,6 +67,7 @@ def make_entries_list(params):
         programs = comm.get_entries(params)
         t = time.time()
         ok = True
+        items = []
         for p in programs:
             if ver >= 18:
                 listitem = xbmcgui.ListItem(label=p.get_list_title(),
@@ -102,10 +103,16 @@ def make_entries_list(params):
                            'favourites&program_id={0}&entry_type={1})'.format(
                               p.id, p.entry_type
                           )))])
-            ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url=url,
-                                             listitem=listitem,
-                                             isFolder=isFolder,
-                                             totalItems=len(programs))
+
+            items.append((url, listitem, isFolder))
+
+        xbmcplugin.addSortMethod(
+            int(sys.argv[1]), xbmcplugin.SORT_METHOD_EPISODE)
+        xbmcplugin.addSortMethod(
+            int(sys.argv[1]), xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE)
+        ok = xbmcplugin.addDirectoryItems(handle=int(sys.argv[1]),
+                                          items=items,
+                                          totalItems=len(items))
 
         xbmcplugin.endOfDirectory(handle=int(sys.argv[1]), succeeded=ok)
         xbmcplugin.setContent(handle=int(sys.argv[1]), content='episodes')
