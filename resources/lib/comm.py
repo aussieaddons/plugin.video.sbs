@@ -162,19 +162,24 @@ def get_category(params):
 def create_program(entry):
     p = classes.Program()
     p.entry_type = entry.get('type')
-    p.id = entry.get('id',entry.get('pilat').get('id')).split("/")[-1]
+    p.id = entry.get('id')
+    if not p.id:
+        p.id = entry.get('pilat').get('id')
+    if p.id:
+        p.id = p.id.split("/")[-1]
     p.thumb = entry.get('thumbnailUrl')
     p.outline = entry.get('shortDescription')
     p.description = entry.get('description')
     p.duration = entry.get('duration')
-    p.creditsBegin = entry.get('inStreamEvents').get('creditsBegin')
+    p.creditsBegin = entry.get('inStreamEvents')
+    if p.creditsBegin:
+        p.creditsBegin = p.creditsBegin.get('creditsBegin')
     p.season_no = entry.get('partOfSeason', {}).get('seasonNumber')
     p.episode_no = entry.get('episodeNumber')
-    p.pilatDealcode = (entry.get('externalRelations')
-                            .get('pilat')
-                            .get('deal')
-                            .get('id').split("/")[-1])
-    p.rating = entry.get('contentRating')
+    p.pilatDealcode = entry.get('externalRelations').get('pilat')
+    if p.pilatDealcode:
+        p.pilatDealcode = p.pilatDealcode.get('deal').get('id').split("/")[-1]
+    p.rating = entry.get('contentRating').upper()
     p.date = entry.get('publication').get('startDate')
     p.expire = entry.get('offer').get('availabilityEnds')
     titles = entry.get('displayTitles')
@@ -195,6 +200,17 @@ def create_series(entry):
     s.title = str(entry.get('name'))
     s.id = entry.get('id').split("/")[-1]
     s.thumb = entry.get('thumbnailUrl')
+    s.description = entry.get('description')
+    s.rating = entry.get('contentRating').upper()
+    s.country = entry.get('country')
+    if s.country:
+        s.country = s.country.get('name')
+    genres = [genre.get('name') for
+                genre in entry.get('taxonomy').get('genre',[])]
+    s.category = ' / '.join(genres)
+    genres = [genre.get('name') for
+                genre in entry.get('taxonomy').get('collection',[])]
+    s.sub_category = ' / '.join(genres)
     seasons = entry.get('containSeasons', [])
     if len(seasons) > 1:
         s.multi_series = 'True'

@@ -74,13 +74,18 @@ def make_entries_list(params):
                                             offscreen=True)
             else:
                 listitem = xbmcgui.ListItem(label=p.get_list_title())
-            if type(p) is classes.Program:
+
+            if isinstance(p, classes.Program):
                 listitem.setInfo('video', p.get_kodi_list_item())
                 listitem.setProperty('IsPlayable', 'true')
                 listitem.addStreamInfo('audio', p.get_kodi_audio_stream_info())
                 listitem.addStreamInfo('video', p.get_kodi_video_stream_info())
-
                 # Build the URL for the program, including the list_info
+            elif isinstance(p, classes.Series):
+                if p.page_begin and p.page_size:
+                    listitem.setProperty('SpecialSort', 'bottom')
+                else:
+                    listitem.setInfo('video', p.get_kodi_list_item())
             thumb = p.get_thumb()
             listitem.setArt({'thumb': thumb,
                              'icon': thumb,
@@ -107,9 +112,12 @@ def make_entries_list(params):
             items.append((url, listitem, isFolder))
 
         xbmcplugin.addSortMethod(
+            int(sys.argv[1]), xbmcplugin.SORT_METHOD_NONE)
+        xbmcplugin.addSortMethod(
             int(sys.argv[1]), xbmcplugin.SORT_METHOD_EPISODE)
         xbmcplugin.addSortMethod(
             int(sys.argv[1]), xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE)
+
         ok = xbmcplugin.addDirectoryItems(handle=int(sys.argv[1]),
                                           items=items,
                                           totalItems=len(items))

@@ -26,7 +26,10 @@ class Series(object):
         self.require_login = None
         self.multi_series = None
         self.single_series = None
+        self.category = None
         self.sub_category = None
+        self.rating = None
+        self.country = None
         self.page_begin = None
         self.page_size = None
         self.id = None
@@ -44,7 +47,7 @@ class Series(object):
         return sort_title
 
     def get_title(self):
-        return utils.descape(self.title)
+        return self.title
 
     def get_list_title(self):
         num_episodes = self.get_num_episodes()
@@ -71,9 +74,54 @@ class Series(object):
     def get_fanart(self):
         return self.fanart
 
+    def get_category(self):
+        return self.category
+
+    def get_sub_category(self):
+        return self.sub_category
+
+    def get_country(self):
+        return self.country
+
+    def get_rating(self):
+        return self.rating
+
     def get_description(self):
+        return self.description
+
+    def get_extended_description(self):
+        description = ''
+        if self.category:
+            description += 'Genre: %s\n' % self.get_category()
+        if self.sub_category:
+            description += 'Collection: %s\n' % self.get_sub_category()
+        if self.country:
+            description += 'Country: %s\n' % self.get_country()
+        if self.rating:
+            description += 'Rated: %s\n' % self.get_rating()
         if self.description:
-            return self.description
+            if description:
+                description += '\n'
+            description += self.get_description()
+        return description
+
+    def get_kodi_list_item(self):
+        info_dict = {}
+        if self.get_title():
+            info_dict['tvshowtitle'] = self.get_title()
+        if self.get_category():
+            info_dict['genre'] = self.get_category()
+        if self.get_sub_category():
+            info_dict['tag'] = self.get_sub_category()
+        if self.get_extended_description():
+            info_dict['plot'] = self.get_extended_description()
+        if self.get_description():
+            info_dict['plotoutline'] = self.get_description()
+        if self.get_rating():
+            info_dict['mpaa'] = self.get_rating()
+        if self.get_country():
+            info_dict['country'] = self.get_country()
+        return info_dict
 
     def make_kodi_url(self):
         d_original = OrderedDict(
@@ -119,7 +167,7 @@ class Program(object):
         self.episode_no = None
         self.category = None
         self.keywords = []
-        self.rating = 'PG'
+        self.rating = None
         self.duration = None
         self.creditsBegin = None
         self.date = None
@@ -145,12 +193,12 @@ class Program(object):
         return sort_title
 
     def get_title(self):
-        return utils.descape(self.title)
+        return self.title
 
     def get_episode_title(self):
         if not self.episode_title:
             self.episode_title = self.title
-        return utils.descape(self.episode_title)
+        return self.episode_title
 
     def get_series_title(self):
         return self.series_title
@@ -186,15 +234,14 @@ class Program(object):
         if self.expire:
             expire = "Expires: %s" % self.get_expire(True).strftime('%a, %d %b %Y')
             description = "%s\n\n%s" % (description, expire)
-        return utils.descape(description)
+        return description
 
     def get_category(self):
         if self.category:
-            return utils.descape(self.category)
+            return self.category
 
     def get_rating(self):
-        if self.rating:
-            return utils.descape(self.rating)
+        return self.rating
 
     def get_duration(self):
         if self.duration:
@@ -239,8 +286,7 @@ class Program(object):
             return self.get_date(True).year
 
     def get_tvshowid(self):
-        if self.pilatDealcode:
-            return self.pilatDealcode
+        return self.pilatDealcode
 
     def get_season_no(self):
         if self.season_no:
@@ -279,15 +325,13 @@ class Program(object):
                     return 0
 
     def get_thumb(self):
-        if self.thumb:
-            return utils.descape(self.thumb)
+        return self.thumb
 
     def get_fanart(self):
         return self.fanart
 
     def get_url(self):
-        if self.url:
-            return utils.descape(self.url)
+        return self.url
 
     def get_expire(self,as_datetime=False):
         if not isinstance(self.expire, datetime.datetime):
@@ -304,7 +348,7 @@ class Program(object):
 
     def get_kodi_list_item(self):
         info_dict = {}
-        if self.get_title():
+        if self.get_series_title():
             info_dict['tvshowtitle'] = self.get_series_title()
         if self.get_episode_title():
             info_dict['title'] = self.get_episode_title()
