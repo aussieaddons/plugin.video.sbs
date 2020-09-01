@@ -179,15 +179,12 @@ def create_program(entry):
     p.rating = entry.get('contentRating', '').upper()
     p.date = entry.get('publication', {}).get('startDate')
     p.expire = entry.get('offer', {}).get('availabilityEnds')
-    titles = entry.get('displayTitles')
-    if titles and p.season_no and p.episode_no:
-        p.series_title = titles.get('title')
-        p.title = titles.get('videoPlayer', {}).get('title')
-        if not p.series_title or not p.title:
-            p.title = entry.get('name')
-            p.series_title = None
-    else:
+    p.series_title = entry.get('partOfSeries', {}).get('name')
+    titles = entry.get('displayTitles', {})
+    p.title = titles.get('videoPlayer', {}).get('title')
+    if not p.series_title or not p.title:
         p.title = entry.get('name')
+        p.series_title = None
     return p
 
 

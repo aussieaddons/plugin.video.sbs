@@ -116,7 +116,7 @@ def make_entries_list(params):
         xbmcplugin.addSortMethod(
             int(sys.argv[1]), xbmcplugin.SORT_METHOD_EPISODE)
         xbmcplugin.addSortMethod(
-            int(sys.argv[1]), xbmcplugin.SORT_METHOD_LABEL_IGNORE_THE)
+            int(sys.argv[1]), xbmcplugin.SORT_METHOD_TITLE_IGNORE_THE)
 
         ok = xbmcplugin.addDirectoryItems(handle=int(sys.argv[1]),
                                           items=items,

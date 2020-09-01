@@ -195,45 +195,31 @@ class Program(object):
     def get_title(self):
         return self.title
 
-    def get_episode_title(self):
-        if not self.episode_title:
-            self.episode_title = self.title
-        return self.episode_title
-
     def get_series_title(self):
         return self.series_title
 
-    #todo Fix only episode / only season
     def get_list_title(self):
+        season = self.get_season_no()
+        season = 'S{0:02d}'.format(season) if season else ''
+        episode = self.get_episode_no()
+        episode = 'E{0:02d}'.format(episode) if episode else ''
+        season_episode = '{0}{1}'.format(season, episode)
+
+        series = self.get_series_title()
         title = self.get_title()
+        if not series:
+            series = title
+            title = ''
 
-        if (self.get_season_no() and self.get_episode_no()
-                and self.get_series_title):
-            # Series and episode information
-            title = "{0} - S{1:02d}E{2:02d} - {3}".format(
-                self.get_series_title(),
-                self.get_season_no(),
-                self.get_episode_no(),
-                title)
-        elif self.get_episode_no():
-            # Only episode information
-            title = "%s (E%02d)" % (title, self.get_episode_no())
-        elif self.get_season_no():
-            # Only season information
-            title = "%s (S%02d)" % (title, self.get_season_no())
-
-        if self.get_episode_title():
-            title = "%s: %s" % (title, self.get_episode_title())
-
-        return title
+        return ' - '.join(filter(None, (series, season_episode, title)))
 
     def get_description(self):
         description = ""
         if self.description:
             description = self.description
         if self.expire:
-            expire = "Expires: %s" % self.get_expire(True).strftime('%a, %d %b %Y')
-            description = "%s\n\n%s" % (description, expire)
+            expire = self.get_expire(True).strftime('%a, %d %b %Y')
+            description = "%s\n\nExpires: %s" % (description, expire)
         return description
 
     def get_category(self):
@@ -267,7 +253,7 @@ class Program(object):
             date = datetime.datetime.strptime(dt_str, Program.dt_format)
         except TypeError:
             date = datetime.datetime(
-                        *(time.strptime(dt_str, Program.dt_format)[0:6]))
+                *(time.strptime(dt_str, Program.dt_format)[0:6]))
 
         return date
 
@@ -275,7 +261,7 @@ class Program(object):
     def format_date(dt_obj):
         return dt_obj.strftime(Program.dt_format)
 
-    def get_date(self,as_datetime=False):
+    def get_date(self, as_datetime=False):
         if not isinstance(self.date, datetime.datetime):
             self.date = Program.parse_date(self.date)
 
@@ -333,7 +319,7 @@ class Program(object):
     def get_url(self):
         return self.url
 
-    def get_expire(self,as_datetime=False):
+    def get_expire(self, as_datetime=False):
         if not isinstance(self.expire, datetime.datetime):
             self.expire = Program.parse_date(self.expire)
 
@@ -344,14 +330,14 @@ class Program(object):
 
     def get_subfilename(self):
         if self.subfilename:
-            return self.subfilename+'.SRT'
+            return self.subfilename + '.SRT'
 
     def get_kodi_list_item(self):
         info_dict = {}
         if self.get_series_title():
             info_dict['tvshowtitle'] = self.get_series_title()
-        if self.get_episode_title():
-            info_dict['title'] = self.get_episode_title()
+        if self.get_title():
+            info_dict['title'] = self.get_list_title()
         if self.get_category():
             info_dict['genre'] = self.get_category()
         if self.get_description():

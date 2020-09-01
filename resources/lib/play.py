@@ -83,7 +83,7 @@ def play(url):
             current_episode=dict(
                 episodeid=p.id,
                 tvshowid=p.get_tvshowid(),
-                title=p.get_episode_title(),
+                title=p.get_title(),
                 art={
                     'thumb': p.get_thumb(),
                     'tvshow.fanart': p.get_fanart(),
@@ -100,7 +100,7 @@ def play(url):
             next_episode=dict(
                 episodeid=np.id,
                 tvshowid=np.get_tvshowid(),
-                title=np.get_episode_title(),
+                title=np.get_title(),
                 art={
                     'thumb': np.get_thumb(),
                     'tvshow.fanart': np.get_fanart(),
