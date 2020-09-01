@@ -15,6 +15,13 @@ import xbmcaddon
 
 import xbmcgui
 
+def create_listitem(*args, **kwargs):
+    ver = utils.get_kodi_major_version()
+    if ver >= 18:
+        kwargs['offscreen'] = True
+
+    listitem = xbmcgui.ListItem(*args, **kwargs)
+    return listitem
 
 def clear_login_token(show_dialog=True):
     addon = xbmcaddon.Addon()

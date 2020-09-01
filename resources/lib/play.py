@@ -5,7 +5,6 @@ import os
 import sys
 import xbmc
 import xbmcaddon
-import xbmcgui
 import xbmcplugin
 
 from aussieaddonscommon import utils
@@ -22,9 +21,7 @@ def play(url):
             return
         stream_url = stream_info.get('stream_url')
 
-
         bandwidth = addon.getSetting('BANDWIDTH')
-
         if bandwidth == '0':
             stream_url = stream_url.replace('&b=0-2000', '&b=400-600')
         elif bandwidth == '1':
@@ -32,11 +29,10 @@ def play(url):
         elif bandwidth == '2':
             stream_url = stream_url.replace('&b=0-2000', '&b=1400-1600')
 
-
-        listitem = xbmcgui.ListItem(label=p.get_list_title(),
-                                    iconImage=p.thumb,
-                                    thumbnailImage=p.thumb,
-                                    path=stream_url)
+        listitem = comm.create_listitem(label=p.get_list_title(),
+                                        iconImage=p.thumb,
+                                        thumbnailImage=p.thumb,
+                                        path=stream_url)
         listitem.setInfo('video', p.get_kodi_list_item())
 
         # Add subtitles if available
