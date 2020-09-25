@@ -15,6 +15,13 @@ import xbmcaddon
 
 import xbmcgui
 
+def create_listitem(*args, **kwargs):
+    ver = utils.get_kodi_major_version()
+    if ver >= 18:
+        kwargs['offscreen'] = True
+
+    listitem = xbmcgui.ListItem(*args, **kwargs)
+    return listitem
 
 def clear_login_token(show_dialog=True):
     addon = xbmcaddon.Addon()
@@ -162,20 +169,29 @@ def get_category(params):
 def create_program(entry):
     p = classes.Program()
     p.entry_type = entry.get('type')
-    p.id = entry.get('id').split("/")[-1]
+    p.id = entry.get('id')
+    if not p.id:
+        p.id = entry.get('pilat', {}).get('id')
+    if p.id:
+        p.id = p.id.split("/")[-1]
     p.thumb = entry.get('thumbnailUrl')
+    p.outline = entry.get('shortDescription')
     p.description = entry.get('description')
+    p.duration = entry.get('duration')
+    p.creditsBegin = entry.get('inStreamEvents', {}).get('creditsBegin')
     p.season_no = entry.get('partOfSeason', {}).get('seasonNumber')
     p.episode_no = entry.get('episodeNumber')
-    titles = entry.get('displayTitles')
-    if titles and p.season_no and p.episode_no:
-        p.series_title = titles.get('title')
-        p.title = titles.get('videoPlayer', {}).get('title')
-        if not p.series_title or not p.title:
-            p.title = entry.get('name')
-            p.series_title = None
-    else:
+    p.pilatDealcode = (entry.get('externalRelations', {}).get('pilat', {})
+        .get('deal', {}).get('id', '').split("/")[-1])
+    p.rating = entry.get('contentRating', '').upper()
+    p.date = entry.get('publication', {}).get('startDate')
+    p.expire = entry.get('offer', {}).get('availabilityEnds')
+    p.series_title = entry.get('partOfSeries', {}).get('name')
+    titles = entry.get('displayTitles', {})
+    p.title = titles.get('videoPlayer', {}).get('title')
+    if not p.series_title or not p.title:
         p.title = entry.get('name')
+        p.series_title = None
     return p
 
 
@@ -183,10 +199,19 @@ def create_series(entry):
     s = classes.Series()
     s.entry_type = entry.get('type')
     s.title = str(entry.get('name'))
-    s.id = entry.get('id').split("/")[-1]
+    s.id = entry.get('id', '').split("/")[-1]
     s.thumb = entry.get('thumbnailUrl')
+    s.description = entry.get('description')
+    s.rating = entry.get('contentRating', '').upper()
+    s.country = entry.get('country', {}).get('name')
+    genres = [genre.get('name') for
+                genre in entry.get('taxonomy', {}).get('genre', [])]
+    s.category = ' / '.join(genres)
+    genres = [genre.get('name') for
+                genre in entry.get('taxonomy', {}).get('collection', [])]
+    s.sub_category = ' / '.join(genres)
     seasons = entry.get('containSeasons', [])
-    if len(seasons) > 1:
+    if seasons:
         s.multi_series = 'True'
     else:
         s.single_series = 'True'
@@ -358,6 +383,20 @@ def get_entries(params):
     return listing
 
 
+def get_next_program(program):
+    if (not program or not program.pilatDealcode or not program.season_no
+        or not program.episode_no):
+        return None
+
+    params = {'feed_url':config.EPISODE_URL.format(
+                            pilatDealcode=program.pilatDealcode,
+                            season=program.season_no,
+                            episodeNumber=int(program.episode_no)+1)}
+
+    programs = get_entries(params=params)
+    return programs[0] if programs else None
+
+
 def get_favourites_data(config_data):
     token = get_login_token()
     if not token:
@@ -386,7 +425,7 @@ def get_favourites_categories():
         if response.get(cat):
             title = cat.capitalize()
             feed_url = get_attr(fav_feed_list, 'name', title, 'feedUrl')
-            utils.log('FEED ULR IS: {0}'.format(feed_url))
+            utils.log('FEED URL IS: {0}'.format(feed_url))
             listing.append(create_fav_category(title, feed_url))
     return listing
 
