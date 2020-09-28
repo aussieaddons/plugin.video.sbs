@@ -332,6 +332,9 @@ def get_entries(params):
     feed_url = append_range(feed_url_no_range, begin, size)
     if params.get('require_login') == 'True':
         token = get_login_token()
+        if not token:
+            utils.dialog_message('You must be logged in to view this')
+            return listing
         resp = fetch_protected_url(feed_url, token)
     else:
         resp = fetch_url(feed_url)
