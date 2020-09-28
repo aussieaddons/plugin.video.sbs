@@ -67,7 +67,8 @@ def play(url):
             listitem.addStreamInfo('video', p.get_kodi_video_stream_info())
 
         listitem.setProperty('isPlayable', 'true')
-        listitem.setIsFolder(False)
+        if utils.get_kodi_major_version() >= 18:
+            listitem.setIsFolder(False)
 
         xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, listitem=listitem)
 
