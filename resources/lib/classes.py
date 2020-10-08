@@ -232,7 +232,7 @@ class Program(object):
     def get_duration(self):
         if self.duration:
             version = utils.get_kodi_major_version()
-            seconds = int(self.duration)
+            seconds = int(float(self.duration))
             if version < 15:
                 # Older versions use minutes
                 minutes = seconds / 60
