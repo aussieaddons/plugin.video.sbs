@@ -1,0 +1,506 @@
+{
+  "@context": [
+    "http:\/\/www.sbs.com.au\/schemas\/"
+  ],
+  "type": "ItemList",
+  "name": "Channels",
+  "itemListElement": [
+    {
+      "feedId": "SBS1",
+      "headerImageUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/channel-header-sbs.jpg",
+      "id": "http:\/\/www.sbs.com.au\/ondemand\/channels\/sbs",
+      "name": "SBS",
+      "thumbnails": [
+        {
+          "name": "Thumbnail",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs1_thumb.jpg"
+        },
+        {
+          "name": "Thumbnail @2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs1_thumb@2x.jpg"
+        },
+        {
+          "name": "Thumbnail @3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs1_thumb@3x.jpg"
+        },
+        {
+          "name": "Thumbnail 720p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs1_thumb@CTV720.jpg"
+        },
+        {
+          "name": "Thumbnail 1080p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs1_thumb@CTV1080.jpg"
+        },
+        {
+          "name": "Logo 720p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs_logo@CTV720.png"
+        },
+        {
+          "name": "Logo 1080p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs_logo@CTV1080.png"
+        },
+        {
+          "name": "Fixed Size Logo Small",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/channellogo_sbs_one@720.png"
+        },
+        {
+          "name": "Fixed Size Logo Large",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/channellogo_sbs_one@1080.png"
+        },
+        {
+          "name": "Thumbnail Square",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/square-sbs.jpg"
+        },
+        {
+          "name": "Thumbnail Square @2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/square-sbs@2x.jpg"
+        },
+        {
+          "name": "Thumbnail Square @3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/square-sbs@3x.jpg"
+        },
+        {
+          "name": "Movie Poster",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs1_thumbnail_movie_poster.jpg"
+        },
+        {
+          "name": "Movie Poster 2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs1_thumbnail_movie_poster@2x.jpg"
+        },
+        {
+          "name": "Movie Poster 3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs1_thumbnail_movie_poster@3x.jpg"
+        },
+        {
+          "name": "In Page Branding 720p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/inpage-branding-sbs@CTV720.png"
+        },
+        {
+          "name": "In Page Branding 1080p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/inpage-branding-sbs@CTV1080.png"
+        },
+        {
+          "name": "Poster Tile",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/poster-tile-sbs.jpg"
+        }
+      ],
+      "type": "Channel"
+    },
+    {
+      "feedId": "SBS2",
+      "headerImageUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/channel-header-viceland.jpg",
+      "id": "http:\/\/www.sbs.com.au\/ondemand\/channels\/sbs-two",
+      "name": "SBS VICELAND",
+      "thumbnails": [
+        {
+          "name": "Thumbnail",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/viceland_thumb.jpg"
+        },
+        {
+          "name": "Thumbnail @2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/viceland_thumb@2x.jpg"
+        },
+        {
+          "name": "Thumbnail @3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/viceland_thumb@3x.jpg"
+        },
+        {
+          "name": "Thumbnail 720p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/viceland_thumb@CTV720.jpg"
+        },
+        {
+          "name": "Thumbnail 1080p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/viceland_thumb@CTV1080.jpg"
+        },
+        {
+          "name": "Logo 720p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/viceland_logo@CTV720.png"
+        },
+        {
+          "name": "Logo 1080p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/viceland_logo@CTV1080.png"
+        },
+        {
+          "name": "Fixed Size Logo Small",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/channellogo_sbs_viceland@720.png"
+        },
+        {
+          "name": "Fixed Size Logo Large",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/channellogo_sbs_viceland@1080.png"
+        },
+        {
+          "name": "Thumbnail Square",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/square-viceland.jpg"
+        },
+        {
+          "name": "Thumbnail Square @2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/square-viceland@2x.jpg"
+        },
+        {
+          "name": "Thumbnail Square @3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/square-viceland@3x.jpg"
+        },
+        {
+          "name": "Movie Poster",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/viceland_thumbnail_movie_poster.jpg"
+        },
+        {
+          "name": "Movie Poster 2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/viceland_thumbnail_movie_poster@2x.jpg"
+        },
+        {
+          "name": "Movie Poster 3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/viceland_thumbnail_movie_poster@3x.jpg"
+        },
+        {
+          "name": "In Page Branding 720p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/inpage-branding-viceland@CTV720.png"
+        },
+        {
+          "name": "In Page Branding 1080p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/inpage-branding-viceland@CTV1080.png"
+        },
+        {
+          "name": "Poster Tile",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/poster-tile-sbs-viceland.jpg"
+        }
+      ],
+      "type": "Channel"
+    },
+    {
+      "feedId": "Food Network",
+      "headerImageUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/channel-header-sbs-food.jpg",
+      "id": "http:\/\/www.sbs.com.au\/ondemand\/channels\/sbs-food",
+      "name": "SBS Food",
+      "thumbnails": [
+        {
+          "name": "Thumbnail",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs_food_thumb.jpg"
+        },
+        {
+          "name": "Thumbnail @2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs_food_thumb@2x.jpg"
+        },
+        {
+          "name": "Thumbnail @3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs_food_thumb@3x.jpg"
+        },
+        {
+          "name": "Thumbnail 720p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs_food_thumb@CTV720.png"
+        },
+        {
+          "name": "Thumbnail 1080p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs_food_thumb@CTV1080.png"
+        },
+        {
+          "name": "Logo 720p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs_food_logo@CTV720.png"
+        },
+        {
+          "name": "Logo 1080p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs_food_logo@CTV1080.png"
+        },
+        {
+          "name": "Fixed Size Logo Small",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/channellogo_sbs_food@720.png"
+        },
+        {
+          "name": "Fixed Size Logo Large",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/channellogo_sbs_food@1080.png"
+        },
+        {
+          "name": "Thumbnail Square",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/square-sbsfood.jpg"
+        },
+        {
+          "name": "Thumbnail Square @2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/square-sbsfood@2x.jpg"
+        },
+        {
+          "name": "Thumbnail Square @3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/square-sbsfood@3x.jpg"
+        },
+        {
+          "name": "Movie Poster",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs_food_thumbnail_movie_poster.jpg"
+        },
+        {
+          "name": "Movie Poster 2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs_food_thumbnail_movie_poster@2x.jpg"
+        },
+        {
+          "name": "Movie Poster 3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/sbs_food_thumbnail_movie_poster@3x.jpg"
+        },
+        {
+          "name": "In Page Branding 720p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/inpage-branding-sbsfood@CTV720.png"
+        },
+        {
+          "name": "In Page Branding 1080p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/inpage-branding-sbsfood@CTV1080.png"
+        },
+        {
+          "name": "Poster Tile",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/poster-tile-sbs-food.jpg"
+        }
+      ],
+      "type": "Channel"
+    },
+    {
+      "feedId": "World Movies",
+      "headerImageUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/channel-header-world_movies.jpg",
+      "id": "http:\/\/www.sbs.com.au\/ondemand\/channels\/world-movies",
+      "name": "SBS World Movies",
+      "thumbnails": [
+        {
+          "name": "Thumbnail",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/world_movies_thumb.jpg"
+        },
+        {
+          "name": "Thumbnail @2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/world_movies_thumb@2x.jpg"
+        },
+        {
+          "name": "Thumbnail @3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/world_movies_thumb@3x.jpg"
+        },
+        {
+          "name": "Thumbnail 720p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/world_movies_thumb@CTV720.jpg"
+        },
+        {
+          "name": "Thumbnail 1080p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/world_movies_thumb@CTV1080.jpg"
+        },
+        {
+          "name": "Logo 720p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/world_movies_logo@CTV720.png"
+        },
+        {
+          "name": "Logo 1080p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/world_movies_logo@CTV1080.png"
+        },
+        {
+          "name": "Fixed Size Logo Small",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/channellogo_sbs_world_movies@720.png"
+        },
+        {
+          "name": "Fixed Size Logo Large",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/channellogo_sbs_world_movies@1080.png"
+        },
+        {
+          "name": "Thumbnail Square",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/square-world_movies.jpg"
+        },
+        {
+          "name": "Thumbnail Square @2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/square-world_movies@2x.jpg"
+        },
+        {
+          "name": "Thumbnail Square @3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/square-world_movies@3x.jpg"
+        },
+        {
+          "name": "Movie Poster",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/world_movies_thumbnail_movie_poster.jpg"
+        },
+        {
+          "name": "Movie Poster 2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/world_movies_thumbnail_movie_poster@2x.jpg"
+        },
+        {
+          "name": "Movie Poster 3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/world_movies_thumbnail_movie_poster@3x.jpg"
+        },
+        {
+          "name": "In Page Branding 720p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/inpage-branding-worldmovies@CTV720.png"
+        },
+        {
+          "name": "In Page Branding 1080p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/inpage-branding-worldmovies@CTV1080.png"
+        },
+        {
+          "name": "Poster Tile",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/poster-tile-sbs-world-movies.jpg"
+        }
+      ],
+      "type": "Channel"
+    },
+    {
+      "feedId": "NITV",
+      "headerImageUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/channel-header-nitv.jpg",
+      "id": "http:\/\/www.sbs.com.au\/ondemand\/channels\/nitv",
+      "name": "NITV",
+      "thumbnails": [
+        {
+          "name": "Thumbnail",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/nitv_thumb.jpg"
+        },
+        {
+          "name": "Thumbnail @2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/nitv_thumb@2x.jpg"
+        },
+        {
+          "name": "Thumbnail @3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/nitv_thumb@3x.jpg"
+        },
+        {
+          "name": "Thumbnail 720p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/nitv_thumb@CTV720.jpg"
+        },
+        {
+          "name": "Thumbnail 1080p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/nitv_thumb@CTV1080.jpg"
+        },
+        {
+          "name": "Logo 720p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/nitv_logo@CTV720.png"
+        },
+        {
+          "name": "Logo 1080p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/nitv_logo@CTV1080.png"
+        },
+        {
+          "name": "Fixed Size Logo Small",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/channellogo_sbs_nitv@720.png"
+        },
+        {
+          "name": "Fixed Size Logo Large",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/channellogo_sbs_nitv@1080.png"
+        },
+        {
+          "name": "Thumbnail Square",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/square-nitv.jpg"
+        },
+        {
+          "name": "Thumbnail Square @2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/square-nitv@2x.jpg"
+        },
+        {
+          "name": "Thumbnail Square @3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/square-nitv@3x.jpg"
+        },
+        {
+          "name": "Movie Poster",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/nitv_thumbnail_movie_poster.jpg"
+        },
+        {
+          "name": "Movie Poster 2x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/nitv_thumbnail_movie_poster@2x.jpg"
+        },
+        {
+          "name": "Movie Poster 3x",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/nitv_thumbnail_movie_poster@3x.jpg"
+        },
+        {
+          "name": "In Page Branding 720p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/inpage-branding-nitv@CTV720.png"
+        },
+        {
+          "name": "In Page Branding 1080p",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/inpage-branding-nitv@CTV1080.png"
+        },
+        {
+          "name": "Poster Tile",
+          "encodingFormat": "jpg",
+          "contentUrl": "https:\/\/media.sbs.com.au\/video\/channels\/201906C\/poster-tile-nitv.jpg"
+        }
+      ],
+      "type": "Channel"
+    }
+  ],
+  "numberOfItems": 5,
+  "totalNumberOfItems": 5
+}

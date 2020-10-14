@@ -1,0 +1,12 @@
+{
+    "code": 210,
+    "error": "invalid_credentials",
+    "error_description": "some inputs are invalid",
+    "invalid_fields": {
+        "userInformationForm": [
+            "Username and password doesn't match. Try again."
+        ]
+    },
+    "request_id": "9ycew39ftweqrckq",
+    "stat": "error"
+}

@@ -1,8 +1,23 @@
 # coding=utf-8
 from past.builtins import basestring
 
+import xbmcaddon
+
 import xbmcgui
 
+class FakeAddon(xbmcaddon.Addon):
+    def __init__(self, user_token='', unique_id='', ad_id='', **kwargs):
+        super(FakeAddon, self).__init__()
+        self.__dict__.update(kwargs)
+        self.user_token = user_token
+        self.unique_id = unique_id
+        self.ad_id = ad_id
+
+    def getSetting(self, setting):
+        return getattr(self, setting, '')
+
+    def setSetting(self, setting, value):
+        setattr(self, setting, value)
 
 class FakeListItem(xbmcgui.ListItem):
     def __init__(self, label="", label2="", iconImage="", thumbnailImage="",
@@ -22,6 +37,7 @@ class FakeListItem(xbmcgui.ListItem):
         self.property = {}
         self.subtitles = None
         self.uniqueid = {}
+        self.context_items = []
 
     def setLabel(self, label):
         assert isinstance(label, basestring)
@@ -78,6 +94,14 @@ class FakeListItem(xbmcgui.ListItem):
         self.rating.update({'type': type, 'rating': rating, 'votes': votes,
                             'default': default})
 
+    def addContextMenuItems(self, items, replaceItems=False):
+        assert isinstance(items, list)
+        for item in items:
+            assert isinstance(item, tuple)
+            for subitem in item:
+                assert isinstance(subitem, basestring)
+            self.context_items.append(item)
+
     def addSeason(self, number, name=''):
         assert isinstance(number, int)
         assert isinstance(name, basestring)
@@ -120,6 +144,7 @@ class FakePlugin(object):
         self.SORT_METHOD_VIDEO_SORT_TITLE = 26
         self.SORT_METHOD_VIDEO_SORT_TITLE_IGNORE_THE = 27
         self.SORT_METHOD_VIDEO_TITLE = 25
+        self.SORT_METHOD_EPISODE = 24
         self.directory = []
         self.resolved = None
 
@@ -148,3 +173,14 @@ class FakePlugin(object):
 
     def setContent(self, handle, content):
         self.content = content
+
+
+UUID = [
+    'e8485af7-fe81-4064-bfb0-fdafbf68db33',
+    'cea23fb2-ab9d-4869-8b01-fdb66aab09e7'
+]
+
+LOGIN = ['foo', 'bar']
+
+LOGIN_TOKEN = ('YW5kcm9pZDJhMzIxZTQ1NDhjMzMzMGRhZmE4ZmNhODk4ZWYxNDEyNmZkMj'
+              'IwMmU6YW5kcm9pZA==')

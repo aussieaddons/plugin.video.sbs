@@ -10,6 +10,7 @@ from aussieaddonscommon import utils
 
 import resources.lib.search as search
 
+addon = xbmcaddon.Addon()
 
 def make_index_list():
     try:
@@ -21,7 +22,7 @@ def make_index_list():
             listitem = comm.create_listitem(i)
             # Add the program item to the list
             ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),
-                                             url=url, listitem=listitem,
+                                             url=str(url), listitem=listitem,
                                              isFolder=True)
 
         listitem = comm.create_listitem(label='Favourites')
@@ -38,7 +39,7 @@ def make_index_list():
             listitem=listitem,
             isFolder=False)
 
-        if not xbmcaddon.Addon().getSetting('user_token'):
+        if not addon.getSetting('user_token'):
             listitem = comm.create_listitem(label='Login')
             ok = xbmcplugin.addDirectoryItem(
                 handle=int(sys.argv[1]),
@@ -138,28 +139,6 @@ def make_category_list(params):
         utils.handle_error('Unable to build categories list')
 
 
-def make_genre_categories(params):
-    utils.log("Making genre category list")
-    try:
-        genre_categories = comm.get_entries(params)
-        ok = True
-        for c in genre_categories:
-            url = '{0}?{1}'.format(sys.argv[0], c.make_kodi_url())
-            thumb = c.get_thumb()
-            listitem = comm.create_listitem(label=c.get_list_title())
-            listitem.setArt({'thumb': thumb,
-                             'icon': thumb})
-            ok = xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),
-                                             url=url,
-                                             listitem=listitem,
-                                             isFolder=True)
-
-        xbmcplugin.endOfDirectory(handle=int(sys.argv[1]), succeeded=ok)
-        xbmcplugin.setContent(handle=int(sys.argv[1]), content='episodes')
-    except Exception:
-        utils.handle_error('Unable to build genre categories list')
-
-
 def make_search_history_list():
     try:
         listing = search.get_search_history_listing()
@@ -184,7 +163,6 @@ def make_search_history_list():
         xbmcplugin.setContent(handle=int(sys.argv[1]), content='tvshows')
     except Exception as e:
         utils.handle_error('Unable to fetch search history list')
-        raise e
 
 
 def make_search_list(params):
@@ -212,7 +190,7 @@ def make_search_list(params):
         xbmcplugin.endOfDirectory(handle=int(sys.argv[1]), succeeded=ok)
         xbmcplugin.setContent(handle=int(sys.argv[1]), content='tvshows')
     except Exception:
-        utils.handle_error('Unable to fetch search history list')
+        utils.handle_error('Unable to fetch search list')
 
 
 def make_favourites_categories_list():

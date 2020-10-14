@@ -1,0 +1,95 @@
+{
+    "access_token": "vg9atzr2e22m43hdb",
+    "capture_user": {
+        "aboutMe": null,
+        "avatar_url": null,
+        "birthday": "1970-01-01",
+        "city": null,
+        "created": "2020-06-30 22:00:00.000000 +0000",
+        "date_created": "2020-06-30 23:00:00 +0000",
+        "decoration": {
+            "social_connections": [
+                "google"
+            ]
+        },
+        "displayName": "johnstalvern3001",
+        "display_name": "johnstalvern3001",
+        "email": "johnstalvern3001@gmail.com",
+        "emailVerified": "2020-06-30 22:30:00.0000 +0000",
+        "email_verified": true,
+        "familyName": "Stalvern",
+        "first_name": "John",
+        "gender": "male",
+        "givenName": "John",
+        "lastUpdated": "2020-06-30 22:30:00.0000 +0000",
+        "last_login": "2020-06-30 22:30:00 +0000",
+        "last_name": "Stalvern",
+        "middleName": null,
+        "password_set": false,
+        "photos": {
+            "large": "https://lh3.googleusercontent.com/photo.jpg?sz=400",
+            "original": "https://lh3.googleusercontent.com/photo.jpg?sz=400",
+            "other": "https://lh3.googleusercontent.com/photo.jpg?sz=400"
+        },
+        "primaryAddress": {
+            "address1": null,
+            "address2": null,
+            "city": null,
+            "company": null,
+            "country": null,
+            "mobile": null,
+            "phone": null,
+            "stateAbbreviation": null,
+            "zip": null,
+            "zipPlus4": null
+        },
+        "profiles": [
+            {
+                "domain": "google.com",
+                "identifier": "https://www.google.com/profiles/330474764573489785467",
+                "profile": {
+                    "birthday": null,
+                    "displayName": "John Stalvern",
+                    "emails": [
+                        {
+                            "id": 34671124,
+                            "primary": null,
+                            "type": "account",
+                            "value": "johnstalvern3001@gmail.com"
+                        }
+                    ],
+                    "gender": "male",
+                    "name": {
+                        "familyName": "Stalvern",
+                        "formatted": "John Stalvern",
+                        "givenName": "John",
+                        "honorificPrefix": null,
+                        "honorificSuffix": null,
+                        "middleName": null
+                    },
+                    "nickname": null,
+                    "photos": {
+                        "other": "https://lh3.googleusercontent.com/photo.jpg?sz=400"
+                    },
+                    "preferredUsername": "johnstalvern3001",
+                    "profileUrl": "https://plus.google.com/330474764573489785467",
+                    "urls": [
+                        {
+                            "id": 34671124,
+                            "primary": null,
+                            "type": "profile",
+                            "value": "https://plus.google.com/330474764573489785467"
+                        }
+                    ]
+                }
+            }
+        ],
+        "state": null,
+        "user_id": "ac2c3124-336f-48c8-962e-ad020a9fe04b",
+        "username": "johnstalvern3001",
+        "uuid": "ac2c3124-336f-48c8-962e-ad020a9fe04b"
+    },
+    "sso_code": "f4b238ac2a0fc45f",
+    "stat": "ok"
+}
+

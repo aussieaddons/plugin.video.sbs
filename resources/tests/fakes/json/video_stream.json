@@ -1,0 +1,732 @@
+{
+  "@context": [
+    "http:\/\/www.sbs.com.au\/schemas\/"
+  ],
+  "type": "StreamProvider",
+  "name": "New Girl S2 Ep1 - Re-Launch",
+  "adTagCustomParameters": {
+    "cxsegments": [],
+    "cxprnd": 46942272,
+    "cxid": "ac2c3124-336f-48c8-962e-ad020a9fe04b",
+    "cxsiteid": "1215828469461905339",
+    "cxurl": "http:\/\/www.sbs.com.au\/ondemand\/video\/single\/1604589635977",
+    "device": "android",
+    "ipaddress": "123.123.123.123",
+    "partner": "none",
+    "programname": "new girl",
+    "genre": [
+      "Comedy"
+    ],
+    "season": "2",
+    "ratings": "m",
+    "ppid": "FD647B07289478F4A89F4622D9FE6BAC",
+    "vid": "1604589635977",
+    "scor": "1604589635977",
+    "uid": "ac2c3124-336f-48c8-962e-ad020a9fe04b",
+    "ifa": "09e217a3-40af-498c-8d57-19581678298e",
+    "ifaoptout": "0"
+  },
+  "chromecast": {
+    "receiver": {
+      "metadata": {
+        "title": "New Girl",
+        "subtitle": "Season 2 Episode 1 - Re-Launch",
+        "image": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_hd720.jpg",
+        "image_width": 1280,
+        "image_height": 720
+      }
+    },
+    "controller": {
+      "background": "https:\/\/www.sbs.com.au\/api\/v3\/video_image\/getimage?type=chromecast_background&url=https%3A%2F%2Fvideocdn-sbs.akamaized.net%2Fu%2Fvideo%2FSBS%2Fmanaged%2Fimages%2F2019%2F12%2F05%2F1604589635977_12051012_image105814_hd720.jpg",
+      "background_width": 450,
+      "background_height": 800,
+      "background_portrait": "https:\/\/www.sbs.com.au\/api\/v3\/video_image\/getimage?type=chromecast_expandedcontroller_portrait&url=https%3A%2F%2Fvideocdn-sbs.akamaized.net%2Fu%2Fvideo%2FSBS%2Fmanaged%2Fimages%2F2019%2F12%2F05%2F1604589635977_12051012_image105814_single.jpg",
+      "background_portrait_width": 450,
+      "background_portrait_height": 800,
+      "background_landscape": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_hd720.jpg",
+      "background_landscape_width": 1280,
+      "background_landscape_height": 720
+    },
+    "minicontroller": {
+      "thumbnail": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_hd720.jpg",
+      "thumbnail_width": 1280,
+      "thumbnail_height": 720
+    },
+    "mediarouter": {
+      "thumbnail": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_hd720.jpg",
+      "thumbnail_width": 1280,
+      "thumbnail_height": 720
+    }
+  },
+  "videoProgress": {
+    "trackingUrl": "https:\/\/www.sbs.com.au\/api\/v3\/video_progress\/record?device=phone&version=3.2.1",
+    "urlParameters": {
+      "videoId": "videoid",
+      "currentPosition": "seconds"
+    }
+  },
+  "streamProviders": [
+    {
+      "type": "GoogleDAIProvider",
+      "providerName": "Google DAI",
+      "providerAccountId": "2488267",
+      "videoEncoding": "hls",
+      "videoBitrate": "auto",
+      "videoStreamType": "vod",
+      "videoId": "1604589635977"
+    },
+    {
+      "type": "PlayerConfiguration",
+      "providerName": "AdEase",
+      "videoEncoding": "hls",
+      "videoBitrate": "auto",
+      "videoStreamType": "vod",
+      "contentUrl": "https:\/\/foo.bar\/content.m3u8",
+      "videoId": "1604589635977"
+    },
+    {
+      "type": "AkamaiHLSProvider",
+      "providerName": "Akamai HLS",
+      "videoEncoding": "hls",
+      "videoBitrate": "auto",
+      "videoStreamType": "vod",
+      "contentUrl": "https:\/\/foo.bar\/content.m3u8",
+      "videoId": "1604589635977"
+    }
+  ],
+  "oztam": {
+    "publisherId": "25b929c0-9a53-4ece-b64c-113f444cf626",
+    "videoId": "663349",
+    "videoUrl": "http:\/\/www.sbs.com.au\/ondemand\/video\/1604589635977\/new-girl-s2-ep1-re-launch",
+    "mimetype": "video\/vnd.apple.mpegurl",
+    "duration": 1242,
+    "channel": "Web Exclusive",
+    "mediaProperties": {
+      "isLive": 0,
+      "seriesId": "6627",
+      "episodeId": "1",
+      "seriesName": "New Girl",
+      "episodeName": "Re-Launch",
+      "classification": "M"
+    }
+  },
+  "videoItem": {
+    "actor": [
+      {
+        "type": "Person",
+        "name": "Zooey Deschanel"
+      },
+      {
+        "type": "Person",
+        "name": "Jake Johnson"
+      },
+      {
+        "type": "Person",
+        "name": "Morris Lamorne"
+      },
+      {
+        "type": "Person",
+        "name": "Hannah Arterton"
+      }
+    ],
+    "consumerAdvice": [
+      "s"
+    ],
+    "contentRating": "m",
+    "country": {
+      "name": "USA"
+    },
+    "datePublished": "2012-01-01T01:01:01",
+    "description": "Schmidt throws himself a 'rebranding' party at which Jess, recently fired from her teaching job, volunteers to be a 'shot girl', alongside a very jaded cocktail waitress. Meanwhile, Winston shows a different side of his personality after drinking some of Nick\u2019s fruity concoctions, and Cece introduces the gang to her new boyfriend.",
+    "descriptionHtml": "Schmidt throws himself a 'rebranding' party at which Jess, recently fired from her teaching job, volunteers to be a 'shot girl', alongside a very jaded cocktail waitress. Meanwhile, Winston shows a different side of his personality after drinking some of Nick\u2019s fruity concoctions, and Cece introduces the gang to her new boyfriend. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+    "director": [],
+    "displayTitles": {
+      "double": {
+        "title": "New Girl",
+        "subtitle": "Season 2 Episode 1 - Re-Launch"
+      },
+      "appleumc": {
+        "descriptive": "Re-Launch",
+        "formatted": "Re-Launch, Season 2 Episode 1"
+      },
+      "programpage": {
+        "playButton": "Play Season 2 Episode 1"
+      },
+      "seasonListTitle": "1. Re-Launch",
+      "seasonlist": {
+        "title": "1. Re-Launch"
+      },
+      "videoPlayer": {
+        "title": "Re-Launch",
+        "subtitle": "New Girl, Season 2 Episode 1"
+      },
+      "episodePromotion": {
+        "title": "Re-Launch",
+        "subtitle": "Season 2 Episode 1"
+      },
+      "title": "New Girl",
+      "subtitle": "Season 2 Episode 1 - Re-Launch",
+      "components": {
+        "seasonEpisodeFull": "Season 2 Episode 1",
+        "seasonEpisodeAbbreviated": "S2 E1"
+      },
+      "pageTitle": "Re-Launch - New Girl, Season 2 Episode 1"
+    },
+    "duration": 1242,
+    "episodeNumber": 1,
+    "externalRelations": {
+      "mpx": {
+        "guid": 663349
+      },
+      "pilat": {
+        "deal": {
+          "id": "http:\/\/www.sbs.com.au\/pilatDealcode\/181026"
+        }
+      },
+      "tvAnytime": {
+        "series": {
+          "crid": "crid:\/\/sbs.com.au\/231628"
+        }
+      },
+      "roku": {
+        "mediatype": "episode",
+        "contentid": 663349
+      },
+      "appleUniversalSearch": {
+        "mediaIdentifier": "EPISODE_1604589635977"
+      }
+    },
+    "id": "http:\/\/www.sbs.com.au\/ondemand\/video\/1604589635977",
+    "inLanguage": [
+      {
+        "type": "Language",
+        "name": "English"
+      }
+    ],
+    "inStreamEvents": {
+      "chapters": [
+        0,
+        444.667,
+        797.874
+      ],
+      "creditsBegin": 1225,
+      "openingTitlesBegin": 85,
+      "openingTitlesEnd": 106
+    },
+    "name": "New Girl S2 Ep1 - Re-Launch",
+    "offer": {
+      "availabilityStarts": "2019-09-30T14:00:00Z",
+      "availabilityEnds": "2020-10-26T04:05:00Z"
+    },
+    "partOfSeason": {
+      "seasonNumber": "2"
+    },
+    "partOfSeries": {
+      "name": "New Girl",
+      "id": "http:\/\/www.sbs.com.au\/program\/6627",
+      "slug": "new-girl"
+    },
+    "pilat": {
+      "id": "http:\/\/www.sbs.com.au\/pilatId\/663349"
+    },
+    "publication": {
+      "type": "BroadcastEvent",
+      "startDate": "2019-09-30T14:00:00Z"
+    },
+    "requiresSubscription": true,
+    "revision": {
+      "date": "20201008204207",
+      "id": 3395
+    },
+    "shortDescription": "Schmidt throws himself a 'rebranding' party at which Jess, recently fired from her teaching job, volunteers to be a 'shot girl', alongside a very jaded cocktail waitress.",
+    "shortDescriptionHtml": "Schmidt throws himself a 'rebranding' party at which Jess, recently fired from her teaching job, volunteers to be a 'shot girl', alongside a very jaded cocktail waitress. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+    "taxonomy": {
+      "useType": "Full Episode",
+      "genre": [
+        {
+          "type": "Term",
+          "name": "Comedy"
+        }
+      ],
+      "subGenre": [
+        {
+          "type": "Term",
+          "name": "Comedy\/Narrative"
+        }
+      ],
+      "section": [
+        {
+          "type": "Term",
+          "name": "Programs"
+        }
+      ],
+      "channel": [
+        {
+          "type": "Term",
+          "name": "On Demand"
+        }
+      ],
+      "grouping": [
+        {
+          "type": "Term",
+          "name": "AVOD Drama"
+        }
+      ]
+    },
+    "thumbnailUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_large.jpg",
+    "thumbnails": [
+      {
+        "name": "4x3",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_4:3.jpg",
+        "width": 640,
+        "height": 480
+      },
+      {
+        "name": "Double",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_double.jpg",
+        "width": 460,
+        "height": 290
+      },
+      {
+        "name": "Facebook",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_facebook.jpg",
+        "width": 200,
+        "height": 200
+      },
+      {
+        "name": "Full",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_full.jpg",
+        "width": 704,
+        "height": 396
+      },
+      {
+        "name": "Full Mobile",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_fullmobile.jpg",
+        "width": 320,
+        "height": 180
+      },
+      {
+        "name": "Hd720",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_hd720.jpg",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "name": "Network Tile",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_networktile.jpg",
+        "width": 300,
+        "height": 250
+      },
+      {
+        "name": "Programs Large",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_programslarge.jpg",
+        "width": 460,
+        "height": 258
+      },
+      {
+        "name": "Programs Small",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_programssmall.jpg",
+        "width": 220,
+        "height": 122
+      },
+      {
+        "name": "Single",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_single.jpg",
+        "width": 220,
+        "height": 290
+      },
+      {
+        "name": "Sony",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_sony.jpg",
+        "width": 128,
+        "height": 96
+      },
+      {
+        "name": "Thumb Carousel Large",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_carousellarge.jpg",
+        "width": 396,
+        "height": 260
+      },
+      {
+        "name": "Thumb Carousel Small",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_carouselsmall.jpg",
+        "width": 220,
+        "height": 124
+      },
+      {
+        "name": "Thumb Small",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_thumbsmall.jpg",
+        "width": 100,
+        "height": 100
+      },
+      {
+        "name": "Thumbnail",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_small.jpg",
+        "width": 189,
+        "height": 106
+      },
+      {
+        "name": "Thumbnail Large",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/12\/05\/1604589635977_12051012_image105814_large.jpg",
+        "width": 640,
+        "height": 360
+      }
+    ],
+    "type": "Episode",
+    "videoFormat": "HD",
+    "visualAids": {
+      "subtitles": [],
+      "closedCaptions": []
+    }
+  },
+  "nextVideoItem": {
+    "actor": [
+      {
+        "type": "Person",
+        "name": "Zooey Deschanel"
+      },
+      {
+        "type": "Person",
+        "name": "Jake Johnson"
+      },
+      {
+        "type": "Person",
+        "name": "Morris Lamorne"
+      },
+      {
+        "type": "Person",
+        "name": "Hannah Arterton"
+      }
+    ],
+    "consumerAdvice": [
+      "s",
+      "a"
+    ],
+    "contentRating": "pg",
+    "country": {
+      "name": "USA"
+    },
+    "datePublished": "2012-01-01T01:01:01",
+    "description": "Mistaken identity abounds as Jess inadvertently captures the attention of a beer delivery guy and then pretends to be someone else when a handsome stranger thinks she is his blind date. Then, a regular at Nick\u2019s bar claims to be Nick from the future, and Winston\u2019s disapproving mother comes to visit, all the while maintaining her hatred of Schmidt.",
+    "descriptionHtml": "Mistaken identity abounds as Jess inadvertently captures the attention of a beer delivery guy and then pretends to be someone else when a handsome stranger thinks she is his blind date. Then, a regular at Nick\u2019s bar claims to be Nick from the future, and Winston\u2019s disapproving mother comes to visit, all the while maintaining her hatred of Schmidt. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+    "director": [],
+    "displayTitles": {
+      "double": {
+        "title": "New Girl",
+        "subtitle": "Season 2 Episode 2 - Katie"
+      },
+      "appleumc": {
+        "descriptive": "Katie",
+        "formatted": "Katie, Season 2 Episode 2"
+      },
+      "programpage": {
+        "playButton": "Play Season 2 Episode 2"
+      },
+      "seasonListTitle": "2. Katie",
+      "seasonlist": {
+        "title": "2. Katie"
+      },
+      "videoPlayer": {
+        "title": "Katie",
+        "subtitle": "New Girl, Season 2 Episode 2"
+      },
+      "episodePromotion": {
+        "title": "Katie",
+        "subtitle": "Season 2 Episode 2"
+      },
+      "title": "New Girl",
+      "subtitle": "Season 2 Episode 2 - Katie",
+      "components": {
+        "seasonEpisodeFull": "Season 2 Episode 2",
+        "seasonEpisodeAbbreviated": "S2 E2"
+      },
+      "pageTitle": "Katie - New Girl, Season 2 Episode 2"
+    },
+    "duration": 1241,
+    "episodeNumber": 2,
+    "externalRelations": {
+      "mpx": {
+        "guid": 663350
+      },
+      "pilat": {
+        "deal": {
+          "id": "http:\/\/www.sbs.com.au\/pilatDealcode\/181026"
+        }
+      },
+      "tvAnytime": {
+        "series": {
+          "crid": "crid:\/\/sbs.com.au\/231628"
+        }
+      },
+      "roku": {
+        "mediatype": "episode",
+        "contentid": 663350
+      },
+      "appleUniversalSearch": {
+        "mediaIdentifier": "EPISODE_1604589635979"
+      }
+    },
+    "id": "http:\/\/www.sbs.com.au\/ondemand\/video\/1604589635979",
+    "inLanguage": [
+      {
+        "type": "Language",
+        "name": "English"
+      }
+    ],
+    "inStreamEvents": {
+      "chapters": [
+        0,
+        367.75,
+        711.25
+      ],
+      "creditsBegin": 1235,
+      "openingTitlesBegin": 98,
+      "openingTitlesEnd": 107
+    },
+    "name": "New Girl S2 Ep2 - Katie",
+    "offer": {
+      "availabilityStarts": "2019-09-30T14:00:00Z",
+      "availabilityEnds": "2020-10-27T03:35:00Z"
+    },
+    "partOfSeason": {
+      "seasonNumber": "2"
+    },
+    "partOfSeries": {
+      "name": "New Girl",
+      "id": "http:\/\/www.sbs.com.au\/program\/6627",
+      "slug": "new-girl"
+    },
+    "pilat": {
+      "id": "http:\/\/www.sbs.com.au\/pilatId\/663350"
+    },
+    "publication": {
+      "type": "BroadcastEvent",
+      "startDate": "2019-09-30T14:00:00Z"
+    },
+    "requiresSubscription": true,
+    "revision": {
+      "date": "20201010203803",
+      "id": 3380
+    },
+    "shortDescription": "Mistaken identity abounds as Jess inadvertently captures the attention of a beer delivery guy and then pretends to be someone else when a handsome stranger thinks she is his blind date.",
+    "shortDescriptionHtml": "Mistaken identity abounds as Jess inadvertently captures the attention of a beer delivery guy and then pretends to be someone else when a handsome stranger thinks she is his blind date. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+    "taxonomy": {
+      "useType": "Full Episode",
+      "genre": [
+        {
+          "type": "Term",
+          "name": "Comedy"
+        }
+      ],
+      "subGenre": [
+        {
+          "type": "Term",
+          "name": "Comedy\/Narrative"
+        }
+      ],
+      "section": [
+        {
+          "type": "Term",
+          "name": "Programs"
+        }
+      ],
+      "channel": [
+        {
+          "type": "Term",
+          "name": "On Demand"
+        }
+      ],
+      "grouping": [
+        {
+          "type": "Term",
+          "name": "AVOD Drama"
+        }
+      ]
+    },
+    "thumbnailUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_large.jpg",
+    "thumbnails": [
+      {
+        "name": "4x3",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_4:3.jpg",
+        "width": 640,
+        "height": 480
+      },
+      {
+        "name": "Double",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_double.jpg",
+        "width": 460,
+        "height": 290
+      },
+      {
+        "name": "Facebook",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_facebook.jpg",
+        "width": 200,
+        "height": 200
+      },
+      {
+        "name": "Full",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_full.jpg",
+        "width": 704,
+        "height": 396
+      },
+      {
+        "name": "Full Mobile",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_fullmobile.jpg",
+        "width": 320,
+        "height": 180
+      },
+      {
+        "name": "Hd720",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_hd720.jpg",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "name": "Network Tile",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_networktile.jpg",
+        "width": 300,
+        "height": 250
+      },
+      {
+        "name": "Programs Large",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_programslarge.jpg",
+        "width": 460,
+        "height": 258
+      },
+      {
+        "name": "Programs Small",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_programssmall.jpg",
+        "width": 220,
+        "height": 122
+      },
+      {
+        "name": "Single",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_single.jpg",
+        "width": 220,
+        "height": 290
+      },
+      {
+        "name": "Sony",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_sony.jpg",
+        "width": 128,
+        "height": 96
+      },
+      {
+        "name": "Thumb Carousel Large",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_carousellarge.jpg",
+        "width": 396,
+        "height": 260
+      },
+      {
+        "name": "Thumb Carousel Small",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_carouselsmall.jpg",
+        "width": 220,
+        "height": 124
+      },
+      {
+        "name": "Thumb Small",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_thumbsmall.jpg",
+        "width": 100,
+        "height": 100
+      },
+      {
+        "name": "Thumbnail",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_small.jpg",
+        "width": 189,
+        "height": 106
+      },
+      {
+        "name": "Thumbnail Large",
+        "encodingFormat": "jpeg",
+        "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_large.jpg",
+        "width": 640,
+        "height": 360
+      }
+    ],
+    "type": "Episode",
+    "videoFormat": "HD",
+    "visualAids": {
+      "subtitles": [],
+      "closedCaptions": []
+    }
+  },
+  "trackingEvents": [
+    {
+      "event_type": "cx_pageview",
+      "event_seconds": 248,
+      "event_details": {
+        "cx_pageview": {
+          "cx_pageview_url": "http:\/\/www.sbs.com.au\/ondemand\/program\/new-girl",
+          "cx_pageview_parameters": {
+            "episode": "1",
+            "season": "2",
+            "videoid": "1604589635977"
+          }
+        }
+      }
+    },
+    {
+      "event_type": "credits_begin",
+      "event_seconds": 1225
+    },
+    {
+      "event_type": "offer_next_episode",
+      "event_seconds": 1225
+    }
+  ],
+  "conviva": {
+    "contentId": "1604589635977",
+    "streamType": "VOD",
+    "streamDuration": 1242,
+    "contentType": "Full Episode",
+    "assetName": "[1604589635977] New Girl S2 Ep1 - Re-Launch",
+    "show": "New Girl",
+    "episodeName": "Re-Launch",
+    "episodeNumber": "1",
+    "season": "2",
+    "pubDate": "Oct 1, 2019",
+    "genre": "Comedy",
+    "subGenre": "Narrative",
+    "category": "Comedy\/Narrative",
+    "channel": "Web Exclusive",
+    "cdn": "AKAMAI",
+    "verticalName": "ondemand",
+    "durationType": "Long Form",
+    "viewerId": "ac2c3124-336f-48c8-962e-ad020a9fe04b",
+    "viewerAge": 82,
+    "viewerGender": "male",
+    "viewerAgreement": true,
+    "accessType": "Authenticated"
+  }
+}

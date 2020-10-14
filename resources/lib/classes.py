@@ -161,7 +161,6 @@ class Program(object):
         self.id = None
         self.title = None
         self.series_title = None
-        self.episode_title = None
         self.description = None
         self.season_no = None
         self.episode_no = None
@@ -326,7 +325,7 @@ class Program(object):
         if as_datetime:
             return self.expire
         else:
-            return self.expire.strftime("%Y-%m-%d %h:%m:%s")
+            return self.expire.strftime("%Y-%m-%d %H:%M:%S")
 
     def get_subfilename(self):
         if self.subfilename:
@@ -398,7 +397,7 @@ class Program(object):
             else:
                 val = d[key]
             url += '&{0}={1}'.format(key, val)
-        return url
+        return url.lstrip('&')
 
     def parse_kodi_url(self, url):
         params = dict(parse_qsl(url))

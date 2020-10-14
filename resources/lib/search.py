@@ -6,9 +6,9 @@ import xbmcaddon
 
 import xbmcgui
 
+addon = xbmcaddon.Addon()
 
 def get_search_history():
-    addon = xbmcaddon.Addon()
     search_history = addon.getSetting('SEARCH_HISTORY')
     if search_history == '':
         addon.setSetting('SEARCH_HISTORY', json.dumps([]))
@@ -27,7 +27,6 @@ def get_search_input():
 
 
 def set_search_history(json_data):
-    addon = xbmcaddon.Addon()
     addon.setSetting('SEARCH_HISTORY', json.dumps(json_data))
 
 

@@ -10,10 +10,11 @@ import xbmcplugin
 from aussieaddonscommon import utils
 from aussieaddonscommon import session
 
+addon = xbmcaddon.Addon()
+
 
 def play(url):
     try:
-        addon = xbmcaddon.Addon()
         p = classes.Program()
         p.parse_kodi_url(url)
         stream_info = comm.get_stream(p.id)
@@ -32,7 +33,7 @@ def play(url):
         listitem = comm.create_listitem(label=p.get_list_title(),
                                         iconImage=p.thumb,
                                         thumbnailImage=p.thumb,
-                                        path=stream_url)
+                                        path=str(stream_url))
         listitem.setInfo('video', p.get_kodi_list_item())
 
         # Add subtitles if available
@@ -118,4 +119,5 @@ def play(url):
         upnext_signal('plugin.video.sbs', next_info)
 
     except Exception:
+        raise
         utils.handle_error("Unable to play video")

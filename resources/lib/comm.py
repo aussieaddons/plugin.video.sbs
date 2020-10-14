@@ -15,6 +15,8 @@ import xbmcaddon
 
 import xbmcgui
 
+addon = xbmcaddon.Addon()
+
 def create_listitem(*args, **kwargs):
     ver = utils.get_kodi_major_version()
     if ver >= 18:
@@ -34,7 +36,6 @@ def clear_login_token(show_dialog=True):
 
 
 def get_login_token():
-    addon = xbmcaddon.Addon()
     encoded_token = addon.getSetting('user_token')
     if encoded_token:
         return encoded_token
@@ -421,14 +422,12 @@ def get_favourites_categories():
         return []
     fav_feed_list = config_data.get(
         'contentStructure').get('screens').get('Favourites').get('rows')
-    utils.log(fav_feed_list)
     listing = []
     response = fav_all_json.get('all').get('response')
     for cat in response:
         if response.get(cat):
             title = cat.capitalize()
             feed_url = get_attr(fav_feed_list, 'name', title, 'feedUrl')
-            utils.log('FEED URL IS: {0}'.format(feed_url))
             listing.append(create_fav_category(title, feed_url))
     return listing
 
@@ -465,7 +464,6 @@ def remove_from_favourites(params):
 
 
 def get_stream(program_id):
-    addon = xbmcaddon.Addon()
     token = get_login_token()
     if not token:
         return

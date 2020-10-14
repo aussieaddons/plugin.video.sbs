@@ -1,0 +1,364 @@
+{
+  "@context": [
+    "http:\/\/www.sbs.com.au\/schemas\/"
+  ],
+  "type": "ItemList",
+  "name": "Search Result",
+  "itemListElement": [
+    {
+      "actor": [
+        {
+          "type": "Person",
+          "name": "Zooey Deschanel"
+        },
+        {
+          "type": "Person",
+          "name": "Jake Johnson"
+        },
+        {
+          "type": "Person",
+          "name": "Morris Lamorne"
+        },
+        {
+          "type": "Person",
+          "name": "Hannah Arterton"
+        }
+      ],
+      "consumerAdvice": [
+        "s",
+        "a"
+      ],
+      "contentRating": "pg",
+      "country": {
+        "name": "USA"
+      },
+      "datePublished": "2012-01-01T01:01:01",
+      "description": "Mistaken identity abounds as Jess inadvertently captures the attention of a beer delivery guy and then pretends to be someone else when a handsome stranger thinks she is his blind date. Then, a regular at Nick\u2019s bar claims to be Nick from the future, and Winston\u2019s disapproving mother comes to visit, all the while maintaining her hatred of Schmidt.",
+      "descriptionHtml": "Mistaken identity abounds as Jess inadvertently captures the attention of a beer delivery guy and then pretends to be someone else when a handsome stranger thinks she is his blind date. Then, a regular at Nick\u2019s bar claims to be Nick from the future, and Winston\u2019s disapproving mother comes to visit, all the while maintaining her hatred of Schmidt. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+      "director": [],
+      "displayTitles": {
+        "double": {
+          "title": "New Girl",
+          "subtitle": "Season 2 Episode 2 - Katie"
+        },
+        "appleumc": {
+          "descriptive": "Katie",
+          "formatted": "Katie, Season 2 Episode 2"
+        },
+        "programpage": {
+          "playButton": "Play Season 2 Episode 2"
+        },
+        "seasonListTitle": "2. Katie",
+        "seasonlist": {
+          "title": "2. Katie"
+        },
+        "videoPlayer": {
+          "title": "Katie",
+          "subtitle": "New Girl, Season 2 Episode 2"
+        },
+        "episodePromotion": {
+          "title": "Katie",
+          "subtitle": "Season 2 Episode 2"
+        },
+        "title": "New Girl",
+        "subtitle": "Season 2 Episode 2 - Katie",
+        "components": {
+          "seasonEpisodeFull": "Season 2 Episode 2",
+          "seasonEpisodeAbbreviated": "S2 E2"
+        },
+        "pageTitle": "Katie - New Girl, Season 2 Episode 2"
+      },
+      "duration": 1241,
+      "episodeNumber": 2,
+      "externalRelations": {
+        "mpx": {
+          "guid": 663350
+        },
+        "pilat": {
+          "deal": {
+            "id": "http:\/\/www.sbs.com.au\/pilatDealcode\/181026"
+          }
+        },
+        "tvAnytime": {
+          "series": {
+            "crid": "crid:\/\/sbs.com.au\/231628"
+          }
+        },
+        "roku": {
+          "mediatype": "episode",
+          "contentid": 663350
+        },
+        "appleUniversalSearch": {
+          "mediaIdentifier": "EPISODE_1604589635979"
+        }
+      },
+      "id": "http:\/\/www.sbs.com.au\/ondemand\/video\/1604589635979",
+      "inLanguage": [
+        {
+          "type": "Language",
+          "name": "English"
+        }
+      ],
+      "inStreamEvents": {
+        "creditsBegin": 1235,
+        "recapBegin": 0,
+        "recapEnd": 0,
+        "openingTitlesBegin": 98,
+        "openingTitlesEnd": 107
+      },
+      "name": "New Girl S2 Ep2 - Katie",
+      "offer": {
+        "availabilityStarts": "2019-09-30T14:00:00Z",
+        "availabilityEnds": "2020-10-27T03:35:00Z"
+      },
+      "partOfSeason": {
+        "seasonNumber": "2"
+      },
+      "partOfSeries": {
+        "name": "New Girl",
+        "id": "http:\/\/www.sbs.com.au\/program\/6627",
+        "slug": "new-girl"
+      },
+      "pilat": {
+        "id": "http:\/\/www.sbs.com.au\/pilatId\/663350"
+      },
+      "publication": {
+        "type": "BroadcastEvent",
+        "startDate": "2019-09-30T14:00:00Z"
+      },
+      "requiresSubscription": true,
+      "revision": {
+        "id": 3380
+      },
+      "shortDescription": "Mistaken identity abounds as Jess inadvertently captures the attention of a beer delivery guy and then pretends to be someone else when a handsome stranger thinks she is his blind date.",
+      "shortDescriptionHtml": "Mistaken identity abounds as Jess inadvertently captures the attention of a beer delivery guy and then pretends to be someone else when a handsome stranger thinks she is his blind date. [English, On Demand] <span style=\"color: #525e6e\">Aired on Oct-1<\/span>",
+      "taxonomy": {
+        "useType": "Full Episode",
+        "genre": [
+          {
+            "type": "Term",
+            "name": "Comedy"
+          }
+        ],
+        "subGenre": [
+          {
+            "type": "Term",
+            "name": "Comedy\/Narrative"
+          }
+        ],
+        "channel": [
+          {
+            "type": "Term",
+            "name": "On Demand"
+          }
+        ],
+        "grouping": [
+          {
+            "type": "Term",
+            "name": "AVOD Drama"
+          }
+        ],
+        "section": [
+          {
+            "type": "Term",
+            "name": "Programs"
+          }
+        ]
+      },
+      "thumbnailUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_large.jpg",
+      "thumbnails": [
+        {
+          "name": "4x3",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_4:3.jpg",
+          "width": 640,
+          "height": 480
+        },
+        {
+          "name": "Double",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_double.jpg",
+          "width": 460,
+          "height": 290
+        },
+        {
+          "name": "Facebook",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_facebook.jpg",
+          "width": 200,
+          "height": 200
+        },
+        {
+          "name": "Full",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_full.jpg",
+          "width": 704,
+          "height": 396
+        },
+        {
+          "name": "Full Mobile",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_fullmobile.jpg",
+          "width": 320,
+          "height": 180
+        },
+        {
+          "name": "Hd720",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_hd720.jpg",
+          "width": 1280,
+          "height": 720
+        },
+        {
+          "name": "Network Tile",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_networktile.jpg",
+          "width": 300,
+          "height": 250
+        },
+        {
+          "name": "Programs Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_programslarge.jpg",
+          "width": 460,
+          "height": 258
+        },
+        {
+          "name": "Programs Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_programssmall.jpg",
+          "width": 220,
+          "height": 122
+        },
+        {
+          "name": "Single",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_single.jpg",
+          "width": 220,
+          "height": 290
+        },
+        {
+          "name": "Sony",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_sony.jpg",
+          "width": 128,
+          "height": 96
+        },
+        {
+          "name": "Thumb Carousel Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_carousellarge.jpg",
+          "width": 396,
+          "height": 260
+        },
+        {
+          "name": "Thumb Carousel Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_carouselsmall.jpg",
+          "width": 220,
+          "height": 124
+        },
+        {
+          "name": "Thumb Small",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_thumbsmall.jpg",
+          "width": 100,
+          "height": 100
+        },
+        {
+          "name": "Thumbnail",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_small.jpg",
+          "width": 189,
+          "height": 106
+        },
+        {
+          "name": "Thumbnail Large",
+          "encodingFormat": "jpeg",
+          "contentUrl": "https:\/\/videocdn-sbs.akamaized.net\/u\/video\/SBS\/managed\/images\/2019\/09\/26\/1604589635979_09260209_image145959_large.jpg",
+          "width": 640,
+          "height": 360
+        }
+      ],
+      "type": "Episode",
+      "videoFormat": "HD",
+      "visualAids": {
+        "subtitles": [],
+        "closedCaptions": []
+      }
+    }
+  ],
+  "numberOfItems": 1,
+  "totalNumberOfItems": 1,
+  "searchFacets": {
+    "actor": {
+      "type": "ItemList",
+      "itemListElement": [
+        {
+          "type": "Facet",
+          "name": "Hannah Arterton",
+          "numberOfItems": 1
+        },
+        {
+          "type": "Facet",
+          "name": "Jake Johnson",
+          "numberOfItems": 1
+        },
+        {
+          "type": "Facet",
+          "name": "Morris Lamorne",
+          "numberOfItems": 1
+        },
+        {
+          "type": "Facet",
+          "name": "Zooey Deschanel",
+          "numberOfItems": 1
+        }
+      ]
+    },
+    "section": {
+      "type": "ItemList",
+      "itemListElement": [
+        {
+          "type": "Facet",
+          "name": "Programs",
+          "numberOfItems": 1
+        }
+      ]
+    },
+    "director": {
+      "type": "ItemList",
+      "itemListElement": []
+    },
+    "channel": {
+      "type": "ItemList",
+      "itemListElement": [
+        {
+          "type": "Facet",
+          "name": "Web Exclusive",
+          "numberOfItems": 1
+        }
+      ]
+    },
+    "language": {
+      "type": "ItemList",
+      "itemListElement": [
+        {
+          "type": "Facet",
+          "name": "English",
+          "numberOfItems": 1
+        }
+      ]
+    },
+    "genre": {
+      "type": "ItemList",
+      "itemListElement": [
+        {
+          "type": "Facet",
+          "name": "Comedy",
+          "numberOfItems": 1
+        }
+      ]
+    }
+  }
+}
