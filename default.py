@@ -30,7 +30,7 @@ def main():
         addon.setSetting('firstrun', 'false')
     params_str = sys.argv[2]
     params = utils.get_url(params_str)
-    utils.log(params)
+    utils.log(str(params))
     if len(params) == 0:
         index.make_index_list()
     elif params.get('obj_type') == 'Program':

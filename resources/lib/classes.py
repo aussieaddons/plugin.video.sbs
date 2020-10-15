@@ -234,7 +234,7 @@ class Program(object):
             seconds = int(float(self.duration))
             if version < 15:
                 # Older versions use minutes
-                minutes = seconds / 60
+                minutes = seconds // 60
                 return minutes
             else:
                 # Kodi v15 uses seconds

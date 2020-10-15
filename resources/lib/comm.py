@@ -66,9 +66,10 @@ def get_login_token():
     atresp = fetch_url(config.LOGIN2_URL.format(token=access_token))
     session_id = json.loads(atresp)['completelogin']['response'].get(
         'sessionid')
-    encoded_token = base64.b64encode('{0}:android'.format(session_id))
+    encoded_token = base64.b64encode(
+        '{0}:android'.format(session_id).encode('utf-8'))
     addon.setSetting('user_token', encoded_token)
-    return encoded_token
+    return encoded_token.decode('utf-8')
 
 
 def fetch_url(url, headers=None, data=None):
