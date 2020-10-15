@@ -183,6 +183,5 @@ class ClassesProgramTests(testtools.TestCase):
             '&title=Re-Launch')
         p = classes.Program()
         p.parse_kodi_url(url)
-        p.__dict__.pop('date')  # do we still need the date attrib?
         observed = p.make_kodi_url()
         self.assertEqual(url, observed)

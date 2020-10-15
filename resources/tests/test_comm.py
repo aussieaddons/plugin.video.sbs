@@ -10,10 +10,6 @@ try:
 except ImportError:
     import unittest.mock as mock
 
-from future.moves.urllib.parse import quote_plus
-
-import requests
-
 import responses
 
 import testtools
@@ -90,7 +86,9 @@ class CommTests(testtools.TestCase):
                       status=200)
         params = {'item_type': 'hero', 'obj_type': 'Series',
                   'feed_url': 'https://foo.bar/hero', 'title': 'Hero carousel'}
-        listing = comm.get_entries(params)
+        observed = comm.get_entries(params)
+        self.assertEqual(9, len(observed))
+        self.assertEqual('362510403921', observed[8].id)
 
     @mock.patch('resources.lib.comm.get_login_token')
     @responses.activate
@@ -119,7 +117,8 @@ class CommTests(testtools.TestCase):
                       body=self.AUTH1_JSON,
                       status=200)
         responses.add(responses.GET,
-                      config.LOGIN2_URL.format(token=json.loads(self.AUTH1_JSON).get('access_token')),
+                      config.LOGIN2_URL.format(token=json.loads(
+                          self.AUTH1_JSON).get('access_token')),
                       body=self.AUTH2_JSON,
                       status=200)
         observed = comm.get_login_token()
@@ -163,7 +162,6 @@ class CommTests(testtools.TestCase):
         self.assertEqual('From Last Night', observed[0].get_title())
         self.assertIn('SBS2', observed[0].feed_url)
 
-
     def test_create_program(self):
         program = json.loads(self.VIDEO_FEED_JSON).get('itemListElement')[0]
         observed = comm.create_program(program)
@@ -187,7 +185,8 @@ class CommTests(testtools.TestCase):
         self.assertEqual('Factual', observed.get_list_title())
 
     def test_create_season(self):
-        season = json.loads(self.VIDEO_PROGRAM_SERIES_JSON)['rows'][1]['feeds'][0]
+        season = json.loads(
+            self.VIDEO_PROGRAM_SERIES_JSON)['rows'][1]['feeds'][0]
         observed = comm.create_season(season, '')
         self.assertIn('181023', observed.feed_url)
 
@@ -240,7 +239,7 @@ class CommTests(testtools.TestCase):
                       body=self.VIDEO_CONFIG_JSON,
                       status=200)
         for tab in self.CONFIG.get(
-            'contentStructure')['screens']['Search']['tabs']:
+                'contentStructure')['screens']['Search']['tabs']:
             for cat in tab.get('rows'):
                 responses.add(responses.GET,
                               cat.get('feedUrl').replace('[QUERY]', 'news'),

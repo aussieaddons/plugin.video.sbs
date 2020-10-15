@@ -57,7 +57,7 @@ class Series(object):
             return self.get_title()
 
     def get_season(self):
-        season = re.search('^.* Series (?P<season>\d+)$', self.get_title())
+        season = re.search('^.* Series (?P<season>\\d+)$', self.get_title())
         if season is None:
             return 0
         return int(season.group('season'))

@@ -1,21 +1,19 @@
 import base64
-import classes
-import config
 import json
 import uuid
 
 from aussieaddonscommon import session
 from aussieaddonscommon import utils
 
-import resources.lib.search as search
-
-import xbmc
+import resources.lib.classes as classes
+import resources.lib.config as config
 
 import xbmcaddon
 
 import xbmcgui
 
 addon = xbmcaddon.Addon()
+
 
 def create_listitem(*args, **kwargs):
     ver = utils.get_kodi_major_version()
@@ -24,6 +22,7 @@ def create_listitem(*args, **kwargs):
 
     listitem = xbmcgui.ListItem(*args, **kwargs)
     return listitem
+
 
 def clear_login_token(show_dialog=True):
     addon = xbmcaddon.Addon()
@@ -63,7 +62,7 @@ def get_login_token():
                              'try again.')
         return False
     access_token = upresp_json.get('access_token')
-    ## insert check for email validation??
+    # insert check for email validation??
     atresp = fetch_url(config.LOGIN2_URL.format(token=access_token))
     session_id = json.loads(atresp)['completelogin']['response'].get(
         'sessionid')
@@ -183,7 +182,7 @@ def create_program(entry):
     p.season_no = entry.get('partOfSeason', {}).get('seasonNumber')
     p.episode_no = entry.get('episodeNumber')
     p.pilatDealcode = (entry.get('externalRelations', {}).get('pilat', {})
-        .get('deal', {}).get('id', '').split("/")[-1])
+                       .get('deal', {}).get('id', '').split("/")[-1])
     p.rating = entry.get('contentRating', '').upper()
     p.date = entry.get('publication', {}).get('startDate')
     p.expire = entry.get('offer', {}).get('availabilityEnds')
@@ -206,10 +205,10 @@ def create_series(entry):
     s.rating = entry.get('contentRating', '').upper()
     s.country = entry.get('country', {}).get('name')
     genres = [genre.get('name') for
-                genre in entry.get('taxonomy', {}).get('genre', [])]
+              genre in entry.get('taxonomy', {}).get('genre', [])]
     s.category = ' / '.join(genres)
     genres = [genre.get('name') for
-                genre in entry.get('taxonomy', {}).get('collection', [])]
+              genre in entry.get('taxonomy', {}).get('collection', [])]
     s.sub_category = ' / '.join(genres)
     seasons = entry.get('containSeasons', [])
     if seasons:
@@ -389,13 +388,13 @@ def get_entries(params):
 
 def get_next_program(program):
     if (not program or not program.pilatDealcode or not program.season_no
-        or not program.episode_no):
+            or not program.episode_no):
         return None
 
-    params = {'feed_url':config.EPISODE_URL.format(
-                            pilatDealcode=program.pilatDealcode,
-                            season=program.season_no,
-                            episodeNumber=int(program.episode_no)+1)}
+    params = {'feed_url': config.EPISODE_URL.format(
+        pilatDealcode=program.pilatDealcode,
+        season=program.season_no,
+        episodeNumber=int(program.episode_no)+1)}
 
     programs = get_entries(params=params)
     return programs[0] if programs else None
@@ -444,9 +443,11 @@ def add_to_favourites(params):
     resp = fetch_protected_url(
         url.replace('[ID]', params.get('program_id')), token)
     json_data = json.loads(resp)
-    if (json_data.get('add').get('status') == True
+    if (json_data.get('add').get('status') == True  # noqa: E712
             and json_data.get('add').get('response').get('result') == True):
         return True
+    else:
+        utils.log('Error adding favourite')
 
 
 def remove_from_favourites(params):
@@ -458,9 +459,11 @@ def remove_from_favourites(params):
     resp = fetch_protected_url(
         url.replace('[ID]', params.get('program_id')), token)
     json_data = json.loads(resp)
-    if (json_data.get('remove').get('status') == True
-            and json_data.get('remove').get('response').get('result') == True):
+    if (json_data.get('remove').get('status') is True
+            and json_data.get('remove').get('response').get('result') is True):
         return True
+    else:
+        utils.log('Error removing favourite')
 
 
 def get_stream(program_id):

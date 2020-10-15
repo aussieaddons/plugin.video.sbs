@@ -1,22 +1,22 @@
-import os
 import sys
-import xbmcaddon
-import xbmc
+
 # fix for python bug
 import _strptime  # noqa: F401
 
 from aussieaddonscommon import utils
 
 from resources.lib import comm
-
 from resources.lib import index
-
 from resources.lib import play
-
 from resources.lib import search
+
+import xbmc
+
+import xbmcaddon
 
 # Print our platform/version debugging information
 utils.log_kodi_platform_version()
+
 
 def main():
     addon = xbmcaddon.Addon()
@@ -37,7 +37,8 @@ def main():
         play.play(params_str)
     elif 'feed_url' in params:
         index.make_entries_list(params)
-    elif 'category' in params or params.get('item_type') in ['ProgramGenre', 'FilmGenre', 'Channel']:
+    elif 'category' in params or params.get(
+            'item_type') in ['ProgramGenre', 'FilmGenre', 'Channel']:
         if params.get('category') == 'Search':
             index.make_search_history_list()
         else:
@@ -45,14 +46,12 @@ def main():
     elif 'action' in params:
         action = params.get('action')
         if action == 'favouritescategories':
-          index.make_favourites_categories_list()
+            index.make_favourites_categories_list()
         elif action == 'addfavourites':
-            result = comm.add_to_favourites(params)
-            return result
+            comm.add_to_favourites(params)
         elif action == 'removefavourites':
-            result = comm.remove_from_favourites(params)
+            comm.remove_from_favourites(params)
             xbmc.executebuiltin('Container.Refresh')
-            return result
         elif action == 'searchhistory':
             if params.get('name') == 'New Search':
                 search.get_search_input()
@@ -69,6 +68,7 @@ def main():
         elif action == 'login':
             comm.get_login_token()
             xbmc.executebuiltin('Container.Refresh')
+
 
 if __name__ == "__main__":
     main()

@@ -8,6 +8,7 @@ import xbmcgui
 
 addon = xbmcaddon.Addon()
 
+
 def get_search_history():
     search_history = addon.getSetting('SEARCH_HISTORY')
     if search_history == '':

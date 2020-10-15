@@ -2,7 +2,6 @@ from __future__ import absolute_import, unicode_literals
 
 import importlib
 import io
-import json
 import os
 
 try:
@@ -10,14 +9,11 @@ try:
 except ImportError:
     import unittest.mock as mock
 
-import responses
-
 import testtools
 
-import resources.lib.config as config
 from resources.tests.fakes import fakes
 
-@testtools.skip
+
 class DefaultTests(testtools.TestCase):
 
     @classmethod
@@ -93,7 +89,7 @@ class DefaultTests(testtools.TestCase):
         mock_entries.assert_called_with(
             {'feed_url': 'http://foo.bar/api/v3/video_feed',
              'obj_type': 'Series',
-             'title' : 'Season 2'})
+             'title': 'Season 2'})
 
     @mock.patch('resources.lib.index.make_category_list')
     @mock.patch('sys.argv',
@@ -115,72 +111,39 @@ class DefaultTests(testtools.TestCase):
         default.main()
         mock_search_history.assert_called_with()
 
-    @mock.patch('aussieaddonscommon.utils.get_kodi_major_version')
-    @mock.patch('resources.lib.comm.get_login_token')
-    @mock.patch('resources.lib.comm.xbmcgui.ListItem')
+    @mock.patch('resources.lib.index.make_favourites_categories_list')
     @mock.patch('sys.argv',
                 ['plugin://plugin.video.sbs/', '5',
                  '?action=favouritescategories',
                  'resume:false'])
-    @responses.activate
-    def test_default_favourites_categories(self, mock_listitem, mock_token,
-                                           mock_version):
-        mock_version.return_value = '18'
-        mock_token.return_value = 'foo'
-        mock_listitem.side_effect = fakes.FakeListItem
-        conf = json.loads(self.VIDEO_CONFIG_JSON)
-        fav_all_url = conf.get('favourites').get('listAll')
-        responses.add(responses.GET, fav_all_url,
-                      body=self.VIDEO_FAV_ALL_JSON,
-                      status=200)
-        responses.add(responses.GET, config.CONFIG_URL,
-                      body=self.VIDEO_CONFIG_JSON,
-                      status=200)
+    def test_default_favourites_categories(self, mock_favourites):
         default.main()
-        self.assertEqual(1, len(self.mock_plugin.directory))
-        self.assertEqual('Programs', self.mock_plugin.directory[0].get(
-            'listitem').getLabel())
+        mock_favourites.assert_called_once()
 
-    @mock.patch('resources.lib.comm.get_login_token')
+    @mock.patch('resources.lib.comm.add_to_favourites')
     @mock.patch('sys.argv',
                 ['plugin://plugin.video.sbs/', '5',
                  '?action=addfavourites&program_id=6000&entry_type=TVSeries',
                  'resume:false'])
-    @responses.activate
-    def test_default_add_favourites(self, mock_token):
-        mock_token.return_value = 'foo'
-        conf = json.loads(self.VIDEO_CONFIG_JSON)
-        fav_add_url = conf.get('favourites').get('addProgram').replace('[ID]',
-                                                                       '6000')
-        responses.add(responses.GET, config.CONFIG_URL,
-                      body=self.VIDEO_CONFIG_JSON,
-                      status=200)
-        responses.add(responses.GET, fav_add_url,
-                      body=self.VIDEO_FAV_ADD_JSON,
-                      status=200)
-        observed = default.main()
-        self.assertEqual(True, observed)
+    def test_default_add_favourites(self, mock_add):
+        params = {'action': 'addfavourites',
+                  'program_id': '6000',
+                  'entry_type': 'TVSeries'}
+        default.main()
+        mock_add.assert_called_with(params)
 
-    @mock.patch('resources.lib.comm.get_login_token')
+    @mock.patch('resources.lib.comm.remove_from_favourites')
     @mock.patch('sys.argv',
                 ['plugin://plugin.video.sbs/', '5',
                  '?action=removefavourites&program_id=6000&entry_type'
                  '=TVSeries',
                  'resume:false'])
-    @responses.activate
-    def test_default_remove_favourites(self, mock_token):
-        mock_token.return_value = 'foo'
-        conf = json.loads(self.VIDEO_CONFIG_JSON)
-        fav_add_url = conf.get('favourites').get('removeProgram').replace(
-            '[ID]', '6000')
-        responses.add(responses.GET, config.CONFIG_URL,
-                      body=self.VIDEO_CONFIG_JSON,
-                      status=200)
-        responses.add(responses.GET, fav_add_url,
-                      body=self.VIDEO_FAV_REMOVE_JSON,
-                      status=200)
-        observed = default.main()
-        self.assertEqual(True, observed)
+    def test_default_remove_favourites(self, mock_remove):
+        params = {'action': 'removefavourites',
+                  'program_id': '6000',
+                  'entry_type': 'TVSeries'}
+        default.main()
+        mock_remove.assert_called_with(params)
 
     @mock.patch('resources.lib.index.make_search_list')
     @mock.patch('sys.argv',

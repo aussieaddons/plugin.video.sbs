@@ -5,6 +5,7 @@ import xbmcaddon
 
 import xbmcgui
 
+
 class FakeAddon(xbmcaddon.Addon):
     def __init__(self, user_token='', unique_id='', ad_id='', **kwargs):
         super(FakeAddon, self).__init__()
@@ -18,6 +19,7 @@ class FakeAddon(xbmcaddon.Addon):
 
     def setSetting(self, setting, value):
         setattr(self, setting, value)
+
 
 class FakeListItem(xbmcgui.ListItem):
     def __init__(self, label="", label2="", iconImage="", thumbnailImage="",
@@ -183,4 +185,4 @@ UUID = [
 LOGIN = ['foo', 'bar']
 
 LOGIN_TOKEN = ('YW5kcm9pZDJhMzIxZTQ1NDhjMzMzMGRhZmE4ZmNhODk4ZWYxNDEyNmZkMj'
-              'IwMmU6YW5kcm9pZA==')
+               'IwMmU6YW5kcm9pZA==')

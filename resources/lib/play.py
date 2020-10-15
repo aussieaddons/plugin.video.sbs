@@ -1,14 +1,19 @@
-import classes
-import comm
-from upnext import upnext_signal
 import os
 import sys
-import xbmc
-import xbmcaddon
-import xbmcplugin
+from collections import OrderedDict
 
-from aussieaddonscommon import utils
 from aussieaddonscommon import session
+from aussieaddonscommon import utils
+
+import resources.lib.classes as classes
+import resources.lib.comm as comm
+from resources.lib.upnext import upnext_signal
+
+import xbmc
+
+import xbmcaddon
+
+import xbmcplugin
 
 addon = xbmcaddon.Addon()
 
@@ -77,8 +82,8 @@ def play(url):
         if not isinstance(np, classes.Program):
             return
 
-        next_info = dict(
-            current_episode=dict(
+        next_info = OrderedDict(
+            current_episode=OrderedDict(
                 episodeid=p.id,
                 tvshowid=p.get_tvshowid(),
                 title=p.get_title(),
@@ -95,7 +100,7 @@ def play(url):
                 firstaired=p.get_date(),
                 runtime=p.get_duration(),
             ),
-            next_episode=dict(
+            next_episode=OrderedDict(
                 episodeid=np.id,
                 tvshowid=np.get_tvshowid(),
                 title=np.get_title(),
@@ -119,5 +124,4 @@ def play(url):
         upnext_signal('plugin.video.sbs', next_info)
 
     except Exception:
-        raise
         utils.handle_error("Unable to play video")

@@ -1,8 +1,8 @@
 from __future__ import absolute_import, unicode_literals
 
 import json
-
 from builtins import str as text
+from collections import OrderedDict
 
 try:
     import mock
@@ -18,7 +18,8 @@ class UpnextTests(testtools.TestCase):
 
     @mock.patch('resources.lib.upnext.notify')
     def test_upnext_signal(self, mock_notify):
-        upnext.upnext_signal('me', {'episodeid': 1234, 'title': 'Baz'})
+        upnext.upnext_signal(
+            'me', OrderedDict({'episodeid': 1234, 'title': 'Baz'}))
         expected_data = ['eyJlcGlzb2RlaWQiOiAxMjM0LCAidGl0bGUiOiAiQmF6In0=']
         mock_notify.assert_called_with(
             sender='me.SIGNAL', message='upnext_data', data=expected_data)
@@ -44,8 +45,7 @@ class UpnextTests(testtools.TestCase):
         mock_execute.return_value = '{"result": "whatever"}'
         upnext.jsonrpc(**kwargs)
         kwargs.update({'id': 0, 'jsonrpc': '2.0'})
-        mock_execute.assert_called_with(json.dumps(kwargs))
-
+        mock_execute.assert_called_with(json.dumps(kwargs, sort_keys=True))
 
     def test_to_unicode(self):
         observed = upnext.to_unicode('Foo'.encode('utf-8'))

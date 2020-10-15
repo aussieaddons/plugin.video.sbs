@@ -231,8 +231,8 @@ class IndexTests(testtools.TestCase):
                  '?action=favouritescategories',
                  'resume:false'])
     @responses.activate
-    def test_make_favourites_categories_list(self, mock_listitem,
-                              mock_version, mock_favourites):
+    def test_make_favourites_categories_list(
+            self, mock_listitem, mock_version, mock_favourites):
         mock_favourites.return_value = json.loads(self.VIDEO_FAV_ALL_JSON)
         mock_version.return_value = 18
         mock_plugin = fakes.FakePlugin()

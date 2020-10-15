@@ -1,16 +1,19 @@
 import sys
-import xbmcaddon
-import xbmcplugin
-import classes
-import comm
 
 from future.moves.urllib.parse import quote_plus
 
 from aussieaddonscommon import utils
 
+import resources.lib.classes as classes
+import resources.lib.comm as comm
 import resources.lib.search as search
 
+import xbmcaddon
+
+import xbmcplugin
+
 addon = xbmcaddon.Addon()
+
 
 def make_index_list():
     try:
@@ -161,7 +164,7 @@ def make_search_history_list():
         xbmcplugin.endOfDirectory(handle=int(sys.argv[1]), succeeded=ok,
                                   cacheToDisc=False)
         xbmcplugin.setContent(handle=int(sys.argv[1]), content='tvshows')
-    except Exception as e:
+    except Exception:
         utils.handle_error('Unable to fetch search history list')
 
 

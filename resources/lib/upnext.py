@@ -1,11 +1,14 @@
-import xbmc
-from json import dumps, loads
 from base64 import b64encode
+from json import dumps, loads
+
+import xbmc
+
 
 def upnext_signal(sender, next_info):
     """Send a signal to Kodi using JSON RPC"""
-    data = [to_unicode(b64encode(dumps(next_info).encode()))]
+    data = [to_unicode(b64encode(dumps(next_info, sort_keys=True).encode()))]
     notify(sender=sender + '.SIGNAL', message='upnext_data', data=data)
+
 
 def notify(sender, message, data):
     """Send a notification to Kodi using JSON RPC"""
@@ -16,9 +19,10 @@ def notify(sender, message, data):
     ))
     if result.get('result') != 'OK':
         xbmc.log('Failed to send notification: '
-                    + result.get('error').get('message'))
+                 + result.get('error').get('message'))
         return False
     return True
+
 
 def jsonrpc(**kwargs):
     """Perform JSONRPC calls"""
@@ -26,7 +30,8 @@ def jsonrpc(**kwargs):
         kwargs.update(id=0)
     if kwargs.get('jsonrpc') is None:
         kwargs.update(jsonrpc='2.0')
-    return loads(xbmc.executeJSONRPC(dumps(kwargs)))
+    return loads(xbmc.executeJSONRPC(dumps(kwargs, sort_keys=True)))
+
 
 def to_unicode(text, encoding='utf-8', errors='strict'):
     """Force text to unicode"""

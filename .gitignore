@@ -7,3 +7,7 @@
 
 # zip file
 *.zip
+
+.deploy
+.tox
+__pycache__
