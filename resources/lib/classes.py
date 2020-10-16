@@ -261,6 +261,8 @@ class Program(object):
         return dt_obj.strftime(Program.dt_format)
 
     def get_date(self, as_datetime=False):
+        if not self.date:
+            return None
         if not isinstance(self.date, datetime.datetime):
             self.date = Program.parse_date(self.date)
 
@@ -400,6 +402,7 @@ class Program(object):
         return url.lstrip('&')
 
     def parse_kodi_url(self, url):
+        url = url.lstrip('?')
         params = dict(parse_qsl(url))
         for item in params.keys():
             setattr(self, item, unquote_plus(params[item]))

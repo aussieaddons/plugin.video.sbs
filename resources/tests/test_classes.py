@@ -115,6 +115,25 @@ class ClassesProgramTests(testtools.TestCase):
         expected = '2019-08-13'
         self.assertEqual(expected, observed)
 
+    def test_parse_date(self):
+        date_string = '2019-12-04T10:35:00Z'
+        observed = classes.Program.parse_date(date_string)
+        expected = datetime(2019, 12, 4, 10, 35, 0)
+        self.assertEqual(expected, observed)
+
+    def test_get_date_empty(self):
+        p = classes.Program()
+        date_string = None
+        observed = p.get_date(date_string)
+        self.assertEqual(None, observed)
+
+    def test_get_date_as_datetime(self):
+        p = classes.Program()
+        p.date = '2019-12-04T10:35:00Z'
+        observed = p.get_date(as_datetime=True)
+        expected = datetime(2019, 12, 4, 10, 35, 0)
+        self.assertEqual(expected, observed)
+
     def test_get_expire(self):
         p = classes.Program()
         p.expire = datetime(2019, 8, 13, 0, 0, 0)
