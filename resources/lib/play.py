@@ -15,11 +15,10 @@ import xbmcaddon
 
 import xbmcplugin
 
-addon = xbmcaddon.Addon()
-
 
 def play(url):
     try:
+        addon = xbmcaddon.Addon()
         p = classes.Program()
         p.parse_kodi_url(url)
         stream_info = comm.get_stream(p.id)

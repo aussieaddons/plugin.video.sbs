@@ -12,8 +12,6 @@ import xbmcaddon
 
 import xbmcgui
 
-addon = xbmcaddon.Addon()
-
 
 def create_listitem(*args, **kwargs):
     ver = utils.get_kodi_major_version()
@@ -35,6 +33,7 @@ def clear_login_token(show_dialog=True):
 
 
 def get_login_token():
+    addon = xbmcaddon.Addon()
     encoded_token = addon.getSetting('user_token')
     if encoded_token:
         return encoded_token
@@ -471,6 +470,7 @@ def get_stream(program_id):
     token = get_login_token()
     if not token:
         return
+    addon = xbmcaddon.Addon()
     data_url = config.STREAM_URL.format(
         VIDEOID=program_id,
         UNIQUEID=addon.getSetting('unique_id'),

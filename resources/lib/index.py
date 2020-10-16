@@ -12,11 +12,10 @@ import xbmcaddon
 
 import xbmcplugin
 
-addon = xbmcaddon.Addon()
-
 
 def make_index_list():
     try:
+        addon = xbmcaddon.Addon()
         index = comm.get_config()['contentStructure'].get('menu')
         ok = True
         for i in index:

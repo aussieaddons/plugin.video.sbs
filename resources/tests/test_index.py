@@ -66,6 +66,7 @@ class IndexTests(testtools.TestCase):
 
             self.assertEqual(expected, observed)
 
+    @mock.patch('xbmcaddon.Addon')
     @mock.patch('aussieaddonscommon.utils.get_kodi_major_version')
     @mock.patch('xbmcgui.ListItem')
     @mock.patch('sys.argv',
@@ -73,7 +74,9 @@ class IndexTests(testtools.TestCase):
                  '',
                  'resume:false'])
     @responses.activate
-    def test_make_index_list_logged_in(self, mock_listitem, mock_version):
+    def test_make_index_list_logged_in(self, mock_listitem, mock_version,
+                                       mock_addon):
+        mock_addon.return_value = fakes.FakeAddon(user_token='foo')
         mock_version.return_value = 18
         mock_plugin = fakes.FakePlugin()
         mock_listitem.side_effect = fakes.FakeListItem
@@ -81,16 +84,14 @@ class IndexTests(testtools.TestCase):
                       body=self.VIDEO_CONFIG_JSON)
         with mock.patch.dict('sys.modules', xbmcplugin=mock_plugin):
             import resources.lib.index as index
-            with mock.patch('resources.lib.index.addon',
-                            fakes.FakeAddon(user_token='foo')):
-                index.make_index_list()
-                observed = []
-                expected = ['Featured', 'Programs', 'Movies', 'Catchup',
-                            'Search', 'Favourites', 'Settings']
-                for res in mock_plugin.directory:
-                    observed.append(res.get('listitem').getLabel())
+            index.make_index_list()
+            observed = []
+            expected = ['Featured', 'Programs', 'Movies', 'Catchup',
+                        'Search', 'Favourites', 'Settings']
+            for res in mock_plugin.directory:
+                observed.append(res.get('listitem').getLabel())
 
-                self.assertEqual(expected, observed)
+            self.assertEqual(expected, observed)
 
     @mock.patch('aussieaddonscommon.utils.get_kodi_major_version')
     @mock.patch('xbmcgui.ListItem')
@@ -118,6 +119,7 @@ class IndexTests(testtools.TestCase):
             self.assertEqual(18, len(observed))
             self.assertIn('New Girl - S02E12 - Cabin', observed)
 
+    @mock.patch('xbmcaddon.Addon')
     @mock.patch('aussieaddonscommon.utils.get_kodi_major_version')
     @mock.patch('xbmcgui.ListItem')
     @mock.patch('sys.argv',
@@ -127,7 +129,8 @@ class IndexTests(testtools.TestCase):
                  'resume:false'])
     @responses.activate
     def test_make_entries_list_context_items(
-            self, mock_listitem, mock_version):
+            self, mock_listitem, mock_version, mock_addon):
+        mock_addon.return_value = fakes.FakeAddon(user_token='foo')
         mock_version.return_value = 18
         mock_plugin = fakes.FakePlugin()
         mock_listitem.side_effect = fakes.FakeListItem
@@ -136,20 +139,18 @@ class IndexTests(testtools.TestCase):
                       body=self.VIDEO_PROGRAM_COLLECTION_JSON)
         with mock.patch.dict('sys.modules', xbmcplugin=mock_plugin):
             import resources.lib.index as index
-            with mock.patch('resources.lib.index.addon',
-                            fakes.FakeAddon(user_token='foo')):
-                params = index.utils.get_url(sys.argv[2][1:])
-                index.make_entries_list(params)
-                observed = []
-                for res in mock_plugin.directory:
-                    if res.get('listitem').context_items:
-                        observed.extend(res.get('listitem').context_items)
-                self.assertEqual(27, len(observed))
-                seen = False
-                for item in observed:
-                    if '3236' in item[1]:
-                        seen = True
-                self.assertIs(True, seen)
+            params = index.utils.get_url(sys.argv[2][1:])
+            index.make_entries_list(params)
+            observed = []
+            for res in mock_plugin.directory:
+                if res.get('listitem').context_items:
+                    observed.extend(res.get('listitem').context_items)
+            self.assertEqual(27, len(observed))
+            seen = False
+            for item in observed:
+                if '3236' in item[1]:
+                    seen = True
+            self.assertIs(True, seen)
 
     @mock.patch('aussieaddonscommon.utils.get_kodi_major_version')
     @mock.patch('xbmcgui.ListItem')

@@ -108,7 +108,7 @@ class CommTests(testtools.TestCase):
 
     @mock.patch('xbmcgui.Dialog.input')
     @mock.patch('uuid.uuid4')
-    @mock.patch('resources.lib.comm.addon', fakes.FakeAddon())
+    @mock.patch('xbmcaddon.Addon', fakes.FakeAddon)
     @responses.activate
     def test_get_login_token(self, mock_uuid, mock_input):
         mock_uuid.side_effect = fakes.UUID
@@ -353,7 +353,7 @@ class CommTests(testtools.TestCase):
 
     @mock.patch('uuid.uuid4')
     @mock.patch('resources.lib.comm.get_login_token')
-    @mock.patch('resources.lib.comm.addon', fakes.FakeAddon())
+    @mock.patch('xbmcaddon.Addon', fakes.FakeAddon)
     @responses.activate
     def test_get_stream(self, mock_token, mock_uuid):
         mock_uuid.side_effect = fakes.UUID
