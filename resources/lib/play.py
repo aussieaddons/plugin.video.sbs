@@ -35,16 +35,15 @@ def play(url):
             stream_url = stream_url.replace('&b=0-2000', '&b=1400-1600')
 
         listitem = comm.create_listitem(label=p.get_list_title(),
-                                        iconImage=p.thumb,
-                                        thumbnailImage=p.thumb,
                                         path=str(stream_url))
+        listitem.setArt({'icon': p.thumb, 'thumb': p.thumb})
         listitem.setInfo('video', p.get_kodi_list_item())
 
         # Add subtitles if available
         if 'subtitles' in stream_info:
             sub_url = stream_info['subtitles']
             profile = addon.getAddonInfo('profile')
-            path = xbmc.translatePath(profile).decode('utf-8')
+            path = xbmc.translatePath(profile)
             if not os.path.isdir(path):
                 os.makedirs(path)
             subfile = xbmc.translatePath(

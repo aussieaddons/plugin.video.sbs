@@ -395,7 +395,7 @@ class Program(object):
             if isinstance(d[key], (str, bytes)):
                 val = quote_plus(d[key])
             elif isinstance(d[key], datetime.datetime):
-                val = Program.format_date(d[key])
+                val = quote_plus(Program.format_date(d[key]))
             else:
                 val = d[key]
             url += '&{0}={1}'.format(key, val)

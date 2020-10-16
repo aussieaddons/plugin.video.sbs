@@ -22,13 +22,11 @@ class FakeAddon(xbmcaddon.Addon):
 
 
 class FakeListItem(xbmcgui.ListItem):
-    def __init__(self, label="", label2="", iconImage="", thumbnailImage="",
+    def __init__(self, label="", label2="",
                  path="", offscreen=False):
         super(FakeListItem, self).__init__()
         self.setLabel(label)
         self.setLabel2(label2)
-        self.setIconImage(iconImage)
-        self.setThumbnailImage(thumbnailImage)
         self.setPath(path)
         self.offscreen = offscreen
         self.art = {}
@@ -47,12 +45,6 @@ class FakeListItem(xbmcgui.ListItem):
 
     def setLabel2(self, label):
         self.label2 = label
-
-    def setIconImage(self, iconImage):
-        self.iconImage = iconImage
-
-    def setThumbnailImage(self, thumbFilename):
-        self.thumbFilename = thumbFilename
 
     def setArt(self, dictionary):
         allowed_keys = [

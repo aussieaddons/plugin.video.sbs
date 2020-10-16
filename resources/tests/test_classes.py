@@ -196,8 +196,9 @@ class ClassesProgramTests(testtools.TestCase):
 
     def test_parse_kodi_url(self):
         url = (
-            'description=Stuff+happens&entry_type=Episode&episode_no=1&id'
-            '=1604589635977&obj_type=Program&rating=PG&season_no=2'
+            'date=2019-12-04T10%3A35%3A00Z&description=Stuff+happens'
+            '&entry_type=Episode&episode_no=1&id=1604589635977'
+            '&obj_type=Program&rating=PG&season_no=2'
             '&series_title=New+Girl&thumb=https%3A%2F%2Ffoo.bar%2Fimage.jpg'
             '&title=Re-Launch')
         p = classes.Program()
