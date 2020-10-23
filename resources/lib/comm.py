@@ -50,7 +50,7 @@ def get_login_token():
         return False
     upresp = fetch_url(config.LOGIN1_URL, data={'context': 'android',
                                                 'device': 'phone',
-                                                'version': '3.2.1',
+                                                'version': config.APP_VERSION,
                                                 'loginVersion': '1.0.0',
                                                 'user': username,
                                                 'pass': password,
@@ -108,6 +108,9 @@ def get_config():
     """
     resp = fetch_url(config.CONFIG_URL)
     json_data = json.loads(resp)
+    if 'contentStructure' not in json_data:
+        utils.log('Found config: %s' % json_data)
+        raise Exception('An SBS API Error has occured')
     return json_data
 
 
