@@ -63,6 +63,7 @@ def play(url):
                 utils.log('Subtitles not available for this program')
 
         listitem.setProperty('inputstreamaddon', 'inputstream.adaptive')
+        listitem.setProperty('inputstream', 'inputstream.adaptive')
         listitem.setProperty('inputstream.adaptive.manifest_type', 'hls')
         listitem.setProperty('inputstream.adaptive.license_key', stream_url)
 
