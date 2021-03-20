@@ -30,6 +30,8 @@ class CommTests(testtools.TestCase):
             self.AUTH1_FAIL_JSON = io.BytesIO(f.read()).read()
         with open(os.path.join(cwd, 'fakes/json/auth2.json'), 'rb') as f:
             self.AUTH2_JSON = io.BytesIO(f.read()).read()
+        with open(os.path.join(cwd, 'fakes/json/dai.json'), 'rb') as f:
+            self.DAI_JSON = io.BytesIO(f.read()).read()
         with open(os.path.join(cwd, 'fakes/json/feed_popular.json'),
                   'rb') as f:
             self.FEED_POPULAR_JSON = io.BytesIO(f.read()).read()
@@ -351,18 +353,47 @@ class CommTests(testtools.TestCase):
         observed = comm.remove_from_favourites(params)
         self.assertIs(True, observed)
 
+    @mock.patch('aussieaddonscommon.utils.get_kodi_major_version')
     @mock.patch('uuid.uuid4')
     @mock.patch('resources.lib.comm.get_login_token')
-    @mock.patch('xbmcaddon.Addon', fakes.FakeAddon)
+    @mock.patch('xbmcaddon.Addon')
     @responses.activate
-    def test_get_stream(self, mock_token, mock_uuid):
+    def test_get_stream_kodi18(self, mock_addon, mock_token,
+                               mock_uuid, mock_ver):
+        mock_addon.return_value = fakes.FakeAddon(user_token='foo', DAI='true')
+        mock_ver.return_value = 18
         mock_uuid.side_effect = fakes.UUID
         mock_token.return_value = 'foo'
-        program_id = '1234'
+        program = comm.classes.Program()
+        program.id = '1234'
         url = re.compile('^https://www.sbs.com.au/api/v3/video_stream')
         responses.add(responses.GET, url,
                       body=self.VIDEO_STREAM_JSON,
                       status=200)
-        observed = comm.get_stream(program_id)
+        observed = comm.get_stream(program)
         self.assertEqual({'stream_url': 'https://foo.bar/content.m3u8'},
+                         observed)
+
+    @mock.patch('aussieaddonscommon.utils.get_kodi_major_version')
+    @mock.patch('uuid.uuid4')
+    @mock.patch('resources.lib.comm.get_login_token')
+    @mock.patch('xbmcaddon.Addon')
+    @responses.activate
+    def test_get_stream_dai_kodi19(self, mock_addon, mock_token,
+                                   mock_uuid, mock_ver):
+        mock_addon.return_value = fakes.FakeAddon(user_token='foo', DAI='true')
+        mock_ver.return_value = 19
+        mock_uuid.side_effect = fakes.UUID
+        mock_token.return_value = 'foo'
+        program = comm.classes.Program()
+        program.id = '1234'
+        url = re.compile('^https://www.sbs.com.au/api/v3/video_stream')
+        responses.add(responses.GET, url,
+                      body=self.VIDEO_STREAM_JSON,
+                      status=200)
+        responses.add(responses.POST, config.DAI_URL.format(vid='1234'),
+                      body=self.DAI_JSON,
+                      status=200)
+        observed = comm.get_stream(program)
+        self.assertEqual({'stream_url': 'https://foo.bar/dai/content.m3u8'},
                          observed)

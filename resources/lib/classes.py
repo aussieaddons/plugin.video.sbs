@@ -141,10 +141,12 @@ class Series(object):
             else:
                 val = d[key]
             url += '&{0}={1}'.format(key, val)
+        url += '&addon_version={0}'.format(utils.get_addon_version())
         return url
 
     def parse_kodi_url(self, url):
         params = dict(parse_qsl(url))
+        params.pop('addon_version', '')
         for item in params.keys():
             setattr(self, item, unquote_plus(params[item]))
         if self.date:
@@ -179,6 +181,7 @@ class Program(object):
         self.entry_type = None
         self.favourite = False
         self.pilatDealcode = None
+        self.needs_ia = False
 
     def __repr__(self):
         return self.title
@@ -399,10 +402,12 @@ class Program(object):
             else:
                 val = d[key]
             url += '&{0}={1}'.format(key, val)
+        url += '&addon_version={0}'.format(utils.get_addon_version())
         return url.lstrip('&')
 
     def parse_kodi_url(self, url):
         url = url.lstrip('?')
         params = dict(parse_qsl(url))
+        params.pop('addon_version', '')
         for item in params.keys():
             setattr(self, item, unquote_plus(params[item]))

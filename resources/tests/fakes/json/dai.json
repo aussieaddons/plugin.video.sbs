@@ -1,0 +1,16 @@
+{
+    "duration": 1524.844,
+    "manifest_format": "hls",
+    "stream_id": "9d759545-b839-7c52-9ae0-c4200aa989fa",
+    "stream_manifest": "https://foo.bar/dai/content.m3u8",
+    "stream_type": "on_demand",
+    "subtitles": [
+        {
+            "language": "en",
+            "language_name": "English",
+            "ttml": "https://foo.bar/dai/ttml/en.ttml",
+            "webvtt": "https://foo.bar/dai/vtt/en.vtt"
+        }
+    ],
+    "time_events_url": "https://foo.bar/dai/time-events.json"
+}

@@ -169,7 +169,9 @@ class ClassesProgramTests(testtools.TestCase):
         }
         self.assertEqual(expected, observed)
 
-    def test_make_kodi_url(self):
+    @mock.patch('aussieaddonscommon.utils.get_addon_version')
+    def test_make_kodi_url(self, mock_version):
+        mock_version.return_value = '1.0.0'
         attrs = {'rating': 'PG',
                  'obj_type': 'Program',
                  'description': "Stuff happens",
@@ -184,7 +186,7 @@ class ClassesProgramTests(testtools.TestCase):
             'description=Stuff+happens&entry_type=Episode&episode_no=1&id'
             '=1604589635977&obj_type=Program&rating=PG&season_no=2'
             '&series_title=New+Girl&thumb=https%3A%2F%2Ffoo.bar%2Fimage.jpg'
-            '&title=Re-Launch')
+            '&title=Re-Launch&addon_version=1.0.0')
         p = classes.Program()
         attrs = OrderedDict(
             sorted(attrs.items(), key=lambda x: x[0]))
@@ -194,13 +196,15 @@ class ClassesProgramTests(testtools.TestCase):
         observed = p.make_kodi_url()
         self.assertEqual(expected, observed)
 
-    def test_parse_kodi_url(self):
+    @mock.patch('aussieaddonscommon.utils.get_addon_version')
+    def test_parse_kodi_url(self, mock_version):
+        mock_version.return_value = '1.0.0'
         url = (
             'date=2019-12-04T10%3A35%3A00Z&description=Stuff+happens'
             '&entry_type=Episode&episode_no=1&id=1604589635977'
             '&obj_type=Program&rating=PG&season_no=2'
             '&series_title=New+Girl&thumb=https%3A%2F%2Ffoo.bar%2Fimage.jpg'
-            '&title=Re-Launch')
+            '&title=Re-Launch&addon_version=1.0.0')
         p = classes.Program()
         p.parse_kodi_url(url)
         observed = p.make_kodi_url()

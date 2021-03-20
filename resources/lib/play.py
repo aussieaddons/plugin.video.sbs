@@ -21,10 +21,18 @@ def play(url):
         addon = xbmcaddon.Addon()
         p = classes.Program()
         p.parse_kodi_url(url)
-        stream_info = comm.get_stream(p.id)
+        stream_info = comm.get_stream(p)
         if not stream_info:
             return
         stream_url = stream_info.get('stream_url')
+        if p.needs_ia:
+            import drmhelper
+            if not drmhelper.check_inputstream(drm=False):
+                utils.dialog_message(
+                    "inputstream.adaptive needed for playback of"
+                    "DAI streams, please disable 'Use DAI Streams' in"
+                    "SBS add-on settings for playback.")
+                return
 
         bandwidth = addon.getSetting('BANDWIDTH')
         if bandwidth == '0':

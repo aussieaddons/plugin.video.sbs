@@ -8,6 +8,7 @@ LOGIN1_URL = 'https://www.sbs.com.au/api/v3/janrain/auth_native_traditional'
 LOGIN2_URL = 'https://www.sbs.com.au/api/v3/member/completelogin?context=android&device=phone&version=' + APP_VERSION + '&loginVersion=1.0.0&auth_token={token}'
 SERIES_URL = 'https://www.sbs.com.au/api/v3/video_program?id=[SERIESID]&context=android&device=phone&version=' + APP_VERSION
 EPISODE_URL = 'https://www.sbs.com.au/api/v3/video_search/?filters={{pilatDealcode}}{{{pilatDealcode}}},{{season}}{{{season}}},{{episodeNumber}}{{{episodeNumber}}}&context=android&device=phone&version=' + APP_VERSION
+DAI_URL = 'http://pubads.g.doubleclick.net/ondemand/hls/content/2488267/vid/{vid}/streams'
 
 FAV_DICT = {
     'TVSeries': 'Program',

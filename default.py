@@ -68,6 +68,18 @@ def main():
         elif action == 'login':
             comm.get_login_token()
             xbmc.executebuiltin('Container.Refresh')
+        elif action == 'open_ia_settings':
+            try:
+                import drmhelper
+                if drmhelper.check_inputstream(drm=False):
+                    ia = drmhelper.get_addon()
+                    ia.openSettings()
+                else:
+                    utils.dialog_message(
+                        "Can't open inputstream.adaptive settings")
+            except Exception:
+                utils.dialog_message(
+                    "Can't open inputstream.adaptive settings")
 
 
 if __name__ == "__main__":

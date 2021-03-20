@@ -4,6 +4,8 @@
   <category label="30001">
     <setting label="30004" type="enum" id="BANDWIDTH" values="Low (512Kb/s)|Med (1000Kb/s)|High (1500Kb/s)|Auto" default="3"/>
     <setting label="30003" type="action" action="RunPlugin(plugin://plugin.video.sbs/?action=logout)"/>
+    <setting label="30006" type="action" action="RunPlugin(plugin://plugin.video.sbs/?action=open_ia_settings)" option="close"/>
+    <setting label="30007" type="bool" id="DAI" default="true"/>
   </category>
   <!-- Debugging -->
   <category label="30002">

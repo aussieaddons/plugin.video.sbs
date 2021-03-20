@@ -43,3 +43,7 @@ msgstr ""
 msgctxt "#30006"
 msgid "Inputstream.adapive settings (video quality)"
 msgstr ""
+
+msgctxt "#30007"
+msgid "Use DAI streams (enables subtitles) - Kodi 19+ only"
+msgstr ""

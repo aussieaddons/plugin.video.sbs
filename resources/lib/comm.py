@@ -71,12 +71,12 @@ def get_login_token():
     return encoded_token.decode('utf-8')
 
 
-def fetch_url(url, headers=None, data=None):
+def fetch_url(url, headers=None, data=None, post=False):
     """Simple function that fetches a URL using requests."""
     with session.Session() as sess:
         if headers:
             sess.headers.update(headers)
-        if data:
+        if data or post:
             request = sess.post(url, data=data)
         else:
             request = sess.get(url)
@@ -469,13 +469,13 @@ def remove_from_favourites(params):
         utils.log('Error removing favourite')
 
 
-def get_stream(program_id):
+def get_stream(program):
     token = get_login_token()
     if not token:
         return
     addon = xbmcaddon.Addon()
     data_url = config.STREAM_URL.format(
-        VIDEOID=program_id,
+        VIDEOID=program.id,
         UNIQUEID=addon.getSetting('unique_id'),
         AAID=addon.getSetting('ad_id'),
         OPTOUT='true')
@@ -486,6 +486,19 @@ def get_stream(program_id):
             'Error getting stream info - please log out and log in again')
         return
     stream_info = {}
+    kodi_ver = utils.get_kodi_major_version()
+    if kodi_ver >= 19 and addon.getSetting('DAI') == 'true':
+        try:
+            info = json.loads(
+                fetch_url(config.DAI_URL.format(vid=program.id), post=True))
+            stream_info['stream_url'] = info.get('stream_manifest')
+        except Exception as e:
+            utils.log('Encountered exception in parsing DAI url: {0}'.format(
+                str(e)))
+    if stream_info.get('stream_url'):
+        program.needs_ia = True
+        return stream_info
+    #  fallback/kodi 18
     for provider in vs_data.get('streamProviders'):
         if provider.get('providerName') == 'Akamai HLS':
             stream_info['stream_url'] = provider.get('contentUrl')
