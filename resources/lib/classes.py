@@ -4,12 +4,18 @@ import time
 import unicodedata
 from builtins import str
 from collections import OrderedDict
+from functools import total_ordering
 
 from future.moves.urllib.parse import parse_qsl, quote_plus, unquote_plus
 
 from aussieaddonscommon import utils
 
 
+def comp(x, y):
+    return (x > y) - (x < y)
+
+
+@total_ordering
 class Series(object):
 
     def __init__(self):
@@ -38,8 +44,11 @@ class Series(object):
     def __repr__(self):
         return self.title
 
-    def __cmp__(self, other):
-        return cmp(self.get_sort_title(), other.get_sort_title())
+    def __lt__(self, other):
+        return comp(self.get_sort_title(), other.get_sort_title()) < 0
+
+    def __eq__(self, other):
+        return comp(self.get_sort_title(), other.get_sort_title()) == 0
 
     def get_sort_title(self):
         sort_title = self.title.lower()
@@ -157,6 +166,7 @@ class Series(object):
                     *(time.strptime(self.date, "%Y-%m-%d")[0:6]))
 
 
+@total_ordering
 class Program(object):
 
     def __init__(self):
@@ -186,8 +196,11 @@ class Program(object):
     def __repr__(self):
         return self.title
 
-    def __cmp__(self, other):
-        return cmp(self.get_list_title(), other.get_list_title())
+    def __lt__(self, other):
+        return comp(self.get_sort_title(), other.get_sort_title()) < 0
+
+    def __eq__(self, other):
+        return comp(self.get_sort_title(), other.get_sort_title()) == 0
 
     def get_sort_title(self):
         sort_title = self.title.lower()

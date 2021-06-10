@@ -46,6 +46,9 @@ class CommTests(testtools.TestCase):
         with open(os.path.join(cwd, 'fakes/json/video_collections.json'),
                   'rb') as f:
             self.VIDEO_COLLECTIONS_JSON = io.BytesIO(f.read()).read()
+        with open(os.path.join(cwd, 'fakes/json/video_collections_ffn.json'),
+                  'rb') as f:
+            self.VIDEO_COLLECTIONS_FFN_JSON = io.BytesIO(f.read()).read()
         with open(os.path.join(cwd, 'fakes/json/video_config.json'),
                   'rb') as f:
             self.VIDEO_CONFIG_JSON = io.BytesIO(f.read()).read()
@@ -276,6 +279,19 @@ class CommTests(testtools.TestCase):
                       status=200)
         observed = comm.get_entries(params)
         self.assertEqual(27, len(observed))
+
+    @responses.activate
+    def test_get_entries_collections_2(self):
+        feed_url = 'https://foo.bar/items?q=1'
+        params = {'addon_version': '1.1.10_matrix',
+                  'feed_url': feed_url,
+                  'item_type': 'Collection', 'obj_type': 'Series',
+                  'title': 'Fright Night'}
+        responses.add(responses.GET, '{0}{1}'.format(feed_url, '&range=1-50'),
+                      body=self.VIDEO_COLLECTIONS_FFN_JSON,
+                      status=200)
+        observed = comm.get_entries(params)
+        self.assertEqual(16, len(observed))
 
     @responses.activate
     def test_get_next_program(self):
