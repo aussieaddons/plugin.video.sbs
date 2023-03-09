@@ -85,6 +85,9 @@ def play(url):
 
         xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, listitem=listitem)
 
+        #getting next episode currently broken
+        return
+
         np = comm.get_next_program(p)
         if not isinstance(np, classes.Program):
             return
