@@ -11,24 +11,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
       - name: Install dependencies
         run: pip install GitPython
       - name: Checkout this repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0  # anything other than 0 will not get tags
       - name: Checkout devel repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: aussieaddons/repo-devel
           path: .deploy-devel
           token: ${{ secrets.PAT }}
       - if: startsWith(github.ref, 'refs/tags/v')
         name: Checkout production repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: aussieaddons/repo
           path: .deploy
