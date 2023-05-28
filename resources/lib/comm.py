@@ -489,8 +489,13 @@ def get_stream(program):
     kodi_ver = utils.get_kodi_major_version()
     if kodi_ver >= 19 and addon.getSetting('DAI') == 'true':
         try:
+            vid_id = program.id
+            for provider in vs_data.get('streamProviders'):
+                if provider.get('providerName') == 'Google DAI':
+                    vid_id = provider.get('videoId')
+                    break
             info = json.loads(
-                fetch_url(config.DAI_URL.format(vid=program.id), post=True))
+                fetch_url(config.DAI_URL.format(vid=vid_id), post=True))
             stream_info['stream_url'] = info.get('stream_manifest')
         except Exception as e:
             utils.log('Encountered exception in parsing DAI url: {0}'.format(
